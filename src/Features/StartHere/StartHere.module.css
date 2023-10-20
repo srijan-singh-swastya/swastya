@@ -1,0 +1,124 @@
+.image18Icon {
+  position: absolute;
+  bottom: -410px;
+  /* left: calc(50% - 687px); */
+  /* width: 1662px; */
+  height: 1246px;
+  object-fit: cover;
+}
+.startHereChild,
+.startHereItem {
+  position: absolute;
+  left: 0;
+  width: 1374px;
+  height: 836px;
+}
+.startHereChild {
+  top: 0;
+  background-color: rgba(0, 14, 28, 0.2);
+  backdrop-filter: blur(61px);
+}
+.startHereItem {
+  top: 125px;
+  backdrop-filter: blur(123px);
+}
+.swastyaaiPrototype {
+  flex: 1;
+  position: relative;
+}
+.swastyaaiPrototypeWrapper {
+  position: absolute;
+  top: 33px;
+  left: 28px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 1324px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.login {
+  position: relative;
+  cursor: pointer;
+}
+.dashboard {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Roboto;
+  color: #fff;
+  text-align: left;
+  display: inline-block;
+}
+.createNewEntry,
+.dashboard {
+  position: relative;
+}
+.addNewPatient {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: 27px;
+}
+.addNewPatientContainer {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: 20px;
+  line-height: 28px;
+  font-family: Roboto;
+  color: #fff;
+  text-align: left;
+  display: inline-block;
+}
+.createNewEntryParent,
+.loginParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.loginParent {
+  position: absolute;
+  top: 181px;
+  left: 52px;
+  width: 1161px;
+  gap: 40px;
+  font-size: 24px;
+  font-family: Roboto;
+}
+.onbaording,
+.startHere {
+  text-align: left;
+  color: #fff;
+}
+.onbaording {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 181px;
+  left: 52px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Roboto;
+  display: inline-block;
+}
+.startHere {
+  background-color: #fff;
+  width: 1374px;
+  height: 836px;
+  overflow: hidden;
+  font-size: 32px;
+  font-family: "Open Sans";
+}

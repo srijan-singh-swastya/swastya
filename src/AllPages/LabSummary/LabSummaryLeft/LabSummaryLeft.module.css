@@ -1,0 +1,174 @@
+.currencyRupeeCircleIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.revenue {
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+}
+.placeholderIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.currencyRupeeCircleParent,
+.frameWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.currencyRupeeCircleParent {
+  flex-direction: row;
+  padding: 4px 24px;
+  gap: 8px;
+  opacity: 0.8;
+}
+.frameWrapper {
+  flex-direction: column;
+}
+.cornerDownRightIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.option {
+  position: relative;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: Roboto;
+  color: #0067df;
+  text-align: left;
+}
+.cornerDownRightParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.normalTabs,
+.normalTabsWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.normalTabs {
+  cursor: pointer;
+  border: 0;
+  padding: 8px 12px;
+  background-color: #e6f3ff;
+  border-radius: 8px;
+  flex-direction: row;
+}
+.normalTabsWrapper {
+  flex-direction: column;
+  padding: 2px 12px;
+}
+.option1 {
+  position: relative;
+  line-height: 21px;
+}
+.cornerDownRightGroup,
+.normalTabs1,
+.normalTabsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cornerDownRightGroup {
+  flex: 1;
+  flex-direction: row;
+  gap: 8px;
+}
+.normalTabs1,
+.normalTabsContainer {
+  align-self: stretch;
+}
+.normalTabs1 {
+  border-radius: 8px;
+  flex-direction: row;
+  padding: 8px 12px;
+}
+.normalTabsContainer {
+  flex-direction: column;
+  padding: 2px 12px;
+  color: #777c83;
+}
+.option2 {
+  position: relative;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: Roboto;
+  color: #777c83;
+  text-align: left;
+}
+.frameParent,
+.normalTabs2 {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+}
+.normalTabs2 {
+  cursor: pointer;
+  border: 0;
+  padding: 8px 12px;
+  background-color: transparent;
+  border-radius: 8px;
+  flex-direction: row;
+  align-items: center;
+}
+.frameParent {
+  border-bottom: 1px solid #e6ebf0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 2px;
+}
+.medicolineinjectionIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.frameContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 0 0;
+}
+.file02Icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.labsummaryleft {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 646px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 0;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 14px;
+  color: #181b1f;
+  font-family: Roboto;
+  border-radius: 20px;
+}

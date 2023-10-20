@@ -1,0 +1,75 @@
+/* TechnicianDetails.module.css */
+
+.technicianDetails {
+
+    padding: 2%;
+    text-align: center;
+    border-radius: 16px;
+background: #FFF;
+}
+
+.technicianDetailsrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    align-items: center;
+ 
+}
+
+.technicianDetailsrow button {
+    color: var(--White, #FFF);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    /* color: black; */
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    line-height: 24px;
+    border: none;
+    border-radius: 12px;
+    background: var(--Primary-800, #0067DF);
+    cursor: pointer;
+}
+
+.detailsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    text-align: left;
+}
+
+.tableHeader {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.tableData {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+/* Style for Edit and Delete buttons */
+.editButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}

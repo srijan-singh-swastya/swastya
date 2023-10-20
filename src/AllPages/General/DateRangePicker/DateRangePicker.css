@@ -1,0 +1,43 @@
+/* DateRangePicker.css */
+
+.single-calendar-range-picker {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .calendar-day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  
+  .calendar-day.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  /* You can customize these styles further to match your design */
+  

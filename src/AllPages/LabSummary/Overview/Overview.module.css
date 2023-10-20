@@ -1,0 +1,280 @@
+.currencyRupeeCircleIcon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.revenue {
+  flex: 1;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  height: 37px;
+}
+.currencyRupeeCircleParent,
+.overview1 {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.currencyRupeeCircleParent {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.overview1 {
+  position: relative;
+  width: 82px;
+  flex-shrink: 0;
+}
+.div,
+.label {
+  position: relative;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  font-family: Roboto;
+  color: #777c83;
+  text-align: left;
+}
+.div {
+  font-size: 16px;
+  line-height: 24px;
+  color: #ce0000;
+  display: flex;
+  align-items: center;
+  width: 9px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.labelParent {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.searchfatIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+.text {
+  flex: 1;
+  position: relative;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  font-family: Roboto;
+  color: #181b1f;
+  text-align: left;
+}
+.arrowaltdownIcon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+.searchfatParent {
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e6ebf0;
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  gap: 8px;
+}
+.dropdown,
+.overviewParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dropdown {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 235px;
+  flex-direction: column;
+  gap: 4px;
+}
+.overviewParent {
+  align-self: stretch;
+  flex: 1;
+  flex-direction: row;
+  gap: 16px;
+}
+.arrowdownloadIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.text1 {
+  position: relative;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  font-family: Roboto;
+  color: #181b1f;
+  text-align: center;
+}
+.arrowforwardIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: none;
+}
+.buttonSize {
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1.2px solid #cfd0d8;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  gap: 8px;
+}
+.button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.button,
+.frameGroup,
+.majesticonsmoneyLineWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameGroup {
+  align-self: stretch;
+  gap: 16px;
+}
+.majesticonsmoneyLineWrapper {
+  border-radius: 8px;
+  background-color: #cceee2;
+  padding: 24px;
+}
+.totalRevenue {
+  position: relative;
+  line-height: 21px;
+}
+.div1,
+.div2 {
+  position: relative;
+  font-weight: 500;
+}
+.div2 {
+  line-height: 22px;
+}
+.caretupParent,
+.parent {
+  display: flex;
+  flex-direction: row;
+}
+.caretupParent {
+  height: 28px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  opacity: 0;
+  font-size: 14px;
+  color: #d0483d;
+  font-family: Inter;
+}
+.parent {
+  width: 177px;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 24px;
+  color: #2c323c;
+}
+.frameDiv,
+.totalRevenueParent {
+  display: flex;
+  align-items: flex-start;
+}
+.totalRevenueParent {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+
+}
+.frameDiv {
+  flex: 1;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 28px rgba(34, 62, 104, 0.08);
+  border: 1px solid #e6ebf0;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px 0px 10px 10px;
+  gap: 5px;
+
+}
+.percent03Wrapper,
+.solarhandMoneyOutlineWrapper {
+  border-radius: 8px;
+  flex-direction: row;
+  padding: 24px;
+}
+.percent03Wrapper {
+  background-color: #ffe5b3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.solarhandMoneyOutlineWrapper {
+  background-color: #fbb;
+}
+.frameContainer,
+.frameParent,
+.overview,
+.solarhandMoneyOutlineWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameContainer {
+  align-self: stretch;
+  flex-direction: row;
+  gap: 16px;
+  font-size: 14px;
+  color: #4a5055;
+
+}
+.frameParent,
+.overview {
+  flex-direction: column;
+}
+.frameParent {
+  align-self: stretch;
+  gap: 16px;
+  font-size: 20px;
+  color: #2c323c;
+}
+.overview {
+  border-radius: 12px;
+  background-color: #d5e1eb;
+  
+  padding: 16px;
+  box-sizing: border-box;
+  gap: 32px;
+  text-align: left;
+  font-size: 24px;
+  color: #181b1f;
+  font-family: Roboto;
+}

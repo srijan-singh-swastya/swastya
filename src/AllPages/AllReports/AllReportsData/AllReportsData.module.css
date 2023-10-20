@@ -1,0 +1,255 @@
+.checkboxButton {
+    border-radius: var(--br-9xs);
+    border: 1.3px solid var(--black-500);
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    flex-direction: row;
+    padding: var(--padding-11xs);
+  }
+  .checkboxButton,
+  .checkboxButtonWrapper,
+  .frameyyyInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .checkboxButtonWrapper {
+    align-self: stretch;
+    height: 40px;
+    flex-direction: row;
+  }
+  .frameyyyInner {
+    width: 28px;
+    flex-direction: column;
+  }
+  .div,
+  .wrapper {
+    align-self: stretch;
+    display: flex;
+  }
+  .div {
+    flex: 1;
+    position: relative;
+    line-height: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper {
+    height: 40px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frameyyyChild {
+    width: 78px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .abhinavDutta,
+  .abhinavDuttaParent {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
+  .abhinavDutta {
+    flex: 1;
+    position: relative;
+    line-height: 18px;
+    font-weight: 500;
+  }
+  .abhinavDuttaParent {
+    height: 40px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .frameDiv,
+  .male {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .frameDiv {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .male {
+    align-self: stretch;
+    position: relative;
+    line-height: 18px;
+  }
+  .frameyyyInner1 {
+    width: 83px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .iconlytwoToneinfoCircle {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: none;
+  }
+  .tag1 {
+    position: relative;
+    line-height: 18px;
+    font-weight: 500;
+  }
+  .frameyyyInner2,
+  .tag {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .tag {
+    border-radius: var(--br-5xs);
+    background-color: var(--black-300);
+    height: 28px;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--padding-5xs);
+    box-sizing: border-box;
+    gap: var(--gap-9xs);
+  }
+  .frameyyyInner2 {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .fileDownloadInLc {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: none;
+  }
+  .text {
+    position: relative;
+    font-size: var(--medium-size);
+    line-height: 18px;
+    font-weight: 600;
+    font-family: var(--semibold);
+    color: var(--primary-800);
+    text-align: center;
+  }
+  .buttonSize {
+    border-radius: var(--br-9xs);
+    overflow: hidden;
+    flex-direction: row;
+    padding: var(--padding-9xs) var(--padding-5xs);
+    gap: var(--gap-5xs);
+  }
+  .button,
+  .buttonSize,
+  .buttonWrapper,
+  .frameyyyInner3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    align-self: stretch;
+    border-radius: var(--br-5xs);
+    height: 40px;
+    flex-direction: row;
+  }
+  .buttonWrapper,
+  .frameyyyInner3 {
+    flex: 1;
+    flex-direction: column;
+  }
+  .buttonWrapper {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  .frameyyyInner3 {
+    text-align: center;
+  }
+  .frameyyyInner4,
+  .tag2 {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .frameyyyInner4 {
+    width: 178px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tag2 {
+    border-radius: var(--br-5xs);
+    background-color: var(--warning-300);
+    height: 28px;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--padding-5xs);
+    box-sizing: border-box;
+    gap: var(--gap-9xs);
+  }
+  .tagContainer {
+    color: var(--warning-800);
+  }
+  .tagContainer,
+  .tagFrame {
+    align-self: stretch;
+    width: 117.88px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .buttonContainer {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .priIcon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .frameyyy,
+  .text2 {
+    font-size: var(--medium-size);
+    font-family: var(--semibold);
+  }
+  .text2 {
+    position: relative;
+    line-height: 18px;
+    font-weight: 600;
+    color: var(--primary-800);
+    text-align: center;
+    display: none;
+  }
+  .frameyyy {
+    /* width: 1334px; */
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--padding-xs);
+    box-sizing: border-box;
+    text-align: left;
+    color: var(--black-700);
+  }
+  

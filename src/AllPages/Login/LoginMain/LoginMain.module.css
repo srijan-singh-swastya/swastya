@@ -1,0 +1,266 @@
+.forgotPassword {
+  position: relative;
+  line-height: 56px;
+  font-weight: 800;
+}
+.enterYourEmail {
+  position: relative;
+  font-size: var(--semibold-size);
+  line-height: 24px;
+  font-family: var(--semibold);
+  color: var(--f646d-primary);
+}
+.forgotPasswordParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.div,
+.label {
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+}
+.div {
+  color: var(--error-800);
+  display: none;
+}
+.labelParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.flagsIcon {
+  position: relative;
+  border-radius: var(--br-10xs);
+  width: 21px;
+  height: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.inputFieldflagsChild {
+  align-self: stretch;
+  position: relative;
+  border-right: 1.2px solid var(--black-300);
+  box-sizing: border-box;
+  width: 1.2px;
+}
+.inputFieldflags {
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+  font-weight: 600;
+  font-family: var(--semibold);
+  font-size: var(--semibold-size);
+  color: var(--black-800);
+}
+.text {
+  border: 0;
+  font-weight: 600;
+  font-family: var(--semibold);
+  font-size: var(--semibold-size);
+  background-color: transparent;
+  flex: 1;
+  position: relative;
+  line-height: 24px;
+  color: var(--black-800);
+  text-align: left;
+
+}
+
+.text::-webkit-outer-spin-button,
+.text::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+ 
+}
+.fileDownloadInLc {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: none;
+}
+.text1 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 600;
+}
+.arrowforwardIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+}
+.buttonSize {
+  border-radius: var(--br-9xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-9xs) var(--padding-5xs);
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.button,
+.inputFieldflagsParent {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.button {
+  border-radius: var(--br-5xs);
+  display: none;
+  align-items: flex-start;
+}
+.inputFieldflagsParent {
+  align-self: stretch;
+  border-radius: var(--br-xs);
+  background-color: var(--white);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 48px;
+  display: flex;
+  padding: var(--padding-xs);
+  align-items: center;
+  gap: var(--gap-5xs);
+  text-align: center;
+  font-size: var(--semibold1-size);
+  color: var(--primary-800);
+}
+.helpText {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  display: none;
+}
+.inputField {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.fileDownloadInLc1 {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: none;
+}
+.text{
+outline: none;
+}
+
+.text2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: var(--semibold-size);
+  line-height: 24px;
+  font-weight: 600;
+  font-family: var(--semibold);
+  color: var(--white);
+  text-align: center;
+  display: inline-block;
+}
+.arrowforwardIcon1 {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  display: none;
+}
+.buttonSize1 {
+  flex: 1;
+  border-radius: var(--br-xs);
+  background-color: var(--primary-800);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-base);
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+  border: none;
+  cursor: pointer;
+  font-size: var(--semibold-size);
+  line-height: 24px;
+  font-weight: 600;
+  font-family: var(--semibold);
+  color: var(--white);
+  text-align: center;  
+  text-decoration: none;
+}
+.buttonSize2 {
+  flex: 1;
+  border-radius: var(--br-xs);
+  /* background-color: var(--primary-800); */
+  background: var(--Primary-500, #99C2F2);
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-base);
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+  border: none;
+  font-size: var(--semibold-size);
+  line-height: 24px;
+  font-weight: 600;
+  font-family: var(--semibold);
+  color: var(--white);
+  text-align: center;  
+}
+
+.button1,
+.inputFieldParent,
+.loginmain {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button1 {
+  align-self: stretch;
+  flex-direction: row;
+}
+.inputFieldParent,
+.loginmain {
+  flex-direction: column;
+}
+.inputFieldParent {
+  align-self: stretch;
+  gap: 47px;
+  font-size: var(--semibold-size);
+  color: var(--black-600);
+  font-family: var(--semibold);
+}
+.loginmain {
+  border-radius: var(--br-base);
+  background-color: var(--white);
+  box-shadow: var(--dropdown-shadow);
+  width: 500px;
+  padding: var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: var(--heading-h1-size);
+  color: var(--primary);
+  font-family: var(--heading-h1);
+  
+}

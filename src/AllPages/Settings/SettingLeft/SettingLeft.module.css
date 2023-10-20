@@ -1,0 +1,120 @@
+
+.description,
+.link {
+  position: relative;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: Roboto;
+  text-align: left;
+}
+.link {
+  font-weight: 600;
+  color: #0052ff;
+}
+.description {
+  color: #0067df;
+  display: none;
+}
+.linkParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+ 
+}
+
+.idIcon,
+.link1 {
+  position: relative;
+}
+.idIcon {
+  width: 24px;
+  height: 24px;
+}
+.link1 {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  font-family: Roboto;
+  color: #181b1f;
+  text-align: left;
+}
+.idParentMain{
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.idParent {
+  cursor: pointer;
+  border: 0;
+  padding: 12px;
+  background-color: #fff;
+  align-self: stretch;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  text-decoration: none;
+}
+.idParent:hover{
+  border-radius: 12px;
+background: var(--Primary-300, #E6F3FF);
+}
+.idParent:focus{
+  background: var(--Primary-300, #E6F3FF);
+}
+.description2,
+.link2 {
+  position: relative;
+  line-height: 21px;
+}
+.link2 {
+  font-weight: 600;
+}
+.description2 {
+  color: #0067df;
+  display: none;
+}
+.viewTimelineGroup {
+  align-self: stretch;
+  border-radius: 12px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px;
+  gap: 6px;
+}
+.frameParent,
+.settingleft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameParent {
+  align-self: stretch;
+  flex: 1;
+  gap: 8px;
+}
+.settingleft {
+  border-radius: 12px;
+  background-color: #fff;
+  /* width: 275px; */
+  width: 100%;
+ min-height: 35vw;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 14px;
+  color: #181b1f;
+  font-family: Roboto;
+  /* background: var(--Black-300, #E6EBF0); */
+  border-radius: 15px;
+}

@@ -1,0 +1,367 @@
+.div {
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+}
+.wrapper {
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 26px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-5xs);
+  align-items: center;
+  justify-content: center;
+}
+.text {
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--black-800);
+}
+.frameParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.addPatientDetailsPopupInner {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--semibold2-size);
+  color: var(--black-700);
+}
+.div1,
+.label {
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+}
+.div1 {
+  font-size: var(--semibold2-size);
+  line-height: 24px;
+  color: var(--error-800);
+  display: flex;
+  align-items: center;
+  width: 9px;
+  height: 21px;
+  flex-shrink: 0;
+  
+}
+.labelParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.flagsIcon {
+  position: relative;
+  border-radius: var(--br-10xs);
+  width: 21px;
+  height: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.inputFieldflagsChild {
+  align-self: stretch;
+  position: relative;
+  border-right: 1.2px solid var(--black-300);
+  box-sizing: border-box;
+  width: 1.2px;
+}
+.inputFieldflags {
+  height: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.text1 {
+  border: 0;
+  font-weight: 600;
+  font-family: var(--semibold);
+  font-size: var(--semibold-size);
+  background-color: transparent;
+  flex: 1;
+  position: relative;
+  line-height: 21px;
+  color: var(--black-500);
+  text-align: left;
+}
+.fileDownloadInLc {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.text2 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 600;
+}
+.arrowforwardIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.buttonSize {
+  border-radius: var(--br-9xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-9xs) var(--padding-5xs);
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.button,
+.inputFieldflagsParent {
+  border-radius: var(--br-5xs);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.button {
+  display: none;
+  align-items: flex-start;
+}
+.inputFieldflagsParent {
+  align-self: stretch;
+  background-color: var(--white);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  padding: var(--padding-5xs);
+  align-items: center;
+  gap: var(--gap-5xs);
+  text-align: center;
+  font-size: var(--semibold1-size);
+  color: var(--primary-800);
+}
+.helpText {
+  position: relative;
+  line-height: 21px;
+  display: none;
+}
+.inputField {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.iconlytwoToneinfoCircle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+.tag {
+  flex: 1;
+  position: relative;
+  line-height: 18px;
+  font-weight: 600;
+}
+.iconlytwoToneinfoCircleParent {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--black-300);
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+  font-size: var(--semibold1-size);
+  color: var(--black-700);
+}
+.searchfatIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+.searchfatParent {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--white);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.div4 {
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--error-800);
+}
+.radioButton {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.radioButtonParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.frameContainer,
+.frameGroup {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameContainer {
+  flex-direction: row;
+  gap: var(--gap-base);
+  text-align: center;
+  font-size: var(--semibold-size);
+  color: var(--black-800);
+}
+.frameGroup {
+  flex-direction: column;
+  gap: var(--gap-9xs);
+  /* font-size: var(--semibold2-size); */
+}
+.arrowaltdownIcon2 {
+  position: absolute;
+  height: 36.67%;
+  width: 65.83%;
+  top: 33.75%;
+  right: 17.08%;
+  bottom: 29.58%;
+  left: 17.08%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.arrowaltdown {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.inputFieldParent {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.addPatientDetailsPopupChild {
+  align-self: stretch;
+  position: relative;
+  border-top: 1px dashed var(--black-400);
+  box-sizing: border-box;
+  height: 1px;
+  display: none;
+}
+.text6 {
+  flex: 1;
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+}
+.dropdown,
+.searchfatParent1 {
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.searchfatParent1 {
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs);
+  align-items: center;
+  gap: var(--gap-5xs);
+  color: var(--black-500);
+}
+.dropdown {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-9xs);
+}
+.addIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.button1,
+.buttonSize1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.buttonSize1 {
+  flex: 1;
+  border-radius: var(--br-5xs);
+  background-color: var(--white);
+  border: 1.2px solid var(--primary-500);
+  overflow: hidden;
+  padding: var(--padding-5xs) var(--padding-base);
+  justify-content: center;
+  gap: var(--gap-5xs);
+}
+.button1 {
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.addPatientDetailsPopup,
+.lineParent {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.lineParent {
+  align-self: stretch;
+  display: none;
+  text-align: center;
+  color: var(--primary-500);
+}
+.addPatientDetailsPopup {
+  background-color: var(--white);
+  border-right: 1px solid var(--black-300);
+  box-sizing: border-box;
+  width: 100%;
+  /* height: 584px; */
+  display: flex;
+  padding: var(--padding-base) var(--padding-5xl);
+  text-align: left;
+  font-size: var(--semibold-size);
+  color: var(--black-600);
+  font-family: var(--semibold);
+}

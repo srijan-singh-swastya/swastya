@@ -1,0 +1,383 @@
+.arrowLeftIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.text {
+  position: relative;
+  font-weight: 600;
+}
+.arrowLeftParent {
+  gap: var(--gap-5xs);
+}
+.arrowLeftParent,
+.frameWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.div,
+.label {
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+}
+.div {
+  font-size: var(--semibold1-size);
+  line-height: 24px;
+  color: var(--error-800);
+  display: flex;
+  align-items: center;
+  width: 9px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.labelParent {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.searchfatIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+.text1 {
+  flex: 1;
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+  display: inline-block;
+  height: 20px;
+}
+.arrowaltdownIcon {
+  position: absolute;
+  height: 36.66%;
+  width: 65.83%;
+  top: 33.75%;
+  right: 17.08%;
+  bottom: 29.58%;
+  left: 17.08%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.arrowaltdown {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.searchfatParent {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--white);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-5xs);
+  gap: var(--gap-5xs);
+  color: var(--black-800);
+}
+.helpText {
+  position: relative;
+  line-height: 21px;
+  display: none;
+}
+.dropdown,
+.frameContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+.dropdown {
+  width: 235px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-9xs);
+  font-size: var(--semibold-size);
+  color: var(--black-600);
+  /* border: 2px solid red; */
+}
+.frameContainer {
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-base);
+}
+.fileDownloadInLc {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.text2 {
+  position: relative;
+  font-size: var(--semibold1-size);
+  line-height: 24px;
+  font-weight: 600;
+  font-family: var(--semibold);
+  color: var(--white);
+  text-align: center;
+}
+.arrowforwardIcon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.buttonSize {
+  border-radius: var(--br-xs);
+  background-color: var(--primary-800);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs) var(--padding-base);
+  gap: var(--gap-5xs);
+}
+.button,
+.frameGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  align-items: flex-start;
+}
+.frameGroup {
+  width: 100%;
+  height: 64px;
+  align-items: center;
+  padding: var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+}
+.option {
+  font-weight: 600;
+}
+.div1,
+.option {
+  position: relative;
+  font-size: var(--semibold-size);
+  line-height: 21px;
+  font-family: var(--semibold);
+  color: var(--primary-800);
+  text-align: left;
+}
+.optionParent {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.metricTabs,
+.metricTabsInner,
+.optionParent {
+  display: flex;
+  justify-content: flex-start;
+}
+.metricTabsInner {
+  border-bottom: 4px solid var(--primary-800);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-xs);
+}
+.metricTabs {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--primary-300);
+  border-radius: var(--br-5xs) var(--br-5xs) 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.option1 {
+  font-weight: 600;
+}
+.div2,
+.option1 {
+  position: relative;
+  font-size: var(--semibold-size);
+  line-height: 21px;
+  font-family: var(--semibold);
+  color: var(--black-600);
+  text-align: left;
+}
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.metricTabsChild {
+  border-radius: var(--br-5xs) var(--br-5xs) 0 0;
+  border: 1px solid var(--black-300);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs);
+}
+.metricTabs1,
+.metricTabsParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.metricTabs1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  flex-direction: column;
+}
+.metricTabsParent {
+  align-self: stretch;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--black-300);
+  flex-direction: row;
+  gap: 24px;
+}
+.frameDiv {
+  padding: 0 var(--padding-base);
+}
+.frameDiv,
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.div6 {
+  position: relative;
+  font-size: var(--semibold1-size);
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--error-800);
+  display: none;
+  align-items: center;
+  width: 9px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.searchfatIcon1 {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.text3 {
+  border: 0;
+  font-weight: 600;
+  font-family: var(--semibold);
+  font-size: var(--semibold-size);
+  background-color: transparent;
+  flex: 1;
+  position: relative;
+  line-height: 21px;
+  color: var(--black-500);
+  text-align: left;
+}
+.searchfatGroup {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--white);
+  border: 1px solid var(--black-300);
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-5xs);
+  gap: var(--gap-5xs);
+}
+.search,
+.searchWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.search {
+  width: 460px;
+  gap: var(--gap-9xs);
+}
+.searchWrapper {
+  flex: 1;
+}
+.printerIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.text4 {
+  position: relative;
+  font-size: var(--semibold-size);
+  line-height: 21px;
+  font-weight: 600;
+  font-family: var(--semibold);
+  color: var(--primary-500);
+  text-align: center;
+}
+.arrowforwardIcon1 {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: none;
+}
+.buttonSize1 {
+  cursor: pointer;
+  border: 1.2px solid var(--primary-500);
+  padding: var(--padding-5xs) var(--padding-base);
+  background-color: var(--white);
+  border-radius: var(--br-5xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+  /* border: 2px solid red; */
+}
+.allreportsbutton,
+.frameParent1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameParent1 {
+  align-self: stretch;
+  flex-direction: row;
+  padding: var(--padding-xs) var(--padding-base);
+  gap: var(--gap-base);
+  font-size: var(--semibold-size);
+  color: var(--black-600);
+}
+.allreportsbutton {
+  /* width: 1366px; */
+  flex-direction: column;
+  text-align: left;
+  font-size: var(--semibold3-size);
+  color: var(--black-800);
+  font-family: var(--semibold);
+}

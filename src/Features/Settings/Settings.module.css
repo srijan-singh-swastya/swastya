@@ -1,0 +1,74 @@
+.settingLayout {
+
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingLayoutTop {
+    display: flex;
+    height: 56px;
+    padding: 0px 24px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+    color: #000;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    /* 150% */
+}
+
+.settingLayoutMid {
+    display: flex;
+    height: 56px;
+    padding: 0px 24px;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+    color: #000;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+
+}
+
+.settingLayoutMidtext {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.settingLayoutEnd {
+    display: flex;
+    /* border: 2px solid red; */
+    padding: 10px;
+    gap: 15px;
+    background: var(--Black-300, #E6EBF0);
+
+}
+
+.settingLayoutEndLeft {
+    display: flex;
+    flex: 1;
+    /* border: 2px solid rgb(133, 76, 76); */
+}
+
+.settingLayoutEndRight {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    /* border: 2px solid rgb(133, 76, 76); */
+    background-color: #fff;
+    border-radius: 15px;
+}
