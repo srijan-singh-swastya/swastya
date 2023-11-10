@@ -1,0 +1,333 @@
+.moneyCollection {
+    align-self: stretch;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 152px;
+    flex-shrink: 0;
+  }
+  .div,
+  .label {
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+  }
+  .div {
+    font-size: 16px;
+    line-height: 24px;
+    color: #ce0000;
+    display: flex;
+    align-items: center;
+    width: 9px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+  .labelParent {
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  .searchfatIcon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: none;
+  }
+  .text {
+    flex: 1;
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+    display: inline-block;
+    height: 20px;
+  }
+  .arrowaltdownIcon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+  }
+  .searchfatParent {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e6ebf0;
+    box-sizing: border-box;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+    color: #181b1f;
+  }
+  .helpText {
+    position: relative;
+    line-height: 21px;
+    display: none;
+  }
+  .dropdown,
+  .moneyCollectionParent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .dropdown {
+    width: 235px;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    color: #777c83;
+  }
+  .moneyCollectionParent {
+    align-self: stretch;
+    flex: 1;
+    flex-direction: row;
+    gap: 16px;
+  }
+  .arrowdownloadIcon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+  }
+  .text1 {
+    position: relative;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    font-family: Roboto;
+    color: #181b1f;
+    text-align: center;
+  }
+  .buttonSize {
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1.2px solid #cfd0d8;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  .button,
+  .frameParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  .frameParent {
+    align-self: stretch;
+    gap: 16px;
+  }
+  .image160Icon {
+    left: 0;
+    width: 823.1px;
+    object-fit: cover;
+    mix-blend-mode: luminosity;
+  }
+  .groupChild,
+  .image160Icon,
+  .image160Parent {
+    position: absolute;
+    top: 0;
+    height: 359px;
+  }
+  .groupChild {
+    left: 0;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+    width: 433.3px;
+  }
+  .image160Parent {
+    left: 543px;
+    width: 823.1px;
+  }
+  .totalCollection {
+    align-self: stretch;
+    position: relative;
+    line-height: 21px;
+  }
+  .div1 {
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2c323c;
+  }
+  .totalCollectionParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frameChild{
+    position: relative;
+    width: 156px;
+    height: 156px;
+  
+  }
+  .pieIcon {
+    position: relative;
+    width: 330px;
+    height: 169px;
+    /* border: 2px solid rgb(162, 13, 38); */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;margin: 0;
+ 
+  }
+  .frameChild {
+    width: 5px;
+    height: 43px;
+  }
+  .cash,
+  .div2 {
+    position: relative;
+    line-height: 21px;
+  }
+  .div2 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #181b1f;
+    display: inline-block;
+    width: 91px;
+  }
+  .vectorParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  .div3 {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #181b1f;
+    display: inline-block;
+    width: 100px;
+  }
+  .vectorGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  .div4 {
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #181b1f;
+    display: inline-block;
+    width: 115px;
+  }
+  .frameContainer,
+  .pieParent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .frameContainer {
+    flex: 1;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .pieParent {
+    align-self: stretch;
+    align-items: center;
+    padding: 0 24px;
+    /* gap: 100px; */
+  }
+  .stars02Icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .smartInsights {
+    flex: 1;
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+  }
+  .stars02Parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .insight {
+    position: relative;
+    line-height: 21px;
+    color: #e6ebf0;
+    display: inline-block;
+    width: 1081px;
+  }
+  .frameDiv,
+  .frameGroup {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    gap: 16px;
+  }
+  .frameDiv {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #3b354c;
+    height: 114px;
+    color: #ffb11a;
+  }
+  .frameGroup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+    border: 1px solid #e6ebf0;
+    width: 1113px;
+  }
+  .groupParent {
+    align-self: stretch;
+    position: relative;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 28px rgba(34, 62, 104, 0.08);
+    height: 375px;
+    overflow: hidden;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: #4a5055;
+  }
+  .moneycollection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: left;
+    font-size: 20px;
+    color: #2c323c;
+    font-family: Roboto;
+  }
+  

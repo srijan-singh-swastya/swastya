@@ -1,0 +1,509 @@
+.prepareReportNav{
+    display: flex;
+  height: 44px;
+  padding: 16px;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  margin-bottom: 15px;
+  }
+  .prepareReportNavText1{
+    display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
+  
+  color: var(--Black-800, #181B1F);
+  
+  /* 20/Semibold */
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  }
+  .prepareReportNavText2{
+    display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--Primary-800, #0067DF);
+  text-align: center;
+  
+  /* 16/Semibold */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  
+  }
+  .prepareReportNavText3{
+    display: flex;
+  align-items: flex-start;
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1.2px solid var(--Primary-800, #0067DF);
+  background: var(--White, #FFF);
+  color: var(--Primary-800, #0067DF);
+  text-align: center;
+  cursor: pointer;
+  
+  /* 16/Semibold */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  }
+  .prepareReportNavText4{
+  
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: var(--Primary-800, #0067DF);
+  color: var(--White, #FFF);
+  text-align: center;
+  cursor: pointer;
+  /* 16/Semibold */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  }
+  .prepareReportNavText5{
+    width: 24px;
+  height: 24px;
+  cursor: pointer;
+  }
+  
+
+
+.addingMembersLayout {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    /* flex: 1 0 0; */
+    align-self: stretch;
+    width: 100%;
+
+    min-height: 80vh;
+    border: 2px solid rgb(157, 255, 0)(47, 255, 0);
+}
+
+.addingMembersLayoutLeft {
+    display: flex;
+    /* width: 552px; */
+    flex: 1;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+}
+
+.addingMembersLayoutLeftline1 {
+    color: var(--Black-800, #181B1F);
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* border: 2px solid red; */
+    /* 150% */
+}
+
+
+
+.addingMembersLayoutLeftline3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.patientPhonenumberBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.patientLabelBox {
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+    /* border: 2px solid red; */
+}
+
+.patientLabelBoxText1 {
+    color: var(--Black-600, #777C83);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+.patientLabelBoxText2 {
+    color: var(--Error-800, #CE0000);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.patientInputBox {
+    display: flex;
+    height: 26px;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 2px solid var(--Black-300, #E6EBF0);
+    background: #FFF;
+    /* border: 2px solid red; */
+}
+
+
+
+.patientInputBoxInput {
+    height: 20px;
+    flex: 1 0 0;
+    color: var(--Black-800, #181B1F);
+
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    /* 150% */
+
+    border: none;
+    outline: none;
+}
+.patientInputBoxGender {
+
+    display: flex;
+    height: 26px;
+    align-items: flex-start;
+    gap: 10px;
+    /* align-self: stretch; */
+    background: #FFF;
+    justify-content: center;
+
+}
+
+.patientInputBoxGenderText1 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--Black-800, #181B1F);
+    text-align: center;
+    justify-content: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    width: 70px;
+}
+.patientInputBoxGenderText2{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--Black-800, #181B1F);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+width: 140px;
+  
+
+}
+.patientInputBoxGenderText3 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--Black-800, #181B1F);
+    text-align: center;
+
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    width: 60px;
+ 
+    /* 150% */
+}
+.discountInput{
+    /* outline: none; */
+    border: none;
+}
+.discountParticulars{
+    display: flex;
+    height: auto;
+    /* padding: 8px; */
+    /* align-items: center; */
+    flex-direction: column;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 2px solid var(--Black-300, #E6EBF0);
+    background: #FFF;
+    /* border: 2px solid red; */
+    /* z-index: 1; */
+}
+.discountParticularsLine1{
+    display: flex;
+padding: 10px 10px;
+align-items: flex-start;
+justify-content: space-between;
+gap: 8px;
+align-self: stretch;
+background: var(--Black-200, #F7F8F9);
+border-radius: var(--mint-cfc-sys-corner-radius-s, 6px);
+}
+.discountParticularsLine2{
+    display: flex;
+    padding: 10px 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    align-self: stretch;
+
+   
+}
+.discountParticularsLine3{
+    display: flex;
+    padding: 10px 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    align-self: stretch;
+
+   
+}
+.discountParticularsLine4{
+    display: flex;
+    padding: 10px 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    align-self: stretch;
+    border-bottom: 2px solid var(--Black-300, #E6EBF0);
+
+   
+}
+.discountParticularsLine5{
+    display: flex;
+    padding: 0px 6px 10px 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    align-self: stretch;
+
+}
+
+/* ************************leftend******************************** */
+
+/* ****************************right************************************ */
+
+.addingMembersLayoutRight {
+    display: flex;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 16px; */
+    flex: 1 0 0;
+    align-self: stretch;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+
+}
+
+.addingMembersLayoutRightLine1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: var(--Black-800, #181B1F);
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 16px;
+    /* 150% */
+}
+.priceLayout{
+    display: flex;
+padding: 24px 16px 16px 16px;
+flex-direction: column;
+align-items: flex-start;
+gap: 24px;
+flex: 1 0 0;
+/* min-height: 100vh; */
+align-self: stretch;
+border-radius: 16px 16px 0px 0px;
+background: #F2F5F8;
+}
+.priceLayoutBox{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+align-self: stretch;
+}
+.priceLayoutBoxPatientname{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+align-self: stretch;
+}
+.priceLayoutBoxHzline{
+    width: 70%;
+    border: 1px dashed var(--Black-500, #A0A6AB);
+    ;
+}
+.priceLayoutBoxname{
+    /* min-width:100px; */
+    color: var(--Black-600, #777C83);
+font-family: Share Tech Mono;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 131.25% */
+}
+.priceLayoutBoxPatientTest{
+    display: flex;
+    align-items: flex-start;
+    gap: 78px;
+    align-self: stretch;
+}
+.priceLayoutBoxPatientTestName{
+    flex: 1 0 0;
+    color: var(--Black-700, #4A5055);
+font-family: Roboto Mono;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+.priceLayoutBoxPatientTestPrice{
+    display: flex;
+padding: 8px 16px;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+}
+.totalPriceBox{
+    display: flex;
+padding: 8px 16px;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+background: var(--Black-700, #4A5055);
+}
+.totalPriceBoxtext1{
+    display: flex;
+padding: 4px 0px;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+color: var(--Black-300, #E6EBF0);
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+.totalPriceBoxtext2{
+    display: flex;
+padding: 4px 0px;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+color: var(--Black-300, #E6EBF0);
+font-family: Roboto Mono;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 120% */
+}
+
+
+.AllBoldText{
+    color: var(--Black-800, #181B1F);
+
+/* 14/Bold */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+.AllBoldTextColoured{
+    color: var(--Success-800, #00A96C);
+font-family: Roboto Mono;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+.AllNormalText{
+    color: var(--Black-700, #4A5055);
+
+/* 14/Regular */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 150% */
+}
+

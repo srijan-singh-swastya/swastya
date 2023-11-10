@@ -21,6 +21,7 @@ const onLoginTextClick=()=>{
 
   const onAddNewPatientClick = useCallback(() => {
     // Please sync "master doc" to the project
+    navigate("addingMembers")
   }, []);
 
   const onAddMembersFromClick = useCallback(() => {
@@ -37,6 +38,7 @@ const onLoginTextClick=()=>{
   }, []);
 
   const onKitInventoryClick = useCallback(() => {
+    navigate("./kitInventorys")
     // Please sync "master doc" to the project
   }, []);
 
@@ -50,6 +52,7 @@ const onLoginTextClick=()=>{
   // }, []);
 
   const onOnbaordingClick = useCallback(() => {
+    navigate('/onbaordings')
     // Please sync "master doc" to the project
   }, []);
 

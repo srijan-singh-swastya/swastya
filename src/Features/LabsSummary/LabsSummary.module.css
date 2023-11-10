@@ -1,8 +1,11 @@
 .settingLayout {
 
-    background-color: beige;
+    background-color: rgb(198, 198, 13);
     display: flex;
     flex-direction: column;
+
+    height: 100vh;
+
 }
 
 .settingLayoutTop {
@@ -54,7 +57,7 @@
     /* border: 2px solid red; */
     /* padding: 10px; */
     /* gap: 15px; */
- 
+
 
 }
 
@@ -69,9 +72,20 @@
     display: flex;
     flex-direction: column;
     flex: 4;
-    /* border: 2px solid rgb(133, 76, 76); */
+
     padding: 10px;
     opacity: 1;
-background: #F5F8FC;
-  
+    gap: 20px;
+    background: #F5F8FC;
+    overflow-y: scroll;
+    height: 80vh;
+
 }
+.settingLayoutEndRight.active{
+background-color: pink;
+}
+.activeSection {
+    background-color: black;
+    color: white;
+    
+  }

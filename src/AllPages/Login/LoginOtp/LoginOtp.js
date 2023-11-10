@@ -1,7 +1,9 @@
 import React, { useCallback, createRef, useState, useEffect } from "react";
 import styles from "./LoginOtp.module.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const LoginOtp = () => {
+  const navigate=useNavigate();
   const inputRefs = Array(6).fill(null).map(() => createRef(null));
   const [active, setActive] = useState(false);
   const [otp, setOtp] = useState({
@@ -38,7 +40,7 @@ const LoginOtp = () => {
 
   
   };
-  
+
 useEffect(()=>{
   const Allotp =  otp.otp0 + otp.otp1 + otp.otp2 + otp.otp3 + otp.otp4 + otp.otp5;
   if (Allotp.length === 6) {
@@ -54,6 +56,25 @@ useEffect(()=>{
     }
   }, []);
 
+
+  useEffect(() => {
+    const handleEnterKeyPress = (e) => {
+      if (e.key === "Enter" && active) {
+        // Trigger a click event on the "Verify" button when Enter is pressed and all digits are entered
+        document.getElementById("verifyButton").click();
+      }
+    };
+
+    document.addEventListener("keydown", handleEnterKeyPress);
+
+    return () => {
+      // Remove the event listener when the component unmounts
+      document.removeEventListener("keydown", handleEnterKeyPress);
+    };
+  }, [active]);
+
+
+
   //time ka functionality
   const [timer, setTimer] = useState(89); // 89 seconds = 01:29
   useEffect(() => {
@@ -66,6 +87,16 @@ useEffect(()=>{
     // Clean up the interval when the component unmounts
     return () => clearInterval(countdown);
   }, [timer]);
+  const handelResendOtp=()=>{
+    setTimer(89)
+  }
+
+
+  const handelVerify=()=>{
+
+    navigate("/technicianDashbord")
+    // navigate("/dashbord")
+  }
 
   // Format the timer into "mm:ss" format
   const formattedTimer = `${Math.floor(timer / 60)
@@ -132,7 +163,7 @@ useEffect(()=>{
                   alt=""
                   src="/undefined9.png"
                 />
-                <div className={styles.text}>Resend OTP</div>
+                <div onClick={handelResendOtp} className={styles.text}>Resend OTP</div>
                 <img
                   className={styles.arrowforwardIcon}
                   alt=""
@@ -143,16 +174,16 @@ useEffect(()=>{
           </div>
         </div>
         {active ? (
-           <Link to="/technicianDashbord" className={styles.button3}>
+           <button onClick={handelVerify}  id="verifyButton" className={styles.button3}>
      
             <div
               className={styles.buttonSize2}
         
             >
-              <div className={styles.text2}>Verifye</div>
+              <div className={styles.text2}>Verify</div>
             </div>
    
-          </Link>
+          </button>
         ) : (
           <button className={styles.button2}>
             <div

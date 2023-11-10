@@ -1,0 +1,370 @@
+.prepareReportNav {
+    display: flex;
+    height: 44px;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    margin-bottom: 15px;
+}
+
+.prepareReportNavText1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+
+    color: var(--Black-800, #181B1F);
+
+    /* 20/Semibold */
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.prepareReportNavText2 {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+
+}
+
+.prepareReportNavText3 {
+    display: flex;
+    align-items: flex-start;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    border: 1.2px solid var(--Primary-800, #0067DF);
+    background: var(--White, #FFF);
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+    cursor: pointer;
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+}
+
+.prepareReportNavText4 {
+
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    background: var(--Primary-800, #0067DF);
+    color: var(--White, #FFF);
+    text-align: center;
+    cursor: pointer;
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+}
+
+.prepareReportNavText5 {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+
+.ReviewInvoicePage1Box2 {
+    display: flex;
+    padding: 16px 0px 0px 16px;
+
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    /* border: 2px solid red; */
+}
+
+.ReviewInvoicePage1Box2Left {
+  
+    width: 37%;
+    height: 500px;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    background: var(--Black-800, #181B1F);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ReviewInvoicePage1Box2Right {
+  
+    width: 60%;
+    /* height: 300px; */
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    background: #FFF;
+}
+
+.imageSize {
+    width: 90%;
+    height: 90%;
+    flex-shrink: 0;
+    /* border: 2px solid red; */
+}
+.alertMessage{
+    display: flex;
+    height: 36px;
+    padding: 8px;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 8px;
+background: var(--Error-300, #FCE6E6);
+margin-bottom: 15px;
+}
+.alerttest{
+    color: var(--Error-700, #E81A1A);
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.frameChild {
+    align-self: stretch;
+    background-color: #6e22ea;
+    width: 4px;
+  }
+  
+  .frameChild,
+  .vendorDetails {
+    position: relative;
+  }
+  
+  .rectangleParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  
+  .div,
+  .label {
+    position: relative;
+    line-height: 21px;
+  }
+  
+  .div {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #ce0000;
+    display: none;
+    align-items: center;
+    width: 9px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+  
+  .labelParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  
+  .searchfatIcon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: none;
+  }
+  
+  .text {
+    border: 0;
+    font-weight: 600;
+    font-family: Roboto;
+    font-size: 14px;
+    background-color: transparent;
+    flex: 1;
+    position: relative;
+    line-height: 21px;
+    color: #181b1f;
+    text-align: left;
+    display: inline-block;
+    height: 20px;
+  }
+  
+  .searchfatParent {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e6ebf0;
+    box-sizing: border-box;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+    flex: 1;
+    outline: none;
+  }
+  
+  .helpText {
+    position: relative;
+    line-height: 21px;
+    color: #777c83;
+    display: none;
+  }
+  
+  .inputField {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+  
+  .text1 {
+    border: 0;
+    font-weight: 600;
+    font-family: Roboto;
+    font-size: 14px;
+    background-color: transparent;
+    flex: 1;
+    position: relative;
+    line-height: 21px;
+    color: #181b1f;
+    text-align: left;
+    display: inline-block;
+    height: 20px;
+  }
+  
+  .iconlylightOutlinecancel {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .searchfatGroup {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1.5px solid #ce0000;
+    box-sizing: border-box;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .helpText1 {
+    position: relative;
+    line-height: 21px;
+    color: #ce0000;
+  }
+  
+  .frameParent,
+  .inputFieldParent,
+  .kitinv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .inputFieldParent {
+    /* width: 780px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .frameParent,
+  .kitinv {
+    flex-direction: column;
+    gap: 24px;
+    font-size: 14px;
+    color: #4a5055;
+  }
+  
+  .kitinv {
+    position: relative;
+    width: 100%;
+    gap: 12px;
+    text-align: left;
+    font-size: 20px;
+    color: #181b1f;
+    font-family: Roboto;
+  }
+  .errorText{
+    color: red;
+  }
+  .errorBorder{
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e6ebf0;
+    box-sizing: border-box;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+    outline: none;
+    border: 1.5px solid red;
+  }
+  

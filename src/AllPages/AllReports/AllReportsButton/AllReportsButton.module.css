@@ -188,7 +188,7 @@
   align-items: flex-start;
 }
 .metricTabs,
-.metricTabsInner,
+
 .optionParent {
   display: flex;
   justify-content: flex-start;
@@ -199,15 +199,12 @@
   align-items: center;
   padding: var(--padding-xs);
 }
-.metricTabs {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: var(--primary-300);
-  border-radius: var(--br-5xs) var(--br-5xs) 0 0;
-  flex-direction: column;
-  align-items: flex-start;
+.metricTabsChild:hover{
+  margin-bottom: -5px;
+  border-bottom: 4px solid var(--primary-800);
+
 }
+
 .option1 {
   font-weight: 600;
 }
@@ -233,7 +230,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--padding-xs);
+  border-bottom: none;
+  padding: 17px;
 }
 .metricTabs1,
 .metricTabsParent {
@@ -372,6 +370,7 @@
   gap: var(--gap-base);
   font-size: var(--semibold-size);
   color: var(--black-600);
+  /* border: 2px solid pink; */
 }
 .allreportsbutton {
   /* width: 1366px; */
@@ -380,4 +379,507 @@
   font-size: var(--semibold3-size);
   color: var(--black-800);
   font-family: var(--semibold);
+  /* border: 2px solid red; */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.allDataLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+  background: var(--Black-300, #E6EBF0);
+  /* border: 2px solid red; */
+  gap: 10px;
+}
+
+.allDataLayoutTop {
+  display: flex;
+  padding: 0px 28px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border: 1px solid var(--Black-300, #E6EBF0);
+  background: var(--White, #FFF);
+  box-shadow: 0px 0px 28px 0px rgba(34, 62, 104, 0.08);
+}
+
+.allDataLayoutBottom {
+  display: flex;
+  padding: 0px 28px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border: 1px solid var(--Black-300, #E6EBF0);
+  background: #E6EBF0;
+  box-shadow: 0px 0px 28px 0px rgba(34, 62, 104, 0.08);
+}
+
+.allDataLayoutTopBox {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  /* border: 2px solid rgb(137, 111, 111); */
+  padding: 0px 5px;
+}
+
+.allDataLayoutBottomBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+border-radius: 5px;
+/* z-index: 20; */
+  /* border: 2px solid rgb(137, 111, 111); */
+}
+
+.allDataLayoutToptexts {
+  color: var(--Black-800, #181B1F);
+
+  /* 12/Bold */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.allDataLayoutTopIcon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 1;
+  /* border: 2px solid rgb(72, 214, 25); */
+  display: flex;
+  padding: 12px 0px;
+
+}
+
+.allDataLayoutTopId {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 1;
+ 
+  display: flex;
+  padding: 12px 5px;
+
+}
+.allDataLayoutTopPatientDetails {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 3;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.papa{
+  display: flex;
+  flex-direction: column;
+}
+.allDataLayoutTopAgeSexBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 1.8;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopPaymentStatusBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 3;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopUpdatePaymentStatusBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 3;
+ cursor: pointer;
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopDateOfEnteryBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 2;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopTestNameBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 5;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.allDataLayoutTopTestStatusBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 3.4;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopPrintStatusBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 3;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopPrepareReportBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 3;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+.allDataLayoutTopPrintBox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 1;
+ 
+  display: flex;
+  padding: 3px 5px 3px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+.allDataLayoutTextId{
+  color: var(--Black-700, #4A5055);
+text-align: center;
+
+/* 12/Regular */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTextPatientDetails{
+  color: var(--Black-700, #4A5055);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextAgeSex{
+  color: var(--Black-700, #4A5055);
+
+/* 12/Regular */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextPaymentStatus{
+  display: flex;
+width: 80px;
+padding: 8px;
+justify-content: center;
+align-items: flex-start;
+gap: 4px;
+align-self: stretch;
+border-radius: 8px;
+background: var(--Error-300, #FCE6E6);
+color: var(--Error-700, #E81A1A);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+align-items: center;
+}
+.allDataLayoutTopTextPaymentStatusPaid{
+  display: flex;
+  width: 80px;
+  padding: 8px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--Black-300, #E6EBF0);
+  color: var(--Black-700, #4A5055);
+
+  /* 12/Medium */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+  align-items: center;
+}
+.allDataLayoutTopTextUpdatePaymentStatus{
+  color: var(--Primary-800, #0067DF);
+text-align: center;
+
+/* 12/Semibold */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextTestStatus1{
+  display: flex;
+height: 28px;
+padding: 8px;
+width: 95px;
+align-items: center;
+justify-content: center;
+gap: 4px;
+color: var(--Warning-800, #D58D04);
+border-radius: 8px;
+background: var(--Warning-300, #FFF6E6);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextTestStatus2{
+  display: flex;
+height: 28px;
+padding: 8px;
+width: 95px;
+align-items: center;
+justify-content: center;
+gap: 4px;
+border-radius: 8px;
+background: var(--Success-300, #E5F7F1);
+
+color: var(--Success-800, #00A96C);
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextTestStatus3{
+  display: flex;
+height: 28px;
+padding: 8px;
+width: 95px;
+align-items: center;
+justify-content: center;
+gap: 4px;
+border-radius: 8px;
+background: var(--Error-300, #FCE6E6);
+color: var(--Error-700, #E81A1A);
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextNotPrinted{
+  display: flex;
+  width: 77px;
+height: 28px;
+padding: 8px;
+align-items: center;
+justify-content: center;
+gap: 4px;
+border-radius: 8px;
+background: var(--Black-300, #E6EBF0);
+color: var(--Black-700, #4A5055);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextPrinted{
+  display: flex;
+width: 77px;
+height: 28px;
+padding: 8px;
+justify-content: center;
+align-items: center;
+gap: 4px;
+border-radius: 8px;
+background: var(--Success-300, #E5F7F1);
+color: var(--Success-800, #00A96C);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+.allDataLayoutTopTextPrepareReport{
+  color: var(--Primary-800, #0067DF);
+text-align: center;
+
+/* 12/Semibold */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: 18px; /* 150% */
+cursor: pointer;
+}
+.allDataLayoutTopTextIcon{
+  width: 16px;
+height: 16px;
+cursor: pointer;
+
+}
+
+
+
+
+
+
+
+
+.allDataLayoutTopPatientDetailsing {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  flex: 2;
+  padding: 16px 0px;
+}
+
+.singleGroup {
+  border: 2px solid red;
+}
+
+.bundeelContainer {
+  display: flex;
+/* padding: 1px 0px; */
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+align-self: stretch;
+/* border-radius: var(--mint-cfc-sys-corner-radius-s, 8px); */
+/* border: 1px solid var(--Black-300, #E6EBF0); */
+background: #FFF;
+padding: 0px 5px;
+}
+
+
+
+
+
+/* popup css */
+.modalOverlay {
+  /* position: fixed; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s ease-in-out;
+
+}
+
+.detailsAndTestLayout {
+
+  width: 80%;
+  height:90vh;
+  overflow-y: scroll;
+/* border: 2px solid red; */
+  align-items: flex-start;
+  border-radius: 16px;
+  border-right: 1px solid var(--Black-300, #E6EBF0);
+  background: var(--White, #FFF);
+}
+
+
+
+
+

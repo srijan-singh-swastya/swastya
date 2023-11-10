@@ -1,0 +1,319 @@
+.medicolineinjectionIcon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+  }
+  .kit {
+    flex: 1;
+    position: relative;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 37px;
+  }
+  .kitEfficiency,
+  .medicolineinjectionParent {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
+  .medicolineinjectionParent {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .kitEfficiency {
+    position: relative;
+    width: 115px;
+    flex-shrink: 0;
+  }
+  .div,
+  .label {
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+  }
+  .div {
+    font-size: 16px;
+    line-height: 24px;
+    color: #ce0000;
+    display: flex;
+    align-items: center;
+    width: 9px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+  .labelParent {
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  .searchfatIcon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: none;
+  }
+  .text {
+    flex: 1;
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+  }
+  .arrowaltdownIcon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+  }
+  .searchfatParent {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e6ebf0;
+    box-sizing: border-box;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+    color: #181b1f;
+  }
+  .dropdown,
+  .kitEfficiencyParent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .dropdown {
+    width: 235px;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    color: #777c83;
+  }
+  .kitEfficiencyParent {
+    align-self: stretch;
+    flex: 1;
+    flex-direction: row;
+    gap: 16px;
+  }
+  .arrowdownloadIcon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+  }
+  .text1 {
+    position: relative;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    font-family: Roboto;
+    color: #181b1f;
+    text-align: center;
+  }
+  .buttonSize {
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1.2px solid #cfd0d8;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  .button,
+  .frameGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  .frameGroup {
+    align-self: stretch;
+    gap: 16px;
+  }
+  .div1,
+  .label1 {
+    position: relative;
+    line-height: 21px;
+  }
+  .div1 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #ce0000;
+    display: none;
+    align-items: center;
+    width: 9px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+  .labelGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  .text2 {
+    flex: 1;
+    position: relative;
+    line-height: 21px;
+    font-weight: 600;
+    display: inline-block;
+    height: 20px;
+  }
+  .searchfatGroup {
+    flex: 1;
+    border-radius: 8px;
+    background-color: #e6ebf0;
+    border: 1px solid #cfd0d8;
+    box-sizing: border-box;
+    height: 36px;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+  }
+  .dropdown1,
+  .dropdownWrapper,
+  .searchfatGroup {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .dropdown1 {
+    width: 235px;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .dropdownWrapper {
+    align-self: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0 0;
+  }
+  .div2,
+  .kitsUsed {
+    position: relative;
+  }
+  .kitsUsed {
+    display: flex;
+    align-items: center;
+    width: 246.3px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+  .div2 {
+    flex: 1;
+    line-height: 18px;
+    font-weight: 500;
+  }
+  .wrapper {
+    width: 177px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: #4a5055;
+  }
+  .frameDiv,
+  .kitsUsedParent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .kitsUsedParent {
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .frameDiv {
+    align-self: stretch;
+    flex-direction: row;
+    gap: 16px;
+    font-size: 12px;
+    color: #181b1f;
+  }
+  .stars02Icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .stars02Parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .insight {
+    position: relative;
+    line-height: 21px;
+    color: #e6ebf0;
+    display: inline-block;
+    width: 1081px;
+  }
+  .frameParent1 {
+    align-self: stretch;
+    border-radius: 8px;
+    background-color: #474258;
+    height: 114px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    box-sizing: border-box;
+    gap: 16px;
+    color: #ffb11a;
+  }
+  .frameContainer {
+    align-self: stretch;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 28px rgba(34, 62, 104, 0.08);
+    border: 1px solid #e6ebf0;
+    padding: 0 16px 16px;
+    gap: 16px;
+    font-size: 14px;
+    color: #777c83;
+  }
+  .frameContainer,
+  .frameParent,
+  .kitefficiency {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frameParent {
+    align-self: stretch;
+    gap: 16px;
+    font-size: 20px;
+    color: #2c323c;
+  }
+  .kitefficiency {
+    /* width: 1113px; */
+    gap: 32px;
+    text-align: left;
+    font-size: 24px;
+    color: #181b1f;
+    font-family: Roboto;
+  }
+  

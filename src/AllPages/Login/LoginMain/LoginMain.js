@@ -68,7 +68,7 @@ const LoginMain = () => {
             <input
               id="otpInput1"
               className={styles.text}
-              placeholder="Enter Ur Number"
+              placeholder="Enter Your Number"
               type="number" // Use "text" to allow 1-character input
               onChange={(e) => handleInputChange(e)}
               required

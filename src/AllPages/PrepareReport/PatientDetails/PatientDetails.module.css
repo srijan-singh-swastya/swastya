@@ -1,3 +1,101 @@
+.prepareReportNav{
+  display: flex;
+height: 44px;
+padding: 16px;
+align-items: center;
+gap: 16px;
+flex-shrink: 0;
+align-self: stretch;
+border-bottom: 1px solid var(--Black-300, #E6EBF0);
+margin-bottom: 15px;
+}
+.prepareReportNavText1{
+  display: flex;
+align-items: center;
+gap: 16px;
+flex: 1 0 0;
+
+color: var(--Black-800, #181B1F);
+
+/* 20/Semibold */
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.prepareReportNavText2{
+  display: flex;
+align-items: flex-start;
+border-radius: 8px;
+display: flex;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+color: var(--Primary-800, #0067DF);
+text-align: center;
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+
+}
+.prepareReportNavText3{
+  display: flex;
+align-items: flex-start;
+display: flex;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 12px;
+border: 1.2px solid var(--Primary-800, #0067DF);
+background: var(--White, #FFF);
+color: var(--Primary-800, #0067DF);
+text-align: center;
+cursor: pointer;
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+.prepareReportNavText4{
+
+display: flex;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 12px;
+background: var(--Primary-800, #0067DF);
+color: var(--White, #FFF);
+text-align: center;
+cursor: pointer;
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+.prepareReportNavText5{
+  width: 24px;
+height: 24px;
+cursor: pointer;
+}
+
+
+
+
+
+
 .div,
 .name {
   position: relative;
@@ -23,12 +121,7 @@
   justify-content: flex-start;
   gap: 2px;
 }
-.searchfatIcon {
-  position: relative;
-  width: 16px;
-  height: 16px;
-  display: none;
-}
+
 .abhinavDutta,
 .helpText {
   position: relative;
@@ -113,6 +206,7 @@
 .inputFieldParent {
   flex: 1;
   flex-direction: column;
+  /* border: 2px solid rgb(65, 18, 18); */
 }
 .ageParent,
 .recievedWrapper {
@@ -143,4 +237,251 @@
   font-size: 14px;
   color: #777c83;
   font-family: "Roboto Mono";
+  /* border: 2px solid red; */
+  margin-bottom: 15px;
 }
+
+
+
+
+
+
+/* prepare report below  */
+
+
+
+
+
+.investigation {
+  flex: 1;
+  position: relative;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+.searchfatParent {
+  align-self: stretch;
+  border-radius: 4px;
+  background-color: #dadfe5;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px 16px;
+  gap: 16px;
+  /* border: 2px solid red; */
+}
+.div,
+.label {
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+}
+.div {
+  font-size: 16px;
+  line-height: 24px;
+  color: #ce0000;
+  display: flex;
+  align-items: center;
+  width: 9px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.labelParent {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+}
+.text {
+  flex: 1;
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+  display: inline-block;
+  height: 20px;
+}
+.searchfatContainer {
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e6ebf0;
+  box-sizing: border-box;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  gap: 8px;
+  color: #181b1f;
+}
+.helpText {
+  position: relative;
+  line-height: 21px;
+  display: none;
+}
+
+
+.mgdl {
+  position: relative;
+  line-height: 21px;
+  font-weight: 500;
+}
+.electrolyesSerumWrapper,
+.searchfatGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.searchfatGroup {
+  align-self: stretch;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 10px 16px;
+  gap: 16px;
+}
+.electrolyesSerumWrapper {
+  flex: 1;
+
+}
+.inputField1,
+.inputFieldChild {
+  display: flex;
+  justify-content: flex-start;
+  font-family: Roboto;
+}
+.inputFieldChild {
+  border: 1px solid #e6ebf0;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #fff;
+  align-self: stretch;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 36px;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+}
+.inputField1 {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  color: #777c83;
+}
+.div8 {
+  width: 80px;
+  position: relative;
+  line-height: 21px;
+  /* border: 2px solid rebeccapurple; */
+}
+.interpretationOfHaemoglobin {
+  width: 280px;
+  /* position: relative; */
+  line-height: 21px;
+  /* border: 2px solid rebeccapurple; */
+}
+.div8 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  font-family: Roboto;
+  color: #ce0000;
+  display: none;
+  align-items: center;
+  width: 9px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.interpretationOfHaemoglobinParent {
+ 
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2px;
+  /* border: 2px solid red; */
+}
+.helpText4 {
+  position: relative;
+  line-height: 21px;
+  font-family: Roboto;
+  display: none;
+}
+.inputField4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 0;
+  gap: 4px;
+}
+.helpText5 {
+  position: relative;
+  line-height: 21px;
+  font-family: Roboto;
+  color: #777c83;
+  display: none;
+}
+.inputField5,
+.inputFieldParent {
+  display: flex;
+  justify-content: flex-start;
+}
+.inputField5 {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0;
+  gap: 4px;
+  color: #181b1f;
+}
+.inputFieldParent {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.frameChild3,
+.frameWrapper {
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: #f2f5f8;
+  overflow: hidden;
+}
+.frameWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px 16px;
+  color: #777c83;
+}
+.frameChild3 {
+  display: none;
+}
+.frameParent,
+.patientreport {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameParent {
+  align-self: stretch;
+  gap: 16px;
+}
+.patientreport {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  color: #181b1f;
+  font-family: "Roboto Mono";
+}
+

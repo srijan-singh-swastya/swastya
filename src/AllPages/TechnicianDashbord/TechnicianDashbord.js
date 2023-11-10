@@ -1,34 +1,38 @@
 import { useCallback } from "react";
 import styles from "./TechnicianDashbord.module.css";
-
+import { useNavigate } from "react-router-dom";
 const TechnicianDashbord = () => {
+    const navigate = useNavigate()
     const onButtonSizeContainerClick = useCallback(() => {
+        navigate("/allReport")
         // Please sync "master doc" to the project
     }, []);
 
     const onFrameButtonClick = useCallback(() => {
+        navigate("/allReport")
         // Please sync "master doc" to the project
     }, []);
 
     const onFrameButton2Click = useCallback(() => {
-        // Please sync "master doc" to the project
+        navigate("/kitInventorys")
     }, []);
+
 
     return (
         <div className={styles.dashbord}>
-             <div className={styles.dashbordTop}>
+            <div className={styles.dashbordTop}>
                 <div>Swastya.ai</div>
                 <div>LogOut</div>
-             </div>
+            </div>
             <div className={styles.welcomename}>Hi Satish Kumar</div>
             <div className={styles.welcomenames}>Welcome back👋</div>
             <div className={styles.frameParent}>
                 <div className={styles.frameGroup}>
-                    
+
                     <div className={styles.frameContainer}>
                         <div className={styles.numberParent}>
                             <b className={styles.number1}>30</b>
-                            <div className={styles.heading}>Reports pending to be signed</div>
+                            <div className={styles.heading}>Reports generation pending </div>
                         </div>
                         <div className={styles.maskGroupParent}>
                             <img
@@ -48,7 +52,7 @@ const TechnicianDashbord = () => {
                             className={styles.buttonSize}
                             onClick={onButtonSizeContainerClick}
                         >
-                            <div className={styles.text1}>View reports and sign</div>
+                            <div className={styles.text1}>View pending reports</div>
                             <img
                                 className={styles.arrowforwardIcon}
                                 alt=""
@@ -57,7 +61,7 @@ const TechnicianDashbord = () => {
                         </div>
                     </button>
                 </div>
-                </div>
+            </div>
 
 
 
@@ -67,13 +71,13 @@ const TechnicianDashbord = () => {
                         <div className={styles.content}>
                             <div className={styles.textAndSupportingText}>
                                 <div className={styles.text4}>Entries and reports</div>
-                               
+
                             </div>
                         </div>
                         <img className={styles.dividerIcon} alt="" src="/Image/Dashbord/divider.svg" />
                     </div>
                     <div className={styles.frameParent5}>
-                        
+
                         <button className={styles.frameButton} onClick={onFrameButtonClick}>
                             <div className={styles.folderWrapper}>
                                 <img
@@ -115,7 +119,7 @@ const TechnicianDashbord = () => {
                                 />
                             </div>
                             <div className={styles.headingAndNumber}>
-                                <b className={styles.heading2}>Kit inventory</b>
+                                <b className={styles.heading2}  >Kit inventory</b>
                                 <div className={styles.numberAndBadge1}>
                                     <div className={styles.number3}>
                                         See kit efficiency and add kits from here

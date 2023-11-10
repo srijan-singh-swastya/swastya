@@ -1,0 +1,293 @@
+.addingMembersLayout {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+
+    /* min-height: 80vh; */
+    /* border: 2px solid red; */
+}
+
+.addingMembersLayoutLeft {
+    display: flex;
+    /* width: 552px; */
+    flex: 1;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+}
+
+.addingMembersLayoutLeftline1 {
+    color: var(--Black-800, #181B1F);
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* border: 2px solid red; */
+    /* 150% */
+}
+.addingMembersLayoutLeftUser{
+    display: flex;
+padding: 24px 16px;
+align-items: center;
+gap: 26px;
+align-self: stretch;
+border-radius: 12px;
+border: 1px solid var(--Black-300, #E6EBF0);
+}
+.addingMembersLayoutLeftUsertext1{
+    display: flex;
+height: 35px;
+width: 35px;
+/* padding: 12px; */
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 50%;
+background: var(--Purple-300, #EFE6FD);
+color: var(--Purple-700, #6E22EA);
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+.addingMembersLayoutLeftUsertext2{
+    display: flex;
+align-items: flex-start;
+gap: 2px;
+flex: 1 0 0;
+color: var(--Black-800, #181B1F);
+
+/* 16/Regular */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
+.addingMembersLayoutLeftUsertext3{
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color: var(--Primary-800, #0067DF);
+text-align: center;
+
+/* 14/Semibold */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 21px; /* 150% */
+cursor: pointer;
+}
+.addingMembersLayoutLeftUsertext4{
+    width: 20px;
+height: 20px;
+cursor: pointer;
+}
+
+.addingMembersLayoutLeftline2 {
+    display: flex;
+    padding: 24px 16px;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid var(--Primary-500, #99C2F2);
+    background: var(--Primary-300, #E6F3FF);
+}
+
+.addingMembersLayoutLeftline2text1 {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    /* 150% */
+}
+
+.addingMembersLayoutLeftline3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+
+}
+
+.addingMembersLayoutLeftline3text1 {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1.2px solid var(--Primary-500, #99C2F2);
+    background: var(--White, #FFF);
+    color: var(--Primary-500, #99C2F2);
+    text-align: center;
+
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    /* 150% */
+    cursor: pointer;
+}
+
+/* ************************leftend******************************** */
+
+/* ****************************right************************************ */
+
+.addingMembersLayoutRight {
+    display: flex;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 16px; */
+    flex: 1 0 0;
+    align-self: stretch;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+
+}
+
+.addingMembersLayoutRightLine1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: var(--Black-800, #181B1F);
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+}
+.priceLayout{
+    display: flex;
+padding: 24px 16px 16px 16px;
+flex-direction: column;
+align-items: flex-start;
+gap: 24px;
+flex: 1 0 0;
+min-height: 40vh;
+align-self: stretch;
+border-radius: 16px 16px 0px 0px;
+background: #F2F5F8;
+}
+.priceLayoutBox{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+align-self: stretch;
+}
+.priceLayoutBoxPatientname{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+align-self: stretch;
+}
+.priceLayoutBoxHzline{
+    width: 70%;
+    border: 1px dashed var(--Black-500, #A0A6AB);
+    ;
+}
+.priceLayoutBoxname{
+    /* min-width:100px; */
+    color: var(--Black-600, #777C83);
+font-family: Share Tech Mono;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 131.25% */
+}
+.priceLayoutBoxPatientTest{
+    display: flex;
+    align-items: flex-start;
+    gap: 78px;
+    align-self: stretch;
+}
+.priceLayoutBoxPatientTestName{
+    flex: 1 0 0;
+    color: var(--Black-700, #4A5055);
+font-family: Roboto Mono;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+.priceLayoutBoxPatientTestPrice{
+    display: flex;
+padding: 8px 16px;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+}
+.totalPriceBox{
+    display: flex;
+padding: 8px 16px;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+background: var(--Black-700, #4A5055);
+}
+.totalPriceBoxtext1{
+    display: flex;
+padding: 4px 0px;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+color: var(--Black-300, #E6EBF0);
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+.totalPriceBoxtext2{
+    display: flex;
+padding: 4px 0px;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+color: var(--Black-300, #E6EBF0);
+font-family: Roboto Mono;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 120% */
+}
+

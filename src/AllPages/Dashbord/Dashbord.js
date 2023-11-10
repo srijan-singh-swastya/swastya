@@ -1,24 +1,30 @@
 import { useCallback } from "react";
 import styles from "./Dashbord.module.css";
-
+import { useNavigate } from "react-router-dom";
 const Dashbord = () => {
+  const navigate = useNavigate()
   const onButtonSizeContainerClick = useCallback(() => {
+    navigate("/signReportHome")
     // Please sync "master doc" to the project
   }, []);
 
   const onFrameButtonClick = useCallback(() => {
+    navigate("/allReport")
     // Please sync "master doc" to the project
   }, []);
 
   const onFrameButton1Click = useCallback(() => {
+    navigate("/labsSummary/")
     // Please sync "master doc" to the project
   }, []);
 
   const onFrameButton2Click = useCallback(() => {
+    navigate("/kitInventorys")
     // Please sync "master doc" to the project
   }, []);
 
   const onFrameButton3Click = useCallback(() => {
+    navigate("/settings")
     // Please sync "master doc" to the project
   }, []);
 
@@ -106,7 +112,7 @@ const Dashbord = () => {
                 <div className={styles.helpText}>Help text</div>
               </div>
             </div>
-            <button className={styles.button1}>
+            <button onClick={onFrameButton1Click} className={styles.button1}>
               <div className={styles.buttonSize1}>
                 <img
                   className={styles.fileDownloadInLc}
