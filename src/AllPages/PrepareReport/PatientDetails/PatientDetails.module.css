@@ -8,6 +8,8 @@ flex-shrink: 0;
 align-self: stretch;
 border-bottom: 1px solid var(--Black-300, #E6EBF0);
 margin-bottom: 15px;
+padding: 16px 16px 14px 16px;
+
 }
 .prepareReportNavText1{
   display: flex;
@@ -239,6 +241,7 @@ cursor: pointer;
   font-family: "Roboto Mono";
   /* border: 2px solid red; */
   margin-bottom: 15px;
+  margin: 16px 16px 0px 16px;
 }
 
 
@@ -460,6 +463,7 @@ cursor: pointer;
   justify-content: flex-start;
   padding: 10px 16px;
   color: #777c83;
+  /* border: 2px solid red; */
 }
 .frameChild3 {
   display: none;
@@ -478,10 +482,92 @@ cursor: pointer;
 }
 .patientreport {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   text-align: left;
   font-size: 14px;
   color: #181b1f;
   font-family: "Roboto Mono";
+  margin: 16px 16px 0px 16px;
 }
+.uploadImge{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  padding-bottom: 20px;
+
+}
+.uploadImgeBox1{
+  color: var(--Black-800, #181B1F);
+font-family: Roboto Mono;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
+}
+.uploadImgeBox2{
+  display: flex;
+  padding: 16px 24px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 16px;
+border: 1px dashed var(--Primary-700, #3385E5);
+background: #F1F8FF;
+}
+.uploadImgeBox2Left{
+  padding-top: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.uploadImgeBox2Right{
+  display: flex;
+padding: 8px 16px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 8px;
+border: 1.2px solid var(--Primary-800, #0067DF);
+background: var(--White, #FFF);
+color: var(--Primary-800, #0067DF);
+text-align: center;
+
+/* 14/Semibold */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 21px; /* 150% */
+}
+.uploadLabel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+/* Styles for hiding the default file input text */
+.uploadInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Style for the custom label */
+.customFileUpload {
+  /* Add your styling for the label here */
+  /* For example: */
+  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
 

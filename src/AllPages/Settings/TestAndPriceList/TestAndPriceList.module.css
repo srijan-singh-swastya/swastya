@@ -36,6 +36,9 @@ background: #FFF;
     background: var(--Primary-800, #0067DF);
     cursor: pointer;
 }
+.technicianDetailsrow h1{
+    margin: 0;padding: 0;
+}
 
 .detailsTable {
     width: 100%;

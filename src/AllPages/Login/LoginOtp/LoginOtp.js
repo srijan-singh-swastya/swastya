@@ -94,6 +94,7 @@ useEffect(()=>{
 
   const handelVerify=()=>{
 
+
     navigate("/technicianDashbord")
     // navigate("/dashbord")
   }

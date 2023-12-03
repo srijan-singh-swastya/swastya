@@ -2,7 +2,11 @@ import styles from "./PatientDetails.module.css";
 
 const PatientDetails = (props) => {
   const { onClick } = props;
- 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0]; // Access the uploaded file here
+    // Do something with the file, like sending it to an API or processing it
+  };
+
   return (
     <>
       <div className={styles.prepareReportNav}>
@@ -200,11 +204,8 @@ const PatientDetails = (props) => {
                   </div>
                   <div className={styles.div8}>*</div>
                 </div>
-
-
               </div>
               <div className={styles.inputField5}>
-
                 <div className={styles.investigation}>
                   Hemoglobin is a protein in your red blood cells that carries
                   oxygen to your body's organs and tissues and transports carbon
@@ -212,11 +213,45 @@ const PatientDetails = (props) => {
                   hemoglobin test reveals that your hemoglobin level is lower than
                   normal, it means you have a low red blood cell count (anemia).
                 </div>
-
-
               </div>
             </div>
+
           </div>
+
+          <div className={styles.uploadImge}>
+            <div className={styles.uploadImgeBox1}>Upload image</div>
+            <div className={styles.uploadImgeBox2}>
+              <div className={styles.uploadImgeBox2Left}>
+                <img htmlFor="fileUpload" src="/Image/StartHere/upload.svg" />
+             
+                <input
+                  type="file"
+                  id="fileUpload"
+                  className={styles.uploadInput}
+                  onChange={handleFileUpload}
+                  accept=".pdf,.png" // Specify the accepted file formats
+                />
+              </div>
+              <div className={styles.uploadImgeBox2Right}>
+                <label htmlFor="fileUpload" className={styles.uploadLabel}>
+                  Upload PDF/PNG file
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+  <path d="M3.75 9.13867H14.25M14.25 9.13867L9.75 4.63867M14.25 9.13867L9.75 13.6387" stroke="#0067DF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                </label>
+                <input
+                  type="file"
+                  id="fileUpload"
+                  className={styles.uploadInput}
+                  onChange={handleFileUpload}
+                  accept=".pdf,.png" // Specify the accepted file formats
+                />
+              </div>
+
+            </div>
+
+          </div>
+
           <div className={styles.frameChild3} />
         </div>
       </div>

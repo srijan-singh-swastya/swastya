@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styles from './AddCoupan.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { addNewCoupon, deleteCoupon, setCoupons } from '../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
+
 
 const AddCoupan = (props) => {
     const { onClick } = props
-    const dispatch = useDispatch();
+
     const [tests, setTests] = useState([
         {
             name: 'test1',
@@ -91,44 +90,77 @@ const AddCoupan = (props) => {
     };
 
     const handleADD = () => {
-        // console.log('Form Data:', formData);
         const p = {
-            "coupon": formData.couponCode,
-            "discount": formData.discountPercentage,
-            "numberOfCoupons": formData.numberOfCoupons,
-            "discountStartDate": formData.discountStartDate,
-            "discountExpiryDate": formData.discountExpireDate,
+            "name": formData.couponCode,
+            "percent": formData.discountPercentage,
+            "count": formData.numberOfCoupons,
+            "startTime": {
+                iso8601: formData.discountStartDate // Modify this based on your initial data
+            },
+            "endTime": {
+                iso8601: formData.discountExpireDate // Modify this based on your initial data
+            },
+            // "discountStartDate": formData.discountStartDate,
+            // "discountExpiryDate": formData.discountExpireDate,
             "recurrence": formData.recurrence,
             "applicableTests": selectedTests
         }
-        dispatch(addNewCoupon(p));
+        console.log(p)
+        // dispatch(addNewCoupon(p));
         if (onClick) {
             onClick();
         }
     };
     const handelAddandCreateCoupan = () => {
         const p = {
-            "coupon": formData.couponCode,
-            "discount": formData.discountPercentage,
-            "numberOfCoupons": formData.numberOfCoupons,
-            "discountStartDate": formData.discountStartDate,
-            "discountExpiryDate": formData.discountExpireDate,
+            "name": formData.couponCode,
+            "percent": formData.discountPercentage,
+            "count": formData.numberOfCoupons,
+            "startTime": {
+                iso8601: formData.discountStartDate // Modify this based on your initial data
+            },
+            "endTime": {
+                iso8601: formData.discountExpireDate // Modify this based on your initial data
+            },
+            // "discountStartDate": formData.discountStartDate,
+            // "discountExpiryDate": formData.discountExpireDate,
             "recurrence": formData.recurrence,
             "applicableTests": selectedTests
         }
-        dispatch(addNewCoupon(p));
+
+        //here i will send data in to backend to create test
+        console.log(p)
+
+        // document.getElementById("couponCode").value = ""
+        // document.getElementById("discountPercentage").value = ""
+        // document.getElementById("numberOfCoupons").value = ""
+        // document.getElementById("discountStartDate").value = ""
+        // document.getElementById("discountExpireDate").value = ""
+        // document.getElementById("recurrence").value = ""
+        setFormData({
+            couponCode: '',
+            discountPercentage: '',
+            numberOfCoupons: '',
+            discountStartDate: '',
+            discountExpireDate: '',
+            recurrence: '',
+        })
+        setSelectedTests([])
+
+        console.log(p)
+        // dispatch(addNewCoupon(p));
 
     }
-    const handleCancleCoupanandPage=()=>{
+    const handleCancleCoupanandPage = () => {
         if (onClick) {
             onClick();
         }
-        dispatch(setCoupons ())
+        // dispatch(setCoupons ())
     }
 
     return (<>
         <div className={styles.prepareReportNav}>
-            <div className={styles.prepareReportNavText1}>Create coupon</div>
+            <div className={styles.prepareReportNavText1}>Create coupon7s</div>
             <div onClick={handleADD} className={styles.prepareReportNavText3}>Add</div>
 
             {/* <div onClick={handleReject} className={styles.prepareReportNavText3}>Reject report</div> */}
@@ -156,6 +188,7 @@ const AddCoupan = (props) => {
                             className={styles.inputFild}
                             type="text"
                             name="couponCode"
+                            id="couponCode"
                             placeholder="Coupon Code"
                             value={formData.couponCode}
                             onChange={handleChange}
@@ -168,6 +201,7 @@ const AddCoupan = (props) => {
                             className={styles.inputFild}
                             type="text"
                             name="discountPercentage"
+                            id="discountPercentage"
                             placeholder="Discount Percentage"
                             value={formData.discountPercentage}
                             onChange={handleChange}
@@ -179,6 +213,7 @@ const AddCoupan = (props) => {
                             className={styles.inputFild}
                             type="text"
                             name="numberOfCoupons"
+                            id="numberOfCoupons"
                             placeholder="Number of Coupons"
                             value={formData.numberOfCoupons}
                             onChange={handleChange}
@@ -192,6 +227,7 @@ const AddCoupan = (props) => {
                             className={styles.inputFild}
                             type="date"
                             name="discountStartDate"
+                            id="discountStartDate"
                             value={formData.discountStartDate}
                             onChange={handleChange}
                         />
@@ -202,6 +238,7 @@ const AddCoupan = (props) => {
                             className={styles.inputFild}
                             type="date"
                             name="discountExpireDate"
+                            id="discountExpireDate"
                             value={formData.discountExpireDate}
                             onChange={handleChange}
                         />
@@ -212,6 +249,7 @@ const AddCoupan = (props) => {
                             className={styles.inputFild}
                             type="text"
                             name="recurrence"
+                            id="recurrence"
                             placeholder="Recurrence"
                             value={formData.recurrence}
                             onChange={handleChange}

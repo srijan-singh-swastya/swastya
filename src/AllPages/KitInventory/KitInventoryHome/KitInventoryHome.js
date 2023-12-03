@@ -33,46 +33,95 @@ const data = [
 
 ]
 const KitInventoryHome = () => {
-  const [reportLetterhead, setReportLetterhead] = useState("");
-  const [reviewInvoicePopUp,setReviewInvoicePopUp]=useState(false)
+  const [kitUpload, setKitUpload] = useState("");
+  const [reviewInvoicePopUp, setReviewInvoicePopUp] = useState(false)
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredData = data.filter((user) => {
-
     return user.invoiceNumber.toLowerCase().includes(searchTerm.toLowerCase())
-
   })
-  console.log(reportLetterhead)
 
 
-  const [isFrameOpen, setFrameOpen] = useState(false);
+
+  // Function to handle kit pdf/image upload
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [checkingIsOpen, setCheckingIsOpen] = useState(false)
+  const [successIsOpen, setSuccessIsOpen] = useState(false)
+  const [readingIsOpen, setReadingIsOpen] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const openModal = () => {
+
+    setModalIsOpen(!modalIsOpen);
+  };
+  const handleCancleModal = () => {
+    setModalIsOpen(!modalIsOpen);
+    setErrorMessage('');
+    setSuccessMessage('');
+  }
+
+  const closeModal = () => {
+    setSuccessIsOpen(false);
+    setReadingIsOpen(true)
+    setErrorMessage('');
+    setSuccessMessage('');
+    setTimeout(() => {
+      closeReading(); // Close modal after successful upload (simulated)
+    }, 3000);
+  };
+  const closeReading = () => {
+    setReadingIsOpen(false)
+    setReviewInvoicePopUp(!reviewInvoicePopUp)
+  }
 
   const handleFileInput = useCallback(() => {
     const fileInput = document.getElementById('fileInput');
     fileInput.click();
   }, []);
 
-  // Function to handle image upload
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setReportLetterhead(e.target.result);
-        setReviewInvoicePopUp(!reviewInvoicePopUp)
-      };
-      reader.readAsDataURL(file);
+  const handleFileUpload = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setModalIsOpen(false);
+      setCheckingIsOpen(true)
     }
+    if (!selectedFile) {
+      setErrorMessage('Please Upload PDF/PNG');
+      return;
+    }
+
+    if (!['application/pdf', 'image/png'].includes(selectedFile.type)) {
+      setErrorMessage('Please upload a PDF or PNG file.');
+      setCheckingIsOpen(false)
+      setModalIsOpen(true);
+      return;
+    }
+
+    if (selectedFile.size > 3 * 1024 * 1024) {
+      setErrorMessage('File size exceeds 3MB. Please select a smaller file.');
+      setCheckingIsOpen(false)
+      setModalIsOpen(true);
+      return;
+    }
+
+    // Perform upload logic here (replace this with your upload functionality)
+    setSuccessMessage('File uploaded successfully!');
+    setCheckingIsOpen(false)
+    setSuccessIsOpen(true)
+    setKitUpload(selectedFile)
+    setTimeout(() => {
+      closeModal(); // Close modal after successful upload (simulated)
+    }, 2000);
   };
-  const handleReviewInvoicePage1PopupClick=()=>{
+
+
+
+
+
+  const handleReviewInvoicePage1PopupClick = () => {
     setReviewInvoicePopUp(!reviewInvoicePopUp)
   }
-
-
-  const closeFrame = useCallback(() => {
-    setFrameOpen(false);
-  }, []);
-
   const goBack = () => {
     window.history.back();
   };
@@ -125,10 +174,10 @@ const KitInventoryHome = () => {
             </div>
           </div>
           <button className={styles.button1}>
-            <div className={styles.buttonSize1} onClick={handleFileInput}>
-              <div className={styles.text3}>Upload kit invoice</div>
+            <div className={styles.buttonSize1} onClick={openModal}>
+              <div className={styles.text3}>Upload kit invoice7</div>
             </div>
-            <div className={styles.uploadSection}>
+            {/* <div className={styles.uploadSection}>
               <input
                 type="file"
                 id="fileInput"
@@ -136,7 +185,7 @@ const KitInventoryHome = () => {
                 onChange={handleImageUpload}
                 style={{ display: 'none' }}
               />
-            </div>
+            </div> */}
           </button>
         </div>
         <div className={styles.frameContainer}>
@@ -174,9 +223,9 @@ const KitInventoryHome = () => {
                     </div>
                   </div>
                   <div className={styles.button2}>
-                  <div className={styles.buttonSize1} onClick={handleFileInput}>
-                        <div className={styles.text3}>Upload kit invoice</div>
-                      </div>
+                    <div className={styles.buttonSize1} onClick={openModal}>
+                      <div className={styles.text3}>Upload kit invoice</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -223,14 +272,108 @@ const KitInventoryHome = () => {
           }
         </div>
       </div>
-      {
-            reviewInvoicePopUp ?
-              <div className={styles.modalOverlay}>
-                <div className={styles.detailsAndTestLayout}>
-                  <ReviewInvoicePage1 onClick={handleReviewInvoicePage1PopupClick} />
-                </div>
+      {modalIsOpen ?
+        <div className={styles.modal}>
+          <div className={styles.modalLayout}>
+            <div className={styles.modelTopBox} >
+              <div className={styles.blackBoldText}>Upload Kit invoice2</div>
+              <div onClick={handleCancleModal}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16699 4.16602L10.0003 9.99935M15.8337 15.8327L10.0003 9.99935M10.0003 9.99935L15.8337 4.16602L4.16699 15.8327" stroke="#181B1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+            {errorMessage ?
+              <div className={styles.modelErrorBox}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00033 1.29102C13.2578 1.29102 16.7087 4.74268 16.7087 8.99935C16.7087 13.256 13.2578 16.7077 9.00033 16.7077C4.74366 16.7077 1.29199 13.256 1.29199 8.99935C1.29199 4.74268 4.74366 1.29102 9.00033 1.29102Z" stroke="#E81A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8.99577 5.83594V9.51844" stroke="#E81A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8.99648 12.1628H9.00482" stroke="#E81A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {errorMessage}
               </div> : ""
-          }
+            }
+            <div className={styles.modelBottomBox}>
+              <div onClick={handleFileInput} className={styles.BottomBoxIcon}><img src="/Image/StartHere/kitupload.svg" /></div>
+              <div className={styles.blackBoldText}> Upload PDF/PNG (max file size 3mb)</div>
+
+              <button className={styles.button1}>
+                <div onClick={handleFileInput}>
+                  <div className={styles.text4}>Upload kit invoice
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                      <path d="M3.75 9.5H14.25M14.25 9.5L9.75 5M14.25 9.5L9.75 14" stroke="#0067DF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></div>
+                </div>
+                <div className={styles.uploadSection}>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    ccept=".pdf,.png"
+                    onChange={handleFileUpload}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+              </button>
+              {/* {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+              {successMessage && <p className={styles.success}>{successMessage}</p>} */}
+
+            </div>
+
+          </div>
+        </div>
+        : ""
+      }
+      {checkingIsOpen ?
+        <div className={styles.modal}>
+          <div className={styles.modalLayout}>
+            <div className={styles.modelTopBox} >
+              <div className={styles.blackBoldText}>Upload Kit invoice</div>
+            </div>
+            <div className={styles.modelBottomBox}>
+              <div className={styles.blackBoldText}>Checking file...</div>
+              <div className={styles.blackBoldText}>Please Wait</div>
+            </div>
+
+          </div>
+        </div>
+        : ""
+      }
+      {successIsOpen ?
+        <div className={styles.modal}>
+          <div className={styles.modalLayout}>
+            <div className={styles.modelTopBox} >
+              <div className={styles.blackBoldText}>Upload Kit invoice</div>
+            </div>
+            <div className={styles.modelBottomBox}>
+              <div ><img className={styles.BottomBoxIcon} src="/Image/StartHere/fileUploaded.svg" /></div>
+              <div className={styles.blackBoldText}>File uploaded...</div>
+            </div>
+
+          </div>
+        </div>
+        : ""
+      }
+      {readingIsOpen ?
+        <div className={styles.modal}>
+          <div className={styles.modalLayout}>
+            <div className={styles.modelBottomBox1}>
+              <img className={styles.BottomBoxIcon} src="https://s3-alpha-sig.figma.com/img/26e0/0aca/41f1850b42974fc9d572d07c290d1bac?Expires=1702252800&Signature=VpSSC8PSUF4Oy8W7QrrOhZpOhK4dlCbDoA6s6dlwvlZbX07RkqK60jl6tQatDyTRso4PL3amNYGXH7XfhVoo0FUGVKLWHsx1dCZgAs9lk1ZI-GmSLhSVm8AxjYFThxSWFzaQkF74V7ZtUMEOYkRYbiC~LxlTR-GXg2CEcXT76noWUPKcssTBc4DSRyKmR-IkqveHHd5jqoCPjWCKJb8ONZKSgtTdU-eHkRG6suvOvh06jINa3yA6qitsl6F0guYkcrc--vvqsbgDfUm709QHGQPmoT9or4kM6Wo~-pRgFkImsl1bj6MWlGykqGxdaTuqVC4wsjUR3RBPY-U6oGPwYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+              <div className={styles.blackBoldText}>Reading the invoice</div>
+              <div className={styles.blackNormalText}>Please wait...</div>
+            </div>
+
+          </div>
+        </div>
+        : ""
+      }
+      {
+        reviewInvoicePopUp ?
+          <div className={styles.modalOverlay}>
+            <div className={styles.detailsAndTestLayout}>
+              <ReviewInvoicePage1 onClick={handleReviewInvoicePage1PopupClick} />
+            </div>
+          </div> : ""
+      }
 
     </>
   );

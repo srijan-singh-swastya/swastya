@@ -1,244 +1,178 @@
 import styles from "./LabDetails.module.css";
-
+import axios from "axios";
+import { useState, useEffect } from "react";
 const LabDetails = () => {
+  const [labData, setLabData] = useState("");
+  const [editMode, setEditMode] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Retrieving the "labId" value from localStorage
+      const labId1 = localStorage.getItem('labId');
+      const x = {
+        labId: labId1,
+      }
+      if (labId1) {
+        try {
+          // Making a GET request to the onboard endpoint with the "labId" as a query parameter
+          const response = await axios.post('http://localhost:8090/first/v1/read-lab', x);
+
+          // Set the lab data in the component's state
+          console.log(response.data.lab)
+          setLabData(response.data.lab);
+        } catch (err) {
+          // Handle errors and display the error message from the server
+          console.error(err);
+        }
+      } else {
+        console.log('Lab ID not found in localStorage.');
+      }
+    };
+
+    fetchData();
+  }, []);
+  const handelEditClick = () => {
+    // alert("cdsf")
+    console.log(labData)
+    setEditMode(!editMode)
+  }
+  const handelSaveClick = async () => {
+    setEditMode(!editMode)
+    const x = {
+      lab: labData,
+    }
+    try {
+      // Making a POST request to the update-lab endpoint
+      const res = await axios.post(`http://localhost:8090/first/v1/update-lab`, x)
+      alert("labdetails updated successfully")
+    }
+    catch (err) {
+      console.log(err)
+
+    }
+  }
+
   return (
     <div className={styles.labdetails}>
       <div className={styles.frameParent}>
         <div className={styles.forgotPasswordParent}>
           <b className={styles.forgotPassword}>Lab details</b>
-          <div className={styles.enterYourEmail}>
-            Enter phone number to receive OTP
-          </div>
-        </div>
-        <div className={styles.button}>
-          <div className={styles.buttonSize}>
-            <img
-              className={styles.fileDownloadInLc}
-              alt=""
-              src="/file-download-inlc2.svg"
-            />
-            <div className={styles.text}>Edit</div>
-            <img
-              className={styles.arrowforwardIcon}
-              alt=""
-              src="/arrowforward2.svg"
-            />
-          </div>
+          {editMode ?
+            <b onClick={handelSaveClick} className={styles.editButton}>Save</b> :
+            <b onClick={handelEditClick} className={styles.editButton}>Edit</b>}
         </div>
       </div>
+
+
       <div className={styles.frameGroup}>
         <div className={styles.inputFieldParent}>
           <div className={styles.inputField}>
             <div className={styles.labelParent}>
               <div className={styles.label}>Name of Lab</div>
-              <div className={styles.div}>*</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text1}>New generation Pathlabs</div>
-              <div className={styles.button1}>
-                <div className={styles.buttonSize1}>
-                  <img
-                    className={styles.fileDownloadInLc1}
-                    alt=""
-                    src="/file-download-inlc3.svg"
-                  />
-                  <div className={styles.text2}>Check</div>
-                  <img
-                    className={styles.arrowforwardIcon1}
-                    alt=""
-                    src="/arrowforward3.svg"
-                  />
-                </div>
-              </div>
+            {editMode ? (
+                <input
+                  type="text"
+                  value={labData.name}
+                  onChange={(e) => setLabData({ ...labData, name: e.target.value })}
+                  className={styles.text1}
+                />
+              ) : (
+                <div className={styles.text1}>{labData.name}</div>
+              )}
             </div>
-            <div className={styles.helpText}>Help text</div>
           </div>
           <div className={styles.inputField}>
             <div className={styles.labelParent}>
               <div className={styles.label}>Lab address</div>
-              <div className={styles.div}>*</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text1}>42/B Old English Avenue.</div>
-              <div className={styles.button1}>
-                <div className={styles.buttonSize1}>
-                  <img
-                    className={styles.fileDownloadInLc1}
-                    alt=""
-                    src="/file-download-inlc3.svg"
-                  />
-                  <div className={styles.text2}>Check</div>
-                  <img
-                    className={styles.arrowforwardIcon1}
-                    alt=""
-                    src="/arrowforward3.svg"
-                  />
-                </div>
-              </div>
+            {editMode ? (
+                <input
+                  type="text"
+                  value={labData.address}
+                  onChange={(e) => setLabData({ ...labData, address: e.target.value })}
+                  className={styles.text1}
+                />
+              ) : (
+                <div className={styles.text1}>{labData.address}</div>
+              )}
             </div>
-            <div className={styles.helpText}>Help text</div>
           </div>
+
+
           <div className={styles.inputField}>
             <div className={styles.labelParent}>
               <div className={styles.label}>Pin code</div>
-              <div className={styles.div}>*</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text1}>234721</div>
-              <div className={styles.button1}>
-                <div className={styles.buttonSize1}>
-                  <img
-                    className={styles.fileDownloadInLc1}
-                    alt=""
-                    src="/file-download-inlc3.svg"
-                  />
-                  <div className={styles.text2}>Check</div>
-                  <img
-                    className={styles.arrowforwardIcon1}
-                    alt=""
-                    src="/arrowforward3.svg"
-                  />
-                </div>
-              </div>
+            {editMode ? (
+                <input
+                  type="text"
+                  value={labData.pinCode}
+                  onChange={(e) => setLabData({ ...labData, pinCode: e.target.value })}
+                  className={styles.text1}
+                />
+              ) : (
+                <div className={styles.text1}>{labData.pinCode}</div>
+              )}
             </div>
-            <div className={styles.helpText}>Help text</div>
-          </div>
-          <div className={styles.inputField3}>
-            <div className={styles.labelParent}>
-              <div className={styles.label}>Name of owner</div>
-              <div className={styles.div}>*</div>
-            </div>
-            <div className={styles.inputFieldflagsParent1}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags1.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text7}>Enter phone number</div>
-              <div className={styles.button1}>
-                <div className={styles.buttonSize1}>
-                  <img
-                    className={styles.fileDownloadInLc1}
-                    alt=""
-                    src="/file-download-inlc3.svg"
-                  />
-                  <div className={styles.text2}>Check</div>
-                  <img
-                    className={styles.arrowforwardIcon1}
-                    alt=""
-                    src="/arrowforward3.svg"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className={styles.helpText}>Help text</div>
-          </div>
-          <div className={styles.inputField3}>
-            <div className={styles.labelParent}>
-              <div className={styles.label}>Phone number</div>
-              <div className={styles.div}>*</div>
-            </div>
-            <div className={styles.inputFieldflagsParent1}>
-              <div className={styles.inputFieldflags4}>
-                <img className={styles.flagsIcon} alt="" src="/flags1.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text7}>Enter phone number</div>
-              <div className={styles.button1}>
-                <div className={styles.buttonSize1}>
-                  <img
-                    className={styles.fileDownloadInLc1}
-                    alt=""
-                    src="/file-download-inlc3.svg"
-                  />
-                  <div className={styles.text2}>Check</div>
-                  <img
-                    className={styles.arrowforwardIcon1}
-                    alt=""
-                    src="/arrowforward3.svg"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className={styles.helpText}>Help text</div>
           </div>
         </div>
+
         <div className={styles.inputFieldParent}>
           <div className={styles.inputField}>
             <div className={styles.labelParent}>
               <div className={styles.label}>Point of contact</div>
-              <div className={styles.div}>*</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text1}>Rajdeep Dey</div>
-              <div className={styles.button1}>
-                <div className={styles.buttonSize1}>
-                  <img
-                    className={styles.fileDownloadInLc1}
-                    alt=""
-                    src="/file-download-inlc3.svg"
-                  />
-                  <div className={styles.text2}>Check</div>
-                  <img
-                    className={styles.arrowforwardIcon1}
-                    alt=""
-                    src="/arrowforward3.svg"
-                  />
-                </div>
-              </div>
+            {editMode ? (
+                <input
+                  type="text"
+                  value={labData.poc}
+                  onChange={(e) => setLabData({ ...labData, poc: e.target.value })}
+                  className={styles.text1}
+                />
+              ) : (
+                <div className={styles.text1}>{labData.poc}</div>
+              )}
+       
             </div>
-            <div className={styles.helpText}>Help text</div>
           </div>
           <div className={styles.inputField}>
             <div className={styles.labelParent}>
               <div className={styles.label}>Lab ID</div>
-              <div className={styles.div}>*</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text1}>#NGP091187_72w76</div>
-              <img
-                className={styles.arrowaltdownIcon}
-                alt=""
-                src="/arrowaltdown1.svg"
-              />
+            {editMode ? (
+                <input
+                  type="text"
+                  value={labData.localId}
+                  onChange={(e) => setLabData({ ...labData, localId: e.target.value })}
+                  className={styles.text1}
+                />
+              ) : (
+                <div className={styles.text1}>{labData.localId}</div>
+              )}
             </div>
-            <div className={styles.helpText}>Help text</div>
           </div>
+
           <div className={styles.inputField}>
             <div className={styles.labelParent}>
               <div className={styles.label}>Plan</div>
-              <div className={styles.div}>*</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-              <div className={styles.inputFieldflags}>
-                <img className={styles.flagsIcon} alt="" src="/flags.svg" />
-                <div className={styles.inputFieldflagsChild} />
-              </div>
-              <div className={styles.text1}>PREMIUM PLAN</div>
-              <img
-                className={styles.arrowforwardIcon1}
-                alt=""
-                src="/arrowaltdown1.svg"
-              />
+            {editMode ? (
+                <input
+                  type="text"
+                  value={labData.plan}
+                  onChange={(e) => setLabData({ ...labData, plan: e.target.value })}
+                  className={styles.text1}
+                />
+              ) : (
+                <div className={styles.text1}>{labData.plan}</div>
+              )}
             </div>
           </div>
         </div>

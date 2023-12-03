@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Onbaording.module.css';
 import { useNavigate } from 'react-router-dom';
-import Discount from '../Settings/Discount/Discount';
+import DiscountOnbord from './DiscountOnbord/DiscountOnbord/DiscountOnbord';
 import axios from "axios"
+import { useSelector, useDispatch } from 'react-redux';
+
 const PlanOptions = ["Basic Plan", "Premium Plan", "Enterprise Plan"];
 const Onbaording = () => {
+    const discounts = useSelector((state) => state.newAddedCoupan);
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [labDetaisFilled, setLabDetailsFilled] = useState(false)
@@ -24,7 +27,6 @@ const Onbaording = () => {
     };
     function areAllPropertiesFilled(data) {
         for (const key in data) {
-            console.log(data[key])
             if (data[key] === "") {
                 setLabDetailsFilled(false); // If any property is empty or falsy, return false
                 return
@@ -40,12 +42,9 @@ const Onbaording = () => {
 
 
 
-
-    console.log(labDetaisFilled)
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        // console.log(formData);
         setStep(step + 1);
     };
 
@@ -75,7 +74,7 @@ const Onbaording = () => {
     };
 
 
-const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
+    const [techniciansDetailFilled, setTechniciansDetailFilled] = useState(false)
     const [technicians, setTechnicians] = useState([
         {
             name: '',
@@ -102,23 +101,40 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
     };
     function areAllTechnicianDetailsFilled(dataArray) {
         for (const person of dataArray) {
-          for (const key in person) {
-            if (person[key] === "") {
-                setTechniciansDetailFilled(false); // If any property is empty, set peopleDetailsFilled to false
-              return;
+            for (const key in person) {
+                if (person[key] === "") {
+                    setTechniciansDetailFilled(false); // If any property is empty, set peopleDetailsFilled to false
+                    return;
+                }
             }
-          }
         }
         setTechniciansDetailFilled(true); // All properties have values, set peopleDetailsFilled to true
-      }
+    }
 
     useEffect(() => {
         // Call the function when the technicians array changes
         areAllTechnicianDetailsFilled(technicians);
-      }, [technicians]);
+    }, [technicians]);
 
+    // Function to transform each discount object
+    function transformDiscount(discount) {
+        return {
+            name: discount.coupon,
+            percent: discount.discount,
+            count: discount.numberOfCoupons,
+            recurrence: discount.recurrence,
+            startTime: {
+                iso8601: discount.discountStartDate // Modify this based on your initial data
+            },
+            endTime: {
+                iso8601: discount.discountExpiryDate // Modify this based on your initial data
+            }
+            // Add other properties as needed
+        };
+    }
     const handleSubmits = async (e) => {
-
+        // Mapping the initial data to the desired format
+        const formattedDiscounts = discounts.map(transformDiscount);
         e.preventDefault();
         const labInfo = {
             "lab": {
@@ -129,55 +145,35 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
                 "poc": formData.pointOfContact,
                 "plan": formData.selectPlan,
             },
-            employees: [
-                { ...technicians }
-            ]
+            "employees": technicians,
+            "discounts": formattedDiscounts
         };
         try {
-            // Making a POST request to the signup endpoint
-            const res = await axios.post(`http://localhost:8080/first/v1/onboard-lab/`, labInfo)
+            // Making a POST request to the onboard endpoint
+            const res = await axios.post(`http://localhost:8090/first/v1/onboard-lab`, labInfo)
+
+            // Setting the value
+            localStorage.setItem('labId', res.data.labId);
+            console.log(labInfo)
+
+
+            console.log(res.data.labId)
             navigate("/dashbord")
-            console.log(res.data)
         }
         catch (err) {
             // Handling errors and displaying the error message from the server
             console.log(err)
-            // setMessage(err.response.data)
+
         }
 
         console.log(labInfo);
 
         navigate("/dashbord")
     };
-    const discountData = [
-        {
-            coupon: "SPC30",
-            discount: "30% off",
-            numberOfCoupons: 100,
-            discountStartDate: "2023-10-01",
-            discountExpiryDate: "2023-10-31",
-            applicableTests: [
 
-            ],
-        },
-
-
-        {
-            coupon: "SPC31110",
-            discount: "30% off",
-            numberOfCoupons: 100,
-            discountStartDate: "2023-10-01",
-            discountExpiryDate: "2023-10-31",
-            applicableTests: [
-                { value: 1, label: 'Item 10' },
-                { value: 2, label: 'Item 20' },
-            ],
-        },
-        // Add more discount entries here
-    ];
     const goBack = () => {
         window.history.back();
-      };
+    };
 
     return (
         <div className={styles.multiformLayout}>
@@ -354,7 +350,7 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
 
                                             <input
 
-                                                type="text"
+                                                type="number"
                                                 name="phoneNumber"
                                                 className={styles.inputField}
                                                 placeholder='Enter Phone Number'
@@ -388,11 +384,9 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
                                         {index > 0 && (
                                             <div className={styles.technicianDetailsIcon}>
 
-                                                <svg className={styles.cancelButton} onClick={() => removeTechnician(index)} xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83317 7.1665V15.4998C5.83317 16.4203 6.57936 17.1665 7.49984 17.1665H12.4998C13.4203 17.1665 14.1665 16.4203 14.1665 15.4998V7.1665H15.8332V15.4998C15.8332 17.3408 14.3408 18.8332 12.4998 18.8332H7.49984C5.65889 18.8332 4.1665 17.3408 4.1665 15.4998V7.1665H5.83317Z" fill="#4A5055" />
-                                                    <path d="M8.33333 9.6665C7.8731 9.6665 7.5 10.0396 7.5 10.4998V13.8332C7.5 14.2934 7.8731 14.6665 8.33333 14.6665C8.79357 14.6665 9.16667 14.2934 9.16667 13.8332V10.4998C9.16667 10.0396 8.79357 9.6665 8.33333 9.6665Z" fill="#4A5055" />
-                                                    <path d="M11.6667 9.6665C11.2064 9.6665 10.8333 10.0396 10.8333 10.4998V13.8332C10.8333 14.2934 11.2064 14.6665 11.6667 14.6665C12.1269 14.6665 12.5 14.2934 12.5 13.8332V10.4998C12.5 10.0396 12.1269 9.6665 11.6667 9.6665Z" fill="#4A5055" />
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66683 5.49984V4.6665C6.66683 3.28579 7.78612 2.1665 9.16683 2.1665H10.8335C12.2142 2.1665 13.3335 3.28579 13.3335 4.6665V5.49984H15.8335C16.2937 5.49984 16.6668 5.87293 16.6668 6.33317C16.6668 6.79341 16.2937 7.1665 15.8335 7.1665H4.16683C3.70659 7.1665 3.3335 6.79341 3.3335 6.33317C3.3335 5.87293 3.70659 5.49984 4.16683 5.49984H6.66683ZM8.3335 4.6665C8.3335 4.20627 8.70659 3.83317 9.16683 3.83317H10.8335C11.2937 3.83317 11.6668 4.20627 11.6668 4.6665V5.49984H8.3335V4.6665Z" fill="#4A5055" />
+                                           
+                                                <svg className={styles.cancelButton} onClick={() => removeTechnician(index)} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
 
                                             </div>
@@ -425,7 +419,9 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
             )}
             {step === 3 && (
                 <div className={styles.stepContent}>
-                    <h2 className={styles.heading}>Add test price list and report letterhead</h2>
+                    <h2 className={styles.heading}><svg onClick={handlePreviousStep} xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <path d="M25.3346 16.0013H6.66797M6.66797 16.0013L16.0013 25.3346M6.66797 16.0013L16.0013 6.66797" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>Add test price list and report letterhead</h2>
 
                     <div className={styles.stepPriceandreportLay} >
                         <div className={styles.stepPriceandreportTop}>
@@ -451,11 +447,11 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
                                 Next
                             </button>
                         )}
-                        {step > 1 && (
+                        {/* {step > 1 && (
                             <button className={styles.button} onClick={handlePreviousStep}>
                                 Previous
                             </button>
-                        )}
+                        )} */}
                     </div>
                     {/* Input fields for Step 3 */}
                 </div>
@@ -463,31 +459,19 @@ const [techniciansDetailFilled,setTechniciansDetailFilled]=useState(false)
             {/* ******************************Discount****************************************** */}
             {step === 4 && (
                 <div className={styles.stepContent}>
-                    {discountData.length
-                        <= 0 ? <>
-                        <div className={styles.headingLayout}>
-                            <h2 className={styles.heading}>Discount</h2>
-                            <h4 className={styles.discountCoupanButton}>Add Coupan</h4>
-                        </div>
+                    <DiscountOnbord onClick={handlePreviousStep} />
 
-                        <div className={styles.discountLayout} >
-                            <div>
-                                <img className={styles.discountCoupanIcon} src='/logo192.png' />
-                            </div>
-                            <div className={styles.discountCoupanText}>Add discount coupons</div>
-                            <h3 className={styles.discountCoupanButton}>Add Coupan</h3>
-                        </div></> : <Discount />}
                     <div className={styles.buttonContainer}>
                         {step <= 4 && (
                             <button className={styles.buttonToDahbord} onClick={handleSubmits} type="submit">
                                 Continue to Dashbord
                             </button>
                         )}
-                        {step > 1 && (
+                        {/* {step > 1 && (
                             <button className={styles.button} onClick={handlePreviousStep}>
                                 Previous
                             </button>
-                        )}
+                        )} */}
                     </div>
                     {/* Input fields for Step 3 */}
                 </div>

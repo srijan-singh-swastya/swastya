@@ -32,7 +32,7 @@ const AllReportsButton = () => {
         ],
         testStatus: "Report rejected",
         printStatus: "Printed",
-        prepareReport: "Prepare Report",
+        prepareReport: "Edit Report",
         print: "someIcon"
       },
       {

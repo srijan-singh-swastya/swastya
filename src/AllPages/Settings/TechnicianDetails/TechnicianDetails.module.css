@@ -6,16 +6,17 @@
     padding: 2%;
     text-align: center;
     border-radius: 16px;
-background: #FFF;
+    background: #FFF;
+    border: 2px solid red;
 }
 
 .technicianDetailsrow {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+padding-bottom: 24px;
     align-items: center;
- 
+
 }
 
 .technicianDetailsrow button {
@@ -36,39 +37,388 @@ background: #FFF;
     border-radius: 12px;
     background: var(--Primary-800, #0067DF);
 }
+.technicianDetailsrow h1{
+  margin: 0;
+  padding: 0;
+}
 
 .detailsTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+
+border: 1px solid var(--Black-300, #E6EBF0);
 }
 
-.tableHeader {
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    padding: 10px;
+.detailsTableHeader {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+    color: var(--Black-800, #181B1F);
+
+    /* 12/Bold */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
 }
 
-.tableData {
+.SrNoBox {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
     padding: 10px;
-    border: 1px solid #ddd;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+    border-top-left-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    
+
+}
+
+.NameBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+
+}
+
+.PhoneNumberBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+}
+
+.RoleBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+}
+
+.ActionBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+
+
+}
+
+.detailsTableData {
+    display: flex;
+color: var(--Black-700, #4A5055);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+
+}
+.inputText{
+    outline: none;
+    border: none;
+    color: black;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    background:  var(--Black-300, #E6EBF0);
+
+}
+
+.SrNoBox1 {
+    display: flex;
+    flex: 1;
+
+    align-items: flex-start;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--White, #FFF);
+    align-items: center;
+
+}
+
+.NameBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+
+}
+
+.PhoneNumberBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+}
+
+.RoleBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+}
+
+.ActionBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+
 }
 
 /* Style for Edit and Delete buttons */
 .editButton {
     background-color: #007bff;
     color: #fff;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border: none;
     cursor: pointer;
     margin-right: 5px;
+    width: 60px;
+    border-radius: 3px;
+    /* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
 }
 
 .deleteButton {
     background-color: #dc3545;
     color: #fff;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border: none;
     cursor: pointer;
+    /* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+border-radius: 3px;
+
+
+}
+
+.addTechnicianPopUp{
+    position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s ease-in-out;
+}
+.addTechnicianPopUpContainer{
+    width: 80%;
+    /* height:40vh; */
+    /* overflow-y: scroll; */
+  /* border: 2px solid red; */
+    align-items: flex-start;
+    border-radius: 16px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+}
+.prepareReportNav {
+    display: flex;
+    height: 44px;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+}
+
+.prepareReportNavText1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+
+    color: var(--Black-800, #181B1F);
+
+    /* 20/Semibold */
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.prepareReportNavText2 {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+
+}
+
+.prepareReportNavText3 {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    border: 1.2px solid var(--Primary-800, #0067DF);
+    background: var(--White, #FFF);
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.prepareReportNavText4 {
+
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    background: var(--Primary-800, #0067DF);
+    color: var(--White, #FFF);
+    text-align: center;
+    cursor: pointer;
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+}
+
+.prepareReportNavText5 {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.containerLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 16px 20px 16px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* border: 2px solid yellow; */
+    gap: 10px;
+}
+
+.column {
+
+
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.inputFild {
+    display: flex;
+    height: 36px;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 1px solid var(--Black-300, #E6EBF0);
+    background: #FFF;
+    color: var(--Black-800, #181B1F);
+    outline: none;
+
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    /* 150% */
+}
+.lableFontSize {
+    color: var(--Black-700, #4A5055);
+
+    /* 14/Regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 150% */
 }

@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import styles from './EditCoupan.module.css';
+import React, { useState } from 'react';
+import styles from './AddCoupanOnbord.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewCoupon, deleteCoupon, setCoupons, handleEdit } from '../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
-import axios from 'axios';
-// import { handleEdit deleteCoupon} from '../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
+import { addNewCoupon, deleteCoupon, setCoupons } from '../../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
 
-const EditCoupan = (props) => {
-    const dispatch = useDispatch();
-    console.log(props.editItem)
-    const currentIndex = props.index;
+const AddCoupanOnbord = (props) => {
     const { onClick } = props
-
-
-
+    const dispatch = useDispatch();
     const [tests, setTests] = useState([
         {
             name: 'test1',
@@ -43,7 +36,7 @@ const EditCoupan = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [searchText, setSearchText] = useState('');
-    const [selectedTests, setSelectedTests] = useState(props.editItem.tests);
+    const [selectedTests, setSelectedTests] = useState([]);
     const [addCoupanData, setAddCoupanData] = useState({})
 
     const handleToggleDropdown = () => {
@@ -54,8 +47,8 @@ const EditCoupan = (props) => {
 
     const handleTestSelect = (test) => {
         setSelectedTests((prevSelectedTests) => {
-            if (prevSelectedTests.some((prevSelectedTest) => prevSelectedTest.id === test.id)) {
-                return prevSelectedTests.filter((selectedTest) => selectedTest.id !== test.id);
+            if (prevSelectedTests.includes(test)) {
+                return prevSelectedTests.filter((selectedTest) => selectedTest !== test);
             } else {
                 return [...prevSelectedTests, test];
             }
@@ -71,8 +64,24 @@ const EditCoupan = (props) => {
     );
 
 
-    const [formData, setFormData] = useState(props.editItem);
-console.log(formData)
+
+
+
+
+
+
+
+
+
+    const [formData, setFormData] = useState({
+        couponCode: '',
+        discountPercentage: '',
+        numberOfCoupons: '',
+        discountStartDate: '',
+        discountExpireDate: '',
+        recurrence: '',
+    });
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -81,65 +90,58 @@ console.log(formData)
         });
     };
 
-    const handleSave = () => {
+    const handleADD = () => {
+        // console.log('Form Data:', formData);
         const p = {
-            "id":formData.id,
-            "labId":formData.labId,
-            "name": formData.name,
-            "percent": formData.percent, //it is discount percentage
-            "count": formData.count, //number of coupan
-            startTime: {
-                iso8601: formData.startTime // Modify this based on your initial data
-            },
-            endTime: {
-                iso8601: formData.endTime // Modify this based on your initial data
-            },
-            // "discountStartDate": formData.discountStartDate,
-            // "discountExpiryDate": formData.discountExpiryDate,
+            "coupon": formData.couponCode,
+            "discount": formData.discountPercentage,
+            "numberOfCoupons": formData.numberOfCoupons,
+            "discountStartDate": formData.discountStartDate,
+            "discountExpiryDate": formData.discountExpireDate,
             "recurrence": formData.recurrence,
             "applicableTests": selectedTests
         }
-        console.log(p)
-        dispatch(handleEdit({ index: currentIndex, updatedCoupon: p }));
-
+        dispatch(addNewCoupon(p));
         if (onClick) {
             onClick();
         }
     };
-    const handleDelete = async () => {
-   
-        const x = {
-      
-            id: formData.id,
+    const handelAddandCreateCoupan = () => {
+        const p = {
+            "coupon": formData.couponCode,
+            "discount": formData.discountPercentage,
+            "numberOfCoupons": formData.numberOfCoupons,
+            "discountStartDate": formData.discountStartDate,
+            "discountExpiryDate": formData.discountExpireDate,
+            "recurrence": formData.recurrence,
+            "applicableTests": selectedTests
         }
-        try {
-            // Making a GET request to the onboard endpoint with the "labId" as a query parameter
-            const response = await axios.post('http://localhost:8090/first/v1/delete-discount', x);
-            console.log("deleted!")
-        } catch (err) {
-            // Handle errors and display the error message from the server
-            console.error(err);
-        }
+        setFormData({
+            couponCode: '',
+            discountPercentage: '',
+            numberOfCoupons: '',
+            discountStartDate: '',
+            discountExpireDate: '',
+            recurrence: '',
+        })
+        setSelectedTests([])
+        dispatch(addNewCoupon(p));
+
+    }
+    const handleCancleCoupanandPage=()=>{
         if (onClick) {
             onClick();
         }
+        dispatch(setCoupons ())
     }
 
-    const handleCancleCoupanandPage = () => {
-        if (onClick) {
-            onClick();
-        }
-        dispatch(setCoupons())
-    }
-    // console.log(selectedTests)
-    console.log(formData)
     return (<>
         <div className={styles.prepareReportNav}>
-            <div className={styles.prepareReportNavText1}>Edit coupon</div>
-            <div onClick={handleDelete} className={styles.prepareReportNavText3}>Delete Coupan</div>
+            <div className={styles.prepareReportNavText1}>Create coupon77</div>
+            <div onClick={handleADD} className={styles.prepareReportNavText3}>Add</div>
 
             {/* <div onClick={handleReject} className={styles.prepareReportNavText3}>Reject report</div> */}
-            <div onClick={handleSave} className={styles.prepareReportNavText4}>Save</div>
+            <div onClick={handelAddandCreateCoupan} className={styles.prepareReportNavText4}>Add and create new coupon</div>
             {/* <div onClick={onClick} className={styles.prepareReportNavText5}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -158,25 +160,25 @@ console.log(formData)
             <div className={styles.container}>
                 <div className={styles.row}>
                     <div className={styles.column}>
-                        <div className={styles.lableFontSize} htmlFor="coupon">Coupon Code</div>
+                        <div className={styles.lableFontSize} htmlFor="couponCode">Coupon Code</div>
                         <input
                             className={styles.inputFild}
                             type="text"
-                            name="name"
+                            name="couponCode"
                             placeholder="Coupon Code"
-                            value={formData.name}
+                            value={formData.couponCode}
                             onChange={handleChange}
 
                         />
                     </div>
                     <div className={styles.column}>
-                        <div className={styles.lableFontSize} htmlFor="discount">Discount Percentage</div>
+                        <div className={styles.lableFontSize} htmlFor="discountPercentage">Discount Percentage</div>
                         <input
                             className={styles.inputFild}
                             type="text"
-                            name="percent"
+                            name="discountPercentage"
                             placeholder="Discount Percentage"
-                            value={formData.percent}
+                            value={formData.discountPercentage}
                             onChange={handleChange}
                         />
                     </div>
@@ -185,9 +187,9 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="text"
-                            name="count"
+                            name="numberOfCoupons"
                             placeholder="Number of Coupons"
-                            value={formData.count}
+                            value={formData.numberOfCoupons}
                             onChange={handleChange}
                         />
                     </div>
@@ -198,18 +200,18 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="date"
-                            name="startTime"
-                            value={formData.startTime.iso8601}
+                            name="discountStartDate"
+                            value={formData.discountStartDate}
                             onChange={handleChange}
                         />
                     </div>
                     <div className={styles.column}>
-                        <div className={styles.lableFontSize} htmlFor="discountExpiryDate">Discount Expiry Date</div>
+                        <div className={styles.lableFontSize} htmlFor="discountExpireDate">Discount Expiry Date</div>
                         <input
                             className={styles.inputFild}
                             type="date"
-                            name="endTime"
-                            value={formData.endTime.iso8601}
+                            name="discountExpireDate"
+                            value={formData.discountExpireDate}
                             onChange={handleChange}
                         />
                     </div>
@@ -225,7 +227,7 @@ console.log(formData)
                         />
                     </div>
                 </div>
-               
+                {/* <button onClick={handleADD}>Console Log</button> */}
             </div>
         </div>
 
@@ -243,7 +245,7 @@ console.log(formData)
                             <div onClick={handleToggleDropdown} className={styles.dropdownContainerNormaltext}>Select Test</div> : ''
                         }
                         {selectedTests.map((test, id) => (
-                            <div key={id} className={styles.oneTestBox}>
+                            <div className={styles.oneTestBox}>
                                 <div className={styles.dropdownContainerNormaltext}> {test.name}</div>
                                 <svg onClick={() => handleTestSelect(test)} v xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path d="M3.33337 3.33398L8.00004 8.00065M12.6667 12.6673L8.00004 8.00065M8.00004 8.00065L12.6667 3.33398L3.33337 12.6673" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -276,16 +278,13 @@ console.log(formData)
                         />
                     </div>
                     <div >
-                        {filteredTests.map((test, index) => (
-                            // console.log(selectedTests)
-                            // console.log(selectedTests.some((selectedTest) => selectedTest.id === test.id))
-                            <div key={index} >
+                        {filteredTests.map((test) => (
+                            <div key={test.id} >
                                 <label className={styles.checkboxContainer}>
                                     <input
                                         className={styles.inputFild}
                                         type="checkbox"
-                                        checked={selectedTests.some((selectedTest) => selectedTest.id === test.id)}
-                                        // checked={selectedTests.includes(test)}
+                                        checked={selectedTests.includes(test)}
                                         onChange={() => handleTestSelect(test)}
                                         style={{ width: "20px", height: "20px" }}
                                     />
@@ -303,4 +302,4 @@ console.log(formData)
     );
 };
 
-export default EditCoupan;
+export default AddCoupanOnbord;

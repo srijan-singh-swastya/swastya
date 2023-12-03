@@ -1,0 +1,285 @@
+.prepareReportNav {
+    display: flex;
+    height: 44px;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+}
+
+.prepareReportNavText1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+
+    color: var(--Black-800, #181B1F);
+
+    /* 20/Semibold */
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.prepareReportNavText2 {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+
+}
+
+.prepareReportNavText3 {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    border: 1.2px solid var(--Primary-800, #0067DF);
+    background: var(--White, #FFF);
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.prepareReportNavText4 {
+
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    background: var(--Primary-800, #0067DF);
+    color: var(--White, #FFF);
+    text-align: center;
+    cursor: pointer;
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+}
+
+.prepareReportNavText5 {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+
+
+
+
+.containerLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 16px 20px 16px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* border: 2px solid yellow; */
+    gap: 10px;
+}
+
+.column {
+
+
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.inputFild {
+    display: flex;
+    height: 36px;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 1px solid var(--Black-300, #E6EBF0);
+    background: #FFF;
+    color: var(--Black-800, #181B1F);
+    outline: none;
+
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    /* 150% */
+}
+
+.lableFontSize {
+    color: var(--Black-700, #4A5055);
+
+    /* 14/Regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 150% */
+}
+
+
+
+
+
+
+
+
+
+
+.ApplicableTest {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0px 16px 16px 16px;
+}
+
+.dropdownContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    min-height: 36px;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--White, #FFF);
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    /* border: 2px solid red; */
+}
+
+.llayout {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    /* border: 2px solid rgb(36, 24, 24); */
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdownContainertest {
+    display: flex;
+    min-height: 20px;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    /* border: 2px solid red; */
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.oneTestBox {
+    display: flex;
+    height: 20px;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--Black-300, #E6EBF0);
+}
+
+.dropdownContainerNormaltext {
+    color: var(--Black-700, #4A5055);
+    display: flex;
+    flex: 1;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+
+
+
+.searchTestBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 1px solid var(--Black-300, #E6EBF0);
+    overflow: hidden;
+    padding: 5px;
+}
+
+.searchTestBoxInput {
+    flex: 1 0 0;
+    width: 100%;
+    color: var(--Black-500, #A0A6AB);
+    /* outline: none; */
+    border: none;
+    /* 14/Semibold */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    /* 150% */
+}
+
+.checkboxContainer {
+    display: flex;
+    padding: 12px 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}

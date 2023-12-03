@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import styles from './EditCoupan.module.css';
+import styles from './EditCoupanOnbord.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewCoupon, deleteCoupon, setCoupons, handleEdit } from '../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
-import axios from 'axios';
+import { addNewCoupon, deleteCoupon, setCoupons,handleEdit } from '../../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
+
 // import { handleEdit deleteCoupon} from '../../../ReduxState/Property/AddingCoupanDataSlice/AddingCoupanDataSlice';
 
-const EditCoupan = (props) => {
+const EditCoupanOnbord = (props) => {
     const dispatch = useDispatch();
-    console.log(props.editItem)
+    console.log(props.editItem.applicableTests)
     const currentIndex = props.index;
     const { onClick } = props
-
+  
 
 
     const [tests, setTests] = useState([
@@ -43,7 +43,7 @@ const EditCoupan = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [searchText, setSearchText] = useState('');
-    const [selectedTests, setSelectedTests] = useState(props.editItem.tests);
+    const [selectedTests, setSelectedTests] = useState(props.editItem.applicableTests);
     const [addCoupanData, setAddCoupanData] = useState({})
 
     const handleToggleDropdown = () => {
@@ -72,7 +72,7 @@ const EditCoupan = (props) => {
 
 
     const [formData, setFormData] = useState(props.editItem);
-console.log(formData)
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -83,43 +83,22 @@ console.log(formData)
 
     const handleSave = () => {
         const p = {
-            "id":formData.id,
-            "labId":formData.labId,
-            "name": formData.name,
-            "percent": formData.percent, //it is discount percentage
-            "count": formData.count, //number of coupan
-            startTime: {
-                iso8601: formData.startTime // Modify this based on your initial data
-            },
-            endTime: {
-                iso8601: formData.endTime // Modify this based on your initial data
-            },
-            // "discountStartDate": formData.discountStartDate,
-            // "discountExpiryDate": formData.discountExpiryDate,
+            "coupon": formData.coupon,
+            "discount": formData.discount, //it is discount percentage
+            "numberOfCoupons": formData.numberOfCoupons,
+            "discountStartDate": formData.discountStartDate,
+            "discountExpiryDate": formData.discountExpiryDate,
             "recurrence": formData.recurrence,
             "applicableTests": selectedTests
         }
-        console.log(p)
         dispatch(handleEdit({ index: currentIndex, updatedCoupon: p }));
-
+      
         if (onClick) {
             onClick();
         }
     };
-    const handleDelete = async () => {
-   
-        const x = {
-      
-            id: formData.id,
-        }
-        try {
-            // Making a GET request to the onboard endpoint with the "labId" as a query parameter
-            const response = await axios.post('http://localhost:8090/first/v1/delete-discount', x);
-            console.log("deleted!")
-        } catch (err) {
-            // Handle errors and display the error message from the server
-            console.error(err);
-        }
+    const handleDelete = () => {
+        dispatch(deleteCoupon(currentIndex))
         if (onClick) {
             onClick();
         }
@@ -132,6 +111,7 @@ console.log(formData)
         dispatch(setCoupons())
     }
     // console.log(selectedTests)
+    console.log(selectedTests)
     console.log(formData)
     return (<>
         <div className={styles.prepareReportNav}>
@@ -162,9 +142,9 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="text"
-                            name="name"
+                            name="coupon"
                             placeholder="Coupon Code"
-                            value={formData.name}
+                            value={formData.coupon}
                             onChange={handleChange}
 
                         />
@@ -174,9 +154,9 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="text"
-                            name="percent"
+                            name="discount"
                             placeholder="Discount Percentage"
-                            value={formData.percent}
+                            value={formData.discount}
                             onChange={handleChange}
                         />
                     </div>
@@ -185,9 +165,9 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="text"
-                            name="count"
+                            name="numberOfCoupons"
                             placeholder="Number of Coupons"
-                            value={formData.count}
+                            value={formData.numberOfCoupons}
                             onChange={handleChange}
                         />
                     </div>
@@ -198,8 +178,8 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="date"
-                            name="startTime"
-                            value={formData.startTime.iso8601}
+                            name="discountStartDate"
+                            value={formData.discountStartDate}
                             onChange={handleChange}
                         />
                     </div>
@@ -208,8 +188,8 @@ console.log(formData)
                         <input
                             className={styles.inputFild}
                             type="date"
-                            name="endTime"
-                            value={formData.endTime.iso8601}
+                            name="discountExpiryDate"
+                            value={formData.discountExpiryDate}
                             onChange={handleChange}
                         />
                     </div>
@@ -225,7 +205,7 @@ console.log(formData)
                         />
                     </div>
                 </div>
-               
+                {/* <button onClick={handleADD}>Console Log</button> */}
             </div>
         </div>
 
@@ -303,4 +283,4 @@ console.log(formData)
     );
 };
 
-export default EditCoupan;
+export default EditCoupanOnbord;
