@@ -30,7 +30,7 @@ const Discount = (props) => {
               console.log(response.data.discounts)
               setDiscounts(response.data.discounts);
             } catch (err) {
-              // Handle errors and display the error message from the server
+              // Handle errors message from the server
               console.error(err);
             }
           } else {
@@ -39,7 +39,7 @@ const Discount = (props) => {
         };
     
         fetchData();
-      }, [isEditPopupOpen]);
+      }, [isEditPopupOpen,addCoupanPopUp]);
 
 
 

@@ -30,7 +30,9 @@ const AddingMembers = () => {
         "tests": [
             {
                 "testName": "bp",
-                "price": 400
+                "price": 400,
+                "id": "440314cd-facd-4b68-a46b-8670ab0809de",
+                "globalId": "440314cd-facd-4b68-a46b-8670ab0809de",
             },
             {
                 "testName": "cp",

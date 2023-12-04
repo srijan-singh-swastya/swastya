@@ -81,24 +81,42 @@ console.log(formData)
         });
     };
 
-    const handleSave = () => {
+    const handleSave = async() => {
         const p = {
             "id":formData.id,
-            "labId":formData.labId,
             "name": formData.name,
             "percent": formData.percent, //it is discount percentage
             "count": formData.count, //number of coupan
-            startTime: {
-                iso8601: formData.startTime // Modify this based on your initial data
-            },
-            endTime: {
-                iso8601: formData.endTime // Modify this based on your initial data
-            },
+            startTime:  formData.startTime, // Modify this based on your initial data
+            
+            endTime:  formData.endTime // Modify this based on your initial data
+            ,
             // "discountStartDate": formData.discountStartDate,
             // "discountExpiryDate": formData.discountExpiryDate,
             "recurrence": formData.recurrence,
-            "applicableTests": selectedTests
+            "tests": selectedTests
         }
+
+
+        if (p) {
+            try {
+
+                const response = await axios.post('http://localhost:8090/first/v1/update-discount',  {"discount":p});
+                alert("discount updated")
+               
+             
+
+            } catch (err) {
+                // Handle errors and display the error message from the server
+                console.error(err);
+                
+                alert("discount not updated")
+            }
+        }
+
+
+
+
         console.log(p)
         dispatch(handleEdit({ index: currentIndex, updatedCoupon: p }));
 

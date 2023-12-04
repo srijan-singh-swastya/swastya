@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './AddCoupan.module.css';
-
-
+import axios from 'axios';
+let data = []
 const AddCoupan = (props) => {
     const { onClick } = props
 
@@ -89,8 +89,15 @@ const AddCoupan = (props) => {
         });
     };
 
-    const handleADD = () => {
+    const handleADD = async () => {
+
+
+        const labId1 = localStorage.getItem('labId');
+        const x = {
+            labId: labId1,
+          }
         const p = {
+            "labId": labId1,
             "name": formData.couponCode,
             "percent": formData.discountPercentage,
             "count": formData.numberOfCoupons,
@@ -103,33 +110,102 @@ const AddCoupan = (props) => {
             // "discountStartDate": formData.discountStartDate,
             // "discountExpiryDate": formData.discountExpireDate,
             "recurrence": formData.recurrence,
-            "applicableTests": selectedTests
-        }
-        console.log(p)
-        // dispatch(addNewCoupon(p));
-        if (onClick) {
-            onClick();
-        }
-    };
-    const handelAddandCreateCoupan = () => {
-        const p = {
-            "name": formData.couponCode,
-            "percent": formData.discountPercentage,
-            "count": formData.numberOfCoupons,
-            "startTime": {
-                iso8601: formData.discountStartDate // Modify this based on your initial data
-            },
-            "endTime": {
-                iso8601: formData.discountExpireDate // Modify this based on your initial data
-            },
-            // "discountStartDate": formData.discountStartDate,
-            // "discountExpiryDate": formData.discountExpireDate,
-            "recurrence": formData.recurrence,
-            "applicableTests": selectedTests
+            "tests": selectedTests
         }
 
-        //here i will send data in to backend to create test
-        console.log(p)
+        const isValidData =
+            p.labId !== undefined && p.labId !== null &&
+            p.name !== undefined && p.name !== '' &&
+            p.percent !== undefined && p.percent !== '' &&
+            p.count !== undefined && p.count !== '' &&
+            p.startTime.iso8601 !== undefined && p.startTime.iso8601 !== '' &&
+            p.endTime.iso8601 !== undefined && p.endTime.iso8601 !== '' &&
+            p.recurrence !== undefined && p.recurrence !== '';
+
+        if (isValidData) {
+            // Proceed with the object 'p'
+            data.push(p);
+            alert("valid")
+
+
+            if (labId1) {
+                try {
+                   
+                    const response = await axios.post('http://localhost:8090/first/v1/create-discounts', {"discounts":data});
+                    alert("discount created")
+                    // alert(response)
+                    data = []
+                    if (onClick) {
+                        onClick();
+                    }
+               
+                } catch (err) {
+                    // Handle errors and display the error message from the server
+                    console.error(err);
+                    alert("discount not created")
+                }
+            } else {
+                console.log('Lab ID not found in localStorage.');
+            }
+        } 
+        else {
+           
+            alert("Not valid")
+        }
+
+       
+    };
+
+
+
+
+
+
+
+    const handelAddandCreateCoupan = () => {
+        const labId1 = localStorage.getItem('labId');
+        const p = {
+            "labId": labId1,
+            "name": formData.couponCode,
+            "percent": formData.discountPercentage,
+            "count": formData.numberOfCoupons,
+            "startTime": {
+                iso8601: formData.discountStartDate // Modify this based on your initial data
+            },
+            "endTime": {
+                iso8601: formData.discountExpireDate // Modify this based on your initial data
+            },
+            // "discountStartDate": formData.discountStartDate,
+            // "discountExpiryDate": formData.discountExpireDate,
+            "recurrence": formData.recurrence,
+            "tests": selectedTests
+        }
+        const isValidData =
+            p.labId !== undefined && p.labId !== null &&
+            p.name !== undefined && p.name !== '' &&
+            p.percent !== undefined && p.percent !== '' &&
+            p.count !== undefined && p.count !== '' &&
+            p.startTime.iso8601 !== undefined && p.startTime.iso8601 !== '' &&
+            p.endTime.iso8601 !== undefined && p.endTime.iso8601 !== '' &&
+            p.recurrence !== undefined && p.recurrence !== '';
+
+        if (isValidData) {
+            // Proceed with the object 'p'
+            data.push(p);
+            alert("valid")
+            setFormData({
+                couponCode: '',
+                discountPercentage: '',
+                numberOfCoupons: '',
+                discountStartDate: '',
+                discountExpireDate: '',
+                recurrence: '',
+            })
+            setSelectedTests([])
+        } else {
+            alert("Not valid")
+        }
+
 
         // document.getElementById("couponCode").value = ""
         // document.getElementById("discountPercentage").value = ""
@@ -137,21 +213,31 @@ const AddCoupan = (props) => {
         // document.getElementById("discountStartDate").value = ""
         // document.getElementById("discountExpireDate").value = ""
         // document.getElementById("recurrence").value = ""
-        setFormData({
-            couponCode: '',
-            discountPercentage: '',
-            numberOfCoupons: '',
-            discountStartDate: '',
-            discountExpireDate: '',
-            recurrence: '',
-        })
-        setSelectedTests([])
+
+
 
         console.log(p)
         // dispatch(addNewCoupon(p));
 
     }
-    const handleCancleCoupanandPage = () => {
+    const handleCancleCoupanandPage = async() => {
+        console.log(data)
+
+        if (data.length!==0) {
+            try {
+
+                const response = await axios.post('http://localhost:8090/first/v1/create-discounts',  {"discounts":data});
+                alert("discount created")
+                // alert(response)
+                data = []
+
+            } catch (err) {
+                // Handle errors and display the error message from the server
+                console.error(err);
+                
+                alert("discount not created")
+            }
+        }
         if (onClick) {
             onClick();
         }

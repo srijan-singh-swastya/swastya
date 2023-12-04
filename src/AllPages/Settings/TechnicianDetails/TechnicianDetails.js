@@ -5,6 +5,7 @@ import styles from './TechnicianDetails.module.css'; // Import the CSS module
 const TechnicianDetails = () => {
   const [technicianData, setTechnicianData] = useState([]);
   const [addTechnician, setAddTechnician] = useState(false)
+  const [editIndex, setEditIndex] = useState(-1);
   useEffect(() => {
     const fetchData = async () => {
       // Retrieving the "labId" value from localStorage
@@ -30,8 +31,8 @@ const TechnicianDetails = () => {
     };
 
     fetchData();
-  }, []);
-  const [editIndex, setEditIndex] = useState(-1);
+  }, [addTechnician]);
+ 
 
   const handleEditEmployee = (index) => {
     setEditIndex(index);
@@ -65,6 +66,7 @@ const TechnicianDetails = () => {
       // Making a POST request to the update-employee endpoint
       const res = await axios.post(`http://localhost:8090/first/v1/delete-employee`, x)
       alert("delete-employee successfully")
+      setAddTechnician(false)
       setTechnicianData((prevData) => {
         const newData = prevData.filter((employee) => employee.id !== x.id);
         return newData;
@@ -85,37 +87,79 @@ const TechnicianDetails = () => {
     name: '',
     phoneNumber: '',
     role: '',
-});
+    labId: localStorage.getItem('labId')
+  });
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-        ...formData,
-        [name]: value,
+      ...formData,
+      [name]: value,
     });
-};
+  };
   const handleAddTechnician = () => {
     setAddTechnician(!addTechnician)
   }
-  const handleSave=()=>{
+
+
+  const handleSave = async () => {
     console.log(formData)
-    setAddTechnician(!addTechnician)
-    setFormData({
-      name: '',
-      phoneNumber: '',
-      role: '',
-  })
+    const labId1 = localStorage.getItem('labId');
+    const x = {
+      employee: formData,
+    }
+    if (labId1) {
+      try {
+        // Making a post request to the create-employee endpoint 
+        const response = await axios.post('http://localhost:8090/first/v1/create-employee', x);
+
+        alert("emp created")
+        setAddTechnician(!addTechnician)
+        setFormData({
+          name: '',
+          phoneNumber: '',
+          role: '',
+          labId: localStorage.getItem('labId')
+        })
+      } catch (err) {
+        // Handle errors message from the server
+        console.error(err);
+        alert("emp not created")
+      }
+    } else {
+      console.log('Lab ID not found in localStorage.');
+    }
+   
 
   }
-  const handelSaveandAddNewTechnician=()=>{
+  const handelSaveandAddNewTechnician = async() => {
     console.log(formData)
+    const labId1 = localStorage.getItem('labId');
+    const x = {
+      employee: formData,
+    }
+    if (labId1) {
+      try {
+        // Making a post request to the create-employee endpoint 
+        const response = await axios.post('http://localhost:8090/first/v1/create-employee', x);
+
+        alert("emp created")
+      } catch (err) {
+        // Handle errors message from the server
+        console.error(err);
+        alert("emp not created")
+      }
+    } else {
+      console.log('Lab ID not found in localStorage.');
+    }
     setFormData({
       name: '',
       phoneNumber: '',
       role: '',
-  })
+      labId: localStorage.getItem('labId')
+    })
   }
-  const handleCancle=()=>{
+  const handleCancle = () => {
     setAddTechnician(!addTechnician)
   }
 
@@ -211,7 +255,7 @@ const handleChange = (e) => {
               <div onClick={handelSaveandAddNewTechnician} className={styles.prepareReportNavText3}>Save and Add new Technician</div>
 
               <div onClick={handleSave} className={styles.prepareReportNavText4}>Save</div>
-             
+
               <div onClick={handleCancle} className={styles.prepareReportNavText5}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -232,8 +276,8 @@ const handleChange = (e) => {
                       name="name"
                       id="name"
                       placeholder="Enter Name"
-                    value={formData.name}
-                    onChange={handleChange}
+                      value={formData.name}
+                      onChange={handleChange}
 
                     />
                   </div>
@@ -245,8 +289,8 @@ const handleChange = (e) => {
                       name="phoneNumber"
                       id="phoneNumber"
                       placeholder="Enter Phone Number"
-                    value={formData.phoneNumber}
-                    onChange={handleChange}
+                      value={formData.phoneNumber}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className={styles.column}>
@@ -257,8 +301,8 @@ const handleChange = (e) => {
                       name="role"
                       id="role"
                       placeholder="Enter Role"
-                    value={formData.role}
-                    onChange={handleChange}
+                      value={formData.role}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
