@@ -260,12 +260,14 @@
   align-items: flex-start;
   gap: var(--gap-9xs);
   color: var(--black-600);
+  /* border: 2px solid red; */
 }
 .labSummaryForParent {
   flex: 1;
   flex-direction: row;
   align-items: center;
   gap: var(--gap-5xs);
+  /* border: 2px solid red; */
 }
 .text3 {
   position: relative;

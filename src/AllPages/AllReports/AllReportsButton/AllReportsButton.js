@@ -376,7 +376,8 @@ let setCount=0;
         <div className={styles.allDataLayoutBottom}>
 
           {/* <button onClick={handleShowIfChecked}>Show Checked IDs</button> */}
-          {filteredData.map((group, groupIndex) => (
+          {/* {console.log(filteredData.filter(arr => arr.length > 0))} */}
+          {filteredData.filter(arr => arr.length > 0).map((group, groupIndex) => (
             <div className={styles.allDataLayoutBottomBox} key={groupIndex}>
               {group.map((data, dataIndex) => (
                 <div className={styles.bundeelContainer} key={dataIndex}>

@@ -292,6 +292,7 @@
   line-height: 21px;
   color: var(--black-500);
   text-align: left;
+  outline: none;
 }
 .searchfatGroup {
   align-self: stretch;
@@ -451,8 +452,9 @@
   align-items: flex-start;
   align-self: stretch;
 border-radius: 5px;
-/* z-index: 20; */
-  /* border: 2px solid rgb(137, 111, 111); */
+background: #FFF;
+border-radius: 11px;
+
 }
 
 .allDataLayoutToptexts {
@@ -845,6 +847,7 @@ align-self: stretch;
 /* border: 1px solid var(--Black-300, #E6EBF0); */
 background: #FFF;
 padding: 0px 5px;
+border-radius: 10px;
 }
 
 

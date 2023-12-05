@@ -1,7 +1,12 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import styles from "./Dashbord.module.css";
 import { useNavigate } from "react-router-dom";
+import DateRangePicker from "../General/DateRangePicker/DateRangePicker";
 const Dashbord = () => {
+  const [date,setDate]=useState(false)
+  const handleDate=()=>{
+    setDate(!date)
+  }
   const navigate = useNavigate()
   const onButtonSizeContainerClick = useCallback(() => {
     navigate("/signReportHome")
@@ -89,17 +94,13 @@ const Dashbord = () => {
           <div className={styles.autoAddedFrame}>
             <div className={styles.labSummaryForParent}>
               <div className={styles.labSummaryFor}>{`Lab summary for `}</div>
-              <div className={styles.dropdown}>
+              <div onClick={handleDate} className={styles.dropdown}>
                 <div className={styles.labelParent}>
                   <div className={styles.labSummaryFor}>Label</div>
                   <div className={styles.div}>*</div>
                 </div>
                 <div className={styles.searchfatParent}>
-                  <img
-                    className={styles.searchfatIcon}
-                    alt=""
-                    src="/Image/Dashbord/searchfat1.svg"
-                  />
+              
                   <div className={styles.text2}>Jul 14 – Jul 20</div>
                   <button className={styles.arrowaltdown}>
                     <img
@@ -111,7 +112,9 @@ const Dashbord = () => {
                 </div>
                 <div className={styles.helpText}>Help text</div>
               </div>
+           
             </div>
+           
             <button onClick={onFrameButton1Click} className={styles.button1}>
               <div className={styles.buttonSize1}>
                 <img
