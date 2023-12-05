@@ -253,12 +253,14 @@ line-height: 21px; /* 150% */
     border: 1px solid var(--Black-300, #E6EBF0);
     background: #FFF;
     outline: none;
-    color: var(--Black-500, #A0A6AB);
+    color: var(--Black-800, #181B1F);
+
+    /* 14/Semibold */
     font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 21px;
+    line-height: 21px; /* 150% */
     padding-left: 6px;
     /* border: 2px solid red; */
 }
@@ -284,7 +286,7 @@ line-height: 21px; /* 150% */
     border: 1px solid var(--Black-300, #E6EBF0);
     background: #FFF;
     outline: none;
-    color: var(--Black-500, #A0A6AB);
+    color: var(--Black-800, #181B1F);
 
     /* 14/Semibold */
     font-family: Roboto;
@@ -295,12 +297,11 @@ line-height: 21px; /* 150% */
   
 }
 .optionsLayout{
-    color: var(--Black-700, #4A5055);
+    color: var(--Black-500, #A0A6AB);
 
     /* 14/Semibold */
-    height: 30px !important;
     font-family: Roboto;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 21px; /* 150% */
@@ -364,7 +365,7 @@ line-height: 21px; /* 150% */
     gap: 8px;
     border-radius: 12px;
     cursor: pointer;
-    background: var(--Primary-500, #99C2F2);
+    background: var(--Primary-800, #0067DF);
     color: var(--White, #FFF);
     text-align: center;
 

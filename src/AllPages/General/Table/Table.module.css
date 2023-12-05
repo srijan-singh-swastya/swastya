@@ -1,0 +1,187 @@
+
+/* css of table  */
+.detailsTable {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: fit-content;
+  /* overflow: hidden; */
+  
+  }
+  
+  .detailsTableHeader {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+    color: var(--Black-800, #181B1F);
+  
+    /* 12/Bold */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  
+    /* 12/Bold */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+  
+  }
+  .boxSize0f {
+    display: flex;
+    /* flex: 1; */
+    position:fixed;
+    /* left: 10; */
+    width: 300px;
+    align-items: flex-start;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+    border: 2px solid rebeccapurple;
+  }
+  
+  
+  .boxSize0fData {
+    display: flex;
+    /* flex: 1; */
+    position:fixed;
+    /* left: 10; */
+    width: 300px;
+    align-items: flex-start;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--White, #FFF);
+  }
+  .boxSize0{
+    display: flex;
+    left: 0;
+    width: 300px;
+    align-items: flex-start;
+  
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #0554a3);
+    border-top-left-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+  }
+  .boxSize0Data{
+    display: flex;
+    width: 300px;
+    align-items: flex-start;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #0554a3);
+    border-top-left-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+  
+    background-color: rgb(63, 42, 42);
+  }
+  .boxSizeHalf{
+    display: flex;
+    /* flex: 1; */
+    width: 20px;
+    align-items: flex-start;
+    padding: 10px 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  
+    border-top-left-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+      
+  }
+  .boxSize1 {
+    display: flex;
+    /* flex: 1; */
+    width: 50px;
+    align-items: flex-start;
+    padding: 10px 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  
+    border-top-left-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    
+  
+  }
+  
+  .boxSize2 {
+    display: flex;
+    align-items: flex-start;
+    /* flex: 2; */
+    width: 100px;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  
+  
+  }
+  
+  .boxSize3 {
+    display: flex;
+    align-items: flex-start;
+    /* flex: 3; */
+    width: 150px;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  
+  }
+  
+  .boxSize4 {
+    display: flex;
+    align-items: flex-start;
+    /* flex: 4; */
+    width: 200px;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  
+  }
+  
+  .boxSize5 {
+    display: flex;
+    align-items: flex-start;
+    /* flex: 5; */
+    width: 250px;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+  
+  
+  
+  }
+  
+  .detailsTableData {
+  
+  
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  border-right: 1px solid var(--Black-200, #F7F8F9);
+  border-bottom: 1px solid var(--Black-200, #F7F8F9);
+  background: var(--White, #FFF);
+  color: var(--Black-700, #4A5055);
+  
+  /* 12/Medium */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+  
+  
+  
+  
+  }
+  .inputText{
+    outline: none;
+    border: none;
+    color: black;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    background:  var(--Black-300, #E6EBF0);
+  
+  }

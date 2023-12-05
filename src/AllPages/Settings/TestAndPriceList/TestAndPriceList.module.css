@@ -76,3 +76,217 @@ background: #FFF;
     border: none;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.detailsTable {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+
+border: 1px solid var(--Black-300, #E6EBF0);
+}
+
+.detailsTableHeader {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+    color: var(--Black-800, #181B1F);
+
+    /* 12/Bold */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.SrNoBox {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+    border-top-left-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    
+
+}
+
+.NameBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+
+}
+
+.PhoneNumberBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+}
+
+.RoleBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+}
+
+.ActionBox {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-300, #E6EBF0);
+    border-bottom: 1px solid var(--Black-300, #E6EBF0);
+    background: var(--Black-200, #F7F8F9);
+
+
+}
+
+.detailsTableData {
+    display: flex;
+color: var(--Black-700, #4A5055);
+
+/* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+
+}
+.inputText{
+    outline: none;
+    border: none;
+    color: black;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    background:  var(--Black-300, #E6EBF0);
+
+}
+
+.SrNoBox1 {
+    display: flex;
+    flex: 1;
+
+    align-items: flex-start;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--White, #FFF);
+    align-items: center;
+
+}
+
+.NameBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+
+}
+
+.PhoneNumberBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+}
+
+.RoleBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+}
+
+.ActionBox1 {
+    display: flex;
+    align-items: flex-start;
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid var(--Black-200, #F7F8F9);
+    border-bottom: 1px solid var(--Black-200, #F7F8F9);
+    background: var(--Black-300, #E6EBF0);
+    align-items: center;
+
+}
+
+/* Style for Edit and Delete buttons */
+.editButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 4px 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    width: 60px;
+    border-radius: 3px;
+    /* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+
+.deleteButton {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 4px 10px;
+    border: none;
+    cursor: pointer;
+    /* 12/Medium */
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+border-radius: 3px;
+
+
+}
+
+
+
+

@@ -350,7 +350,7 @@ const Onbaording = () => {
 
                                             <input
 
-                                                type="number"
+                                                type="text"
                                                 name="phoneNumber"
                                                 className={styles.inputField}
                                                 placeholder='Enter Phone Number'
@@ -368,10 +368,10 @@ const Onbaording = () => {
                                                 onChange={(e) => handleChanges(index, e)}
                                                 required
                                             >
-                                                <option value="">Select Technician Role</option>
-                                                <option value="Role A">Role A</option>
-                                                <option value="Role B">Role B</option>
-                                                <option value="Role C">Role C</option>
+                                                <option className={styles.optionsLayout} value="">Select Technician Role</option>
+                                                <option className={styles.optionsLayout} value="Role A">Role A</option>
+                                                <option className={styles.optionsLayout} value="Role B">Role B</option>
+                                                <option className={styles.optionsLayout} value="Role C">Role C</option>
                                             </select>
                                         </div>
                                         {index === 0 && (
@@ -443,7 +443,7 @@ const Onbaording = () => {
                     </div>
                     <div className={styles.buttonContainer}>
                         {step < 4 && (
-                            <button className={styles.button} onClick={handleNextStep} type="submit">
+                            <button className={styles.buttonYes} onClick={handleNextStep} type="submit">
                                 Next
                             </button>
                         )}

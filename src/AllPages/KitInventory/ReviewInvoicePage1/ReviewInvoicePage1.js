@@ -113,7 +113,7 @@ const ReviewInvoicePage1 = (props) => {
 
             <div className={styles.ReviewInvoicePage1Box2}>
                 <div className={styles.ReviewInvoicePage1Box2Left}>
-                    <img className={styles.imageSize} src="https://cdn-icons-png.flaticon.com/512/7645/7645138.png" />
+                    <img className={styles.imageSize} src="https://i.pinimg.com/736x/98/62/42/986242f1d3273b4af8d884a85e8810e6.jpg" />
                 </div>
                 <div className={styles.ReviewInvoicePage1Box2Right}>
                     {EmptyDataCount > 0 ?
