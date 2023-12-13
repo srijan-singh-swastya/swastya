@@ -102,7 +102,36 @@
     background: #FFF;
     /* border: 2px solid red; */
 }
+.discountInput{
+    /* outline: none; */
+    display: flex;
+    height: 45px;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+    border: 2px solid var(--Black-300, #E6EBF0);
+    background: #FFF;
+   outline: none;
+   color: var(--Black-800, #181B1F);
 
+/* 14/Semibold */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 21px; /* 150% */
+
+}
+.coupanDropdown{
+    color: var(--Black-500, #A0A6AB);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+}
 
 
 .patientInputBoxInput {
@@ -179,10 +208,7 @@ width: 140px;
  
     /* 150% */
 }
-.discountInput{
-    /* outline: none; */
-    border: none;
-}
+
 .discountParticulars{
     display: flex;
     height: auto;
@@ -206,6 +232,42 @@ gap: 8px;
 align-self: stretch;
 background: var(--Black-200, #F7F8F9);
 border-radius: var(--mint-cfc-sys-corner-radius-s, 6px);
+}
+.particulars{
+    color: var(--Black-800, #181B1F);
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+.particularsName{
+    color: var(--Black-700, #4A5055);
+
+/* 14/Regular */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 150% */
+}
+.particularsPrice{
+    color: var(--Black-800, #181B1F);
+font-family: Roboto Mono;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+.tatoalPayable{
+    color: var(--Black-800, #181B1F);
+
+/* 16/Bold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 150% */
 }
 .discountParticularsLine2{
     display: flex;
@@ -291,6 +353,7 @@ flex: 1 0 0;
 align-self: stretch;
 border-radius: 16px 16px 0px 0px;
 background: #F2F5F8;
+margin-top: 15px;
 }
 .priceLayoutBox{
     display: flex;
@@ -325,6 +388,8 @@ line-height: 21px; /* 131.25% */
     align-items: flex-start;
     gap: 78px;
     align-self: stretch;
+    margin-left: 20px;
+    justify-content: center;
 }
 .priceLayoutBoxPatientTestName{
     flex: 1 0 0;
@@ -332,16 +397,24 @@ line-height: 21px; /* 131.25% */
 font-family: Roboto Mono;
 font-size: 14px;
 font-style: normal;
-font-weight: 700;
+font-weight: 600;
+padding: 4px 0px;
 line-height: 21px; /* 150% */
 }
 .priceLayoutBoxPatientTestPrice{
     display: flex;
-padding: 8px 16px;
+padding: 4px 16px;
 justify-content: flex-end;
 align-items: flex-start;
 gap: 8px;
 flex: 1 0 0;
+color: var(--Black-800, #181B1F);
+font-family: Roboto Mono;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 131.25% */
+
 }
 .totalPriceBox{
     display: flex;

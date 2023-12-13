@@ -29,6 +29,10 @@ const AddingMembers = () => {
     const testData = {
         "tests": [
             {
+                "testName": "Select Test",
+                "price": ""
+            },
+            {
                 "testName": "bp",
                 "price": 400,
                 "id": "440314cd-facd-4b68-a46b-8670ab0809de",
@@ -254,7 +258,7 @@ const AddingMembers = () => {
                             </div>
                             <div className={styles.detailsAndTestLayoutBottom}>
                                 <div className={styles.detailsAndTestLayoutBottomLeft}>
-                                    <div className={styles.detailsAndTestLayoutBottomLeftLine1}>
+                                    <div className={styles.addTestAndDigit}>
                                         <div className={styles.detailsAndTestLayoutBottomLeftLine1text1}>1</div>
                                         <div className={styles.detailsAndTestLayoutBottomLeftLine1text2}>Add patient details</div>
                                     </div>
@@ -385,18 +389,31 @@ const AddingMembers = () => {
                                             </div> : ""}
                                     </div>
                                 </div>
+
+
+
+
+
                                 <div className={styles.detailsAndTestLayoutBottomRight}>
                                     <div className={styles.detailsAndTestLayoutBottomLeftLine1}>
-                                        <div className={styles.detailsAndTestLayoutBottomLeftLine1text1}>2</div>
-                                        <div className={styles.detailsAndTestLayoutBottomLeftLine1text2}>Add tests</div>
+                                        <div className={styles.addTestAndDigit}>
+                                            <div className={styles.detailsAndTestLayoutBottomLeftLine1text1}>2</div>
+                                            <div className={styles.detailsAndTestLayoutBottomLeftLine1text2}>Add tests</div>
+                                        </div>
+                                        {
+                                            dataaaa.length >= 1 ?
+
+                                                <div className={styles.checkboxandtext}>
+                                                    <input className={styles.checkbox} type='checkbox' />
+                                                    <div className={styles.sameasPrimary}>Same tests as Primary contact </div>
+                                                </div>
+                                                : ""
+                                        }
                                     </div>
                                     <div className={styles.detailsAndTestLayoutBottomLeftLine2}>
                                         <div className={styles.detailsAndTestLayoutBottomLeftLine2Text1}>Test name</div>
                                         <div className={styles.detailsAndTestLayoutBottomLeftLine2Text2}>Price (₹)</div>
                                     </div>
-
-
-
                                     {tests.map((test, index) => (
                                         <div key={index} className={styles.detailsAndTestLayoutBottomLeftLine3}>
 
@@ -408,7 +425,7 @@ const AddingMembers = () => {
 
                                                 onChange={(e) => handleTestChange(index, "testName", e.target.value)}
                                             >
-                                                <option value="">Select Test</option>
+                                                {/* <option value="">Select Test</option> */}
                                                 {testData.tests.map((testDataItem, dataIndex) => (
                                                     <option key={dataIndex}
                                                         value={testDataItem.testName}>
@@ -419,14 +436,16 @@ const AddingMembers = () => {
 
 
 
-                                            <div className={styles.detailsAndTestLine3TestPrice} >{test.price}</div>
-
-                                            <svg onClick={() => removeTest(index)} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83317 6.6665V14.9998C5.83317 15.9203 6.57936 16.6665 7.49984 16.6665H12.4998C13.4203 16.6665 14.1665 15.9203 14.1665 14.9998V6.6665H15.8332V14.9998C15.8332 16.8408 14.3408 18.3332 12.4998 18.3332H7.49984C5.65889 18.3332 4.1665 16.8408 4.1665 14.9998V6.6665H5.83317Z" fill="#4A5055" />
-                                                <path d="M8.33333 9.1665C7.8731 9.1665 7.5 9.5396 7.5 9.99984V13.3332C7.5 13.7934 7.8731 14.1665 8.33333 14.1665C8.79357 14.1665 9.16667 13.7934 9.16667 13.3332V9.99984C9.16667 9.5396 8.79357 9.1665 8.33333 9.1665Z" fill="#4A5055" />
-                                                <path d="M11.6667 9.1665C11.2064 9.1665 10.8333 9.5396 10.8333 9.99984V13.3332C10.8333 13.7934 11.2064 14.1665 11.6667 14.1665C12.1269 14.1665 12.5 13.7934 12.5 13.3332V9.99984C12.5 9.5396 12.1269 9.1665 11.6667 9.1665Z" fill="#4A5055" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66683 4.99984V4.1665C6.66683 2.78579 7.78612 1.6665 9.16683 1.6665H10.8335C12.2142 1.6665 13.3335 2.78579 13.3335 4.1665V4.99984H15.8335C16.2937 4.99984 16.6668 5.37293 16.6668 5.83317C16.6668 6.29341 16.2937 6.6665 15.8335 6.6665H4.16683C3.70659 6.6665 3.3335 6.29341 3.3335 5.83317C3.3335 5.37293 3.70659 4.99984 4.16683 4.99984H6.66683ZM8.3335 4.1665C8.3335 3.70627 8.70659 3.33317 9.16683 3.33317H10.8335C11.2937 3.33317 11.6668 3.70627 11.6668 4.1665V4.99984H8.3335V4.1665Z" fill="#4A5055" />
-                                            </svg>
+                                            <div className={styles.detailsAndTestLine3TestPrice} >{test.price === "" ? "₹ shows automatically" : test.price}</div>
+                                            {/* {alert(test.price)} */}
+                                            {index === 0 ? <div className={styles.hideIcon}></div> :
+                                                <svg onClick={() => removeTest(index)} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83317 6.6665V14.9998C5.83317 15.9203 6.57936 16.6665 7.49984 16.6665H12.4998C13.4203 16.6665 14.1665 15.9203 14.1665 14.9998V6.6665H15.8332V14.9998C15.8332 16.8408 14.3408 18.3332 12.4998 18.3332H7.49984C5.65889 18.3332 4.1665 16.8408 4.1665 14.9998V6.6665H5.83317Z" fill="#4A5055" />
+                                                    <path d="M8.33333 9.1665C7.8731 9.1665 7.5 9.5396 7.5 9.99984V13.3332C7.5 13.7934 7.8731 14.1665 8.33333 14.1665C8.79357 14.1665 9.16667 13.7934 9.16667 13.3332V9.99984C9.16667 9.5396 8.79357 9.1665 8.33333 9.1665Z" fill="#4A5055" />
+                                                    <path d="M11.6667 9.1665C11.2064 9.1665 10.8333 9.5396 10.8333 9.99984V13.3332C10.8333 13.7934 11.2064 14.1665 11.6667 14.1665C12.1269 14.1665 12.5 13.7934 12.5 13.3332V9.99984C12.5 9.5396 12.1269 9.1665 11.6667 9.1665Z" fill="#4A5055" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66683 4.99984V4.1665C6.66683 2.78579 7.78612 1.6665 9.16683 1.6665H10.8335C12.2142 1.6665 13.3335 2.78579 13.3335 4.1665V4.99984H15.8335C16.2937 4.99984 16.6668 5.37293 16.6668 5.83317C16.6668 6.29341 16.2937 6.6665 15.8335 6.6665H4.16683C3.70659 6.6665 3.3335 6.29341 3.3335 5.83317C3.3335 5.37293 3.70659 4.99984 4.16683 4.99984H6.66683ZM8.3335 4.1665C8.3335 3.70627 8.70659 3.33317 9.16683 3.33317H10.8335C11.2937 3.33317 11.6668 3.70627 11.6668 4.1665V4.99984H8.3335V4.1665Z" fill="#4A5055" />
+                                                </svg>
+                                            }
                                         </div>
                                     ))}
                                     <button className={styles.detailsAndTestLine3testbutton} onClick={addMoreTest}><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">

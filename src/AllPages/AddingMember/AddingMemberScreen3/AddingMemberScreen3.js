@@ -172,45 +172,48 @@ const AddingMemberScreen3 = (props) => {
                             <div className={styles.patientLabelBoxText1}>Discount</div>
                             <div className={styles.patientLabelBoxText2}>*</div>
                         </div>
-                        <div className={styles.patientInputBox}>
-                            <select
-                                id='discount'
-                                className={styles.discountInput}
 
-                                onChange={(e) => handleDiscountChange(e)}
-                            >
-                                <option value="">Select Coupan</option>
-                                {discountData.map((discount, dataIndex) => (
-                                    <option key={dataIndex}
-                                        value={discount.coupanName}>
-                                        {discount.coupanName}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        <select
+                            id='discount'
+                            className={styles.discountInput}
+
+                            onChange={(e) => handleDiscountChange(e)}
+                        >
+                            <option  className={styles.coupanDropdown} value="">Select Coupan</option>
+                            {discountData.map((discount, dataIndex) => (
+                                <option
+                                    className={styles.coupanDropdown}
+                                    key={dataIndex}
+                                    value={discount.coupanName}>
+                                    {discount.coupanName}
+
+                                </option>
+                            ))}
+                        </select>
+
                     </div>
                     <div className={styles.discountParticulars}>
                         <div className={styles.discountParticularsLine1}>
-                            <div>Particulars</div>
-                            <div>Ammount</div>
+                            <div className={styles.particulars}>Particulars</div>
+                            <div className={styles.particulars}>Ammount</div>
                         </div>
                         <div className={styles.discountParticularsLine2}>
-                            <div>Test Total</div>
-                            <div>{totalMoney}</div>
+                            <div className={styles.particularsName}>Test Total</div>
+                            <div className={styles.particularsPrice}>{totalMoney}</div>
                         </div>
                         <div className={styles.discountParticularsLine3}>
-                            <div>( - ) Amount collected</div>
-                            <div>500</div>
+                            <div className={styles.particularsName}>( - ) Amount collected</div>
+                            <div className={styles.particularsPrice}>500</div>
                         </div>
                         <div className={styles.discountParticularsLine4}>
-                            <div>( - ) Discount</div>
-                            <div>Ammount</div>
+                            <div className={styles.particularsName}>( - ) Discount</div>
+                            <div className={styles.particularsPrice}>2323</div>
                         </div>
                         <div className={styles.discountParticularsLine5}>
-                            <div>Total payable</div>
-                            <div>3</div>
+                            <div className={styles.tatoalPayable}>Total payable</div>
+                            <div className={styles.tatoalPayable}>3</div>
                         </div>
-                    
+
 
                     </div>
 
@@ -223,7 +226,7 @@ const AddingMemberScreen3 = (props) => {
 
 
                 <div className={styles.addingMembersLayoutRight}>
-                    <div className={styles.addingMembersLayoutRightLine1}>Total amount per patient</div>
+                    <div className={styles.addingMembersLayoutRightLine1}>Total amount per patient3</div>
                     <div className={styles.priceLayout} >
                         <div className={styles.priceLayoutBox}>
                             {updatedUsers.map((users, id) => (<>

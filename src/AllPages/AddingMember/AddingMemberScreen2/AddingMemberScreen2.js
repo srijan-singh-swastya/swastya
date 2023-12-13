@@ -116,7 +116,7 @@ const AddingMemberScreen2 = (props) => {
 
 
         <div className={styles.addingMembersLayoutRight}>
-          <div className={styles.addingMembersLayoutRightLine1}>Total amount per patient</div>
+          <div className={styles.addingMembersLayoutRightLine1}>Total amount per patient2</div>
           <div className={styles.priceLayout} >
             <div className={styles.priceLayoutBox}>
               {updatedUsers.map((users, id) => (<>

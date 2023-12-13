@@ -241,6 +241,20 @@ console.log(formData)
                             value={formData.recurrence}
                             onChange={handleChange}
                         />
+                         {/* <select
+                            
+                            name="recurrence"
+                            className={styles.inputFild1}
+                            value={formData.recurrence}
+                            onChange={handleChange}
+
+                            required
+                        >
+                            <option className={styles.optionsLayout} value="">Select Technician Role</option>
+                            <option className={styles.optionsLayout} value="DAILY">DAILY</option>
+                            <option className={styles.optionsLayout} value="MONTHLY">MONTHLY</option>
+                            <option className={styles.optionsLayout} value="YEARLY">YEARLY</option>
+                        </select> */}
                     </div>
                 </div>
                

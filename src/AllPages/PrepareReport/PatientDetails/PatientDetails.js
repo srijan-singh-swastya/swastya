@@ -1,11 +1,53 @@
 import styles from "./PatientDetails.module.css";
-
+import React, { useState, useEffect } from 'react';
 const PatientDetails = (props) => {
   const { onClick } = props;
   const handleFileUpload = (event) => {
     const file = event.target.files[0]; // Access the uploaded file here
     // Do something with the file, like sending it to an API or processing it
   };
+  const data = [
+    [
+      { id: 1, name: '', age: '' },
+      
+    ],
+    [
+      { id: 3, name: 's', mobile: '' },
+    ],
+
+  ];
+
+  const [currentArrayIndex, setCurrentArrayIndex] = useState(0);
+  const [currentIndexInArray, setCurrentIndexInArray] = useState(0);
+  const [showingMessage, setShowingMessage] = useState(false);
+  const [currentdata, setcurrentdata] = useState(false)
+  useEffect(() => {
+    let timer;
+    if (currentdata) {
+      if (currentIndexInArray < data[currentArrayIndex].length - 1) {
+        setCurrentIndexInArray(currentIndexInArray + 1);
+      } else if (currentArrayIndex < data.length - 1) {
+        setShowingMessage(true);
+        setCurrentArrayIndex(currentArrayIndex + 1);
+        setCurrentIndexInArray(0);
+
+      }
+      setcurrentdata(false)
+    }
+    if (showingMessage) {
+      timer = setTimeout(() => {
+        setShowingMessage(false);
+
+      }, 4000); // Display the message for 5 seconds
+    }
+    return () => clearTimeout(timer);
+  }, [showingMessage, currentArrayIndex, currentIndexInArray, data]);
+
+  const saveAndNext = () => {
+    setcurrentdata(true)
+    // setShowingMessage(true);
+  };
+
 
   return (
     <>
@@ -13,14 +55,30 @@ const PatientDetails = (props) => {
         <div className={styles.prepareReportNavText1}>Prepare report</div>
         <div className={styles.prepareReportNavText2}>Print</div>
         <div onClick={onClick} className={styles.prepareReportNavText3}>Save report</div>
-        <div className={styles.prepareReportNavText4}>Save and go to next report</div>
+        <div onClick={saveAndNext} className={styles.prepareReportNavText4}>Save and go to next report</div>
         <div onClick={onClick} className={styles.prepareReportNavText5}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
       </div>
+      {showingMessage && (
+        <div className={styles.showingMessages}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <g clip-path="url(#clip0_948_56182)">
+              <path d="M14.5 27C21.4036 27 27 21.4036 27 14.5C27 7.59644 21.4036 2 14.5 2C7.59644 2 2 7.59644 2 14.5C2 21.4036 7.59644 27 14.5 27Z" stroke="#373737" stroke-width="1.33" stroke-miterlimit="10" />
+              <path d="M14.5003 18.6667C17.3768 18.6667 19.7087 16.3348 19.7087 13.4583C19.7087 10.5819 17.3768 8.25 14.5003 8.25C11.6238 8.25 9.29199 10.5819 9.29199 13.4583C9.29199 16.3348 11.6238 18.6667 14.5003 18.6667Z" stroke="#373737" stroke-width="1.33" stroke-miterlimit="10" />
+              <path d="M6.14014 23.7938C6.92479 22.2511 8.12102 20.9556 9.59642 20.0508C11.0718 19.1459 12.7688 18.667 14.4996 18.667C16.2304 18.667 17.9274 19.1459 19.4028 20.0508C20.8782 20.9556 22.0745 22.2511 22.8591 23.7938" stroke="#373737" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round" />
+            </g><defs>
+              <clipPath id="clip0_948_56182">
+                <rect width="28" height="28" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <div className={styles.showingMessagesText1}>Changing to new patient report</div>
 
+        </div>
+      )}
       <div className={styles.patientinfo}>
         <div className={styles.inputFieldParent}>
           <div className={styles.inputField}>
@@ -197,23 +255,20 @@ const PatientDetails = (props) => {
 
           <div className={styles.frameWrapper}>
             <div className={styles.inputFieldParent}>
-              <div className={styles.inputField4}>
-                <div className={styles.interpretationOfHaemoglobinParent}>
-                  <div className={styles.interpretationOfHaemoglobin}>
-                    Interpretation of Haemoglobin:
-                  </div>
-                  <div className={styles.div8}>*</div>
-                </div>
+
+              <div className={styles.interpretationOfHaemoglobin}>
+                Interpretation of Haemoglobin:
               </div>
-              <div className={styles.inputField5}>
-                <div className={styles.investigation}>
-                  Hemoglobin is a protein in your red blood cells that carries
-                  oxygen to your body's organs and tissues and transports carbon
-                  dioxide from your organs and tissues back to your lungs. If a
-                  hemoglobin test reveals that your hemoglobin level is lower than
-                  normal, it means you have a low red blood cell count (anemia).
-                </div>
+
+
+              <div className={styles.aboutTest}>
+                Hemoglobin is a protein in your red blood cells that carries
+                oxygen to your body's organs and tissues and transports carbon
+                dioxide from your organs and tissues back to your lungs. If a
+                hemoglobin test reveals that your hemoglobin level is lower than
+                normal, it means you have a low red blood cell count (anemia).
               </div>
+
             </div>
 
           </div>
@@ -223,7 +278,7 @@ const PatientDetails = (props) => {
             <div className={styles.uploadImgeBox2}>
               <div className={styles.uploadImgeBox2Left}>
                 <img htmlFor="fileUpload" src="/Image/StartHere/upload.svg" />
-             
+
                 <input
                   type="file"
                   id="fileUpload"
@@ -236,8 +291,8 @@ const PatientDetails = (props) => {
                 <label htmlFor="fileUpload" className={styles.uploadLabel}>
                   Upload PDF/PNG file
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
-  <path d="M3.75 9.13867H14.25M14.25 9.13867L9.75 4.63867M14.25 9.13867L9.75 13.6387" stroke="#0067DF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                    <path d="M3.75 9.13867H14.25M14.25 9.13867L9.75 4.63867M14.25 9.13867L9.75 13.6387" stroke="#0067DF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
                 </label>
                 <input
                   type="file"

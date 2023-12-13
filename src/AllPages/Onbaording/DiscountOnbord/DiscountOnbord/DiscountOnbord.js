@@ -119,7 +119,7 @@ const DiscountOnbord = (props) => {
             </div>
             <div className={styles.discountContainer}>
                 {discounts.length === 0 ? <div className={styles.discountLengthZero}>
-                    <img src='/Image/StartHere/addIcon.jpg' />
+                    <img src='/Image/StartHere/addIcon.svg' />
                     <div className={styles.discountLengthZeroText}>Add discount coupons</div>
                     <div onClick={handleADDCoupan} className={styles.discountLengthZeroButton}>Add Coupan</div>
 
@@ -133,7 +133,7 @@ const DiscountOnbord = (props) => {
                             </svg>{discount.coupon}</div>
 
                             {/* <div className={styles.coupon}><img className={styles.couponicon} src='https://imgv3.fotor.com/images/gallery/web-icon-for-setting_2022-09-23-092612_lodv.jpg' />{discount.coupon}</div> */}
-                            <div className={styles.discountInfo}>{discount.discount}</div>
+                            <div className={styles.discountInfo}>{discount.discount}% off</div>
                         </div>
                         <div className={styles.couponInfo}>
                             <div className={styles.couponInfoRow}>

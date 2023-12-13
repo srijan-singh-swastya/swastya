@@ -7,12 +7,6 @@
     /* border: 2px solid red; */
   }
   .discountToptext{
-    color: var(--000000-primary, #000);
-  font-family: Roboto;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
   color: var(--000000-primary, #000);
   font-family: Roboto;
   font-size: 32px;
@@ -26,22 +20,20 @@
   }
   .discountTopbutton{
     display: flex;
-  padding: 8px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 12px;
-  background: var(--Primary-800, #0067DF);
-  color: var(--White, #FFF);
-  text-align: center;
-  
-  
-  /* 16/Semibold */
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px; /* 150% */
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    border: 1.2px solid var(--Primary-800, #0067DF);
+    background: var(--White, #FFF);
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; 
   }
   .discountContainer {
     display: flex;

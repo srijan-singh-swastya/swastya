@@ -3,14 +3,15 @@ import TopBar from '../../../AllPages/General/TopBar/TopBar'
 import styles from './SignReportHome.module.css';
 import SignReportPopUp from '../SignReportPopUp/SignReportPopUp';
 const SignReportHome = () => {
-    const[reviewPopUp,setReviewPopUp]=useState(false);
+    const [reviewPopUp, setReviewPopUp] = useState(false);
+    const [active, setActive] = useState("box1")
     const goBack = () => {
         window.history.back();
     };
-    const handleReview=()=>{
+    const handleReview = () => {
         setReviewPopUp(!reviewPopUp)
     }
-    const handleSignReportPopUpClick=()=>{
+    const handleSignReportPopUpClick = () => {
         setReviewPopUp(!reviewPopUp)
     }
     return (
@@ -26,19 +27,25 @@ const SignReportHome = () => {
             <div className={styles.SignReportHomeBox3}>
                 <div className={styles.Box3Layout}>
                     <div className={styles.Box3LayoutCard1}>
-                        <div className={styles.Box3LayoutCard1Layout}>
+                        <div onClick={() => setActive("box1")}
+                            className={`${styles.Box3LayoutCard1Layout} ${active === 'box1' ? styles.activeBox : ''}`}
+                        >
                             <div className={styles.box3Text}>Reports pending for sign</div>
                             <div className={styles.box3Text}>2</div>
                         </div>
                     </div>
                     <div className={styles.Box3LayoutCard1}>
-                        <div className={styles.Box3LayoutCard1Layout}>
+                        <div onClick={() => setActive("box2")}
+                            className={`${styles.Box3LayoutCard1Layout} ${active === 'box2' ? styles.activeBox : ''}`}
+                        >
                             <div className={styles.box3Text}>Report approved</div>
                             <div className={styles.box3Text}>2</div>
                         </div>
                     </div>
                     <div className={styles.Box3LayoutCard1}>
-                        <div className={styles.Box3LayoutCard1Layout}>
+                        <div onClick={() => setActive("box3")}
+                            className={`${styles.Box3LayoutCard1Layout} ${active === 'box3' ? styles.activeBox : ''}`}
+                        >
                             <div className={styles.box3Text}>Report rejected</div>
                             <div className={styles.box3Text}>2</div>
                         </div>
@@ -67,17 +74,17 @@ const SignReportHome = () => {
                     <div className={styles.Box4BoldText}>No reports To sign</div>
                 </div> */}
 
-               
+
 
             </div>
             {
-                reviewPopUp?
-                <div className={styles.modalOverlay}>
-                <div className={styles.detailsAndTestLayout}>
-                  {/* patientDetails from Prapare report component */}
-                  <SignReportPopUp onClick={handleSignReportPopUpClick} />
-                </div>
-              </div> : ""
+                reviewPopUp ?
+                    <div className={styles.modalOverlay}>
+                        <div className={styles.detailsAndTestLayout}>
+                            {/* patientDetails from Prapare report component */}
+                            <SignReportPopUp onClick={handleSignReportPopUpClick} />
+                        </div>
+                    </div> : ""
             }
         </div>
     )

@@ -30,6 +30,8 @@
     align-items: flex-start;
     gap: 8px;
     align-self: stretch;
+    height: 79px;
+  
 
 }
 
@@ -49,21 +51,24 @@
     align-items: flex-start;
     gap: 4px;
     border-radius: 8px 8px 0px 0px;
-    border: 1px solid var(--Black-300, #E6EBF0);
+
 }
 
 .Box3LayoutCard1Layout {
     display: flex;
     flex-direction: column;
     padding: 12px;
-    align-items: center;
+    align-items: left;
     gap: 8px;
+    border: 1px solid var(--Black-300, #E6EBF0);
     border-radius: 8px 8px 0px 0px;
     border-bottom: 4px solid var(--Primary-800, #FFF);
     color: var(--Black-600, #777C83);
+
 }
 
-.Box3LayoutCard1Layout:hover {
+.activeBox {
+    border: none;
     background: var(--Primary-300, #E6F3FF);
     border-bottom: 4px solid var(--Primary-800, #0067DF);
     color: #0067DF;

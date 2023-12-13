@@ -131,7 +131,7 @@ const AllReportsButton = () => {
   const [mobileNumberFilter, setMobileNumberFilter] = useState('');
   const [prepareReportPopUp, setPrepareReportPopUp] = useState(false)
   const [updatePaymentPopUp, setUpdatePaymentPopUp] = useState(false)
-
+  const [active ,setActive]=useState("All entries")
   const handleCheckboxChange = (id) => {
     if (checkedIds.includes(id)) {
       setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
@@ -142,14 +142,18 @@ const AllReportsButton = () => {
   console.log(checkedIds)
 
   const handleTestStatusFilter = (e) => {
+    setActive(e)
+   
     const completedData = AlltestData.map((group) =>
       group.filter((data) => data.testStatus === e)
     );
 
     setFilteredData(completedData);
   };
-  const handleAllEntries = () => {
+  const handleAllEntries = (e) => {
+    setActive(e)
     setFilteredData(AlltestData);
+  
   }
 
   const handelNumberFilter = (searchText) => {
@@ -188,7 +192,7 @@ const AllReportsButton = () => {
     setUpdatePaymentPopUp(!updatePaymentPopUp)
     alert('Jay Shree Ram');
   }
-let setCount=0;
+  let setCount = 0;
 
   return (<>
     <div className={styles.allreportsbutton}>
@@ -239,44 +243,35 @@ let setCount=0;
         </div>
         <div className={styles.frameDiv}>
           <div className={styles.metricTabsParent}>
-            <button onClick={() => handleAllEntries()} className={styles.metricTabs1} autoFocus={true}>
-              <div className={styles.metricTabsChild}>
-                <div className={styles.optionGroup}>
-                  <div className={styles.option1}>All entries</div>
-                  <div className={styles.div2}>2</div>
-                </div>
+            <button onClick={() => handleAllEntries("All entries")} className={styles.metricTabs1} >
+              <div className={`${styles.metricTabsChild} ${active === 'All entries' ? styles.activeBox : ''}`}
+              >
+                <div className={styles.option1}>All entries</div>
+                <div className={styles.div2}>2</div>
               </div>
             </button>
             <button onClick={() => handleTestStatusFilter("Report pending")} className={styles.metricTabs1}>
-              <div className={styles.metricTabsChild}>
-                <div className={styles.optionGroup}>
-                  <div className={styles.option1}>Report pending</div>
-                  <div className={styles.div2}>2</div>
-                </div>
+              <div className={`${styles.metricTabsChild} ${active === 'Report pending' ? styles.activeBox : ''}`}>
+                <div className={styles.option1}>Report pending</div>
+                <div className={styles.div2}>2</div>
               </div>
             </button>
             <button onClick={() => handleTestStatusFilter("Report generated")} className={styles.metricTabs1}>
-              <div className={styles.metricTabsChild}>
-                <div className={styles.optionGroup}>
-                  <div className={styles.option1}>Report generated</div>
-                  <div className={styles.div2}>0</div>
-                </div>
+              <div className={`${styles.metricTabsChild} ${active === 'Report generated' ? styles.activeBox : ''}`}>
+                <div className={styles.option1}>Report generated</div>
+                <div className={styles.div2}>0</div>
               </div>
             </button>
             <button onClick={() => handleTestStatusFilter("Report approved")} className={styles.metricTabs1}>
-              <div className={styles.metricTabsChild}>
-                <div className={styles.optionGroup}>
-                  <div className={styles.option1}>Report approved</div>
-                  <div className={styles.div2}>0</div>
-                </div>
+              <div className={`${styles.metricTabsChild} ${active === 'Report approved' ? styles.activeBox : ''}`}>
+                <div className={styles.option1}>Report approved</div>
+                <div className={styles.div2}>0</div>
               </div>
             </button>
             <button onClick={() => handleTestStatusFilter("Report rejected")} className={styles.metricTabs1}>
-              <div className={styles.metricTabsChild}>
-                <div className={styles.optionGroup}>
-                  <div className={styles.option1}>Report rejected</div>
-                  <div className={styles.div2}>0</div>
-                </div>
+              <div className={`${styles.metricTabsChild} ${active === 'Report rejected' ? styles.activeBox : ''}`}>
+                <div className={styles.option1}>Report rejected</div>
+                <div className={styles.div2}>0</div>
               </div>
             </button>
           </div>
@@ -395,12 +390,12 @@ let setCount=0;
                     <div className={styles.allDataLayoutTextId}>{data.id}</div>
                   </div>
                   <div className={styles.allDataLayoutTopPatientDetails}>
-                   <div className={styles.papa}>
-                   <div className={styles.allDataLayoutTextPatientDetails}>{data.patientDetails} </div>
-                    {setCount === 0 ?
-                      <div className={styles.allDataLayoutTextPatientDetails}> {data.mobileNimber}</div> : ""
-                    }
-                   </div>
+                    <div className={styles.papa}>
+                      <div className={styles.allDataLayoutTextPatientDetails}>{data.patientDetails} </div>
+                      {setCount === 0 ?
+                        <div className={styles.allDataLayoutTextPatientDetails}> {data.mobileNimber}</div> : ""
+                      }
+                    </div>
 
                   </div>
                   <div className={styles.allDataLayoutTopAgeSexBox}>
@@ -463,11 +458,11 @@ let setCount=0;
                     </div>
 
                   </div>
-               
+
                 </div>
-                 
+
               ))}
-              
+
             </div>
           ))}
           {

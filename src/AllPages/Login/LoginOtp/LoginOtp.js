@@ -3,7 +3,7 @@ import styles from "./LoginOtp.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const LoginOtp = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const inputRefs = Array(6).fill(null).map(() => createRef(null));
   const [active, setActive] = useState(false);
   const [otp, setOtp] = useState({
@@ -14,6 +14,7 @@ const LoginOtp = () => {
     otp4: "",
     otp5: "",
   });
+  console.log(otp)
 
 
 
@@ -26,8 +27,8 @@ const LoginOtp = () => {
       inputRefs[index].current.value = "";
       inputRefs[index].current.focus();
       setOtp({ ...otp, [e.target.name]: "" });
-    } 
-    else if (index >0 && value.length === 0) {
+    }
+    else if (index > 0 && value.length === 0) {
       inputRefs[index].current.value = "";
       inputRefs[index - 1].current.focus();
       setOtp({ ...otp, [e.target.name]: "" });
@@ -38,17 +39,17 @@ const LoginOtp = () => {
       inputRefs[index + 1].current.focus();
     }
 
-  
+
   };
 
-useEffect(()=>{
-  const Allotp =  otp.otp0 + otp.otp1 + otp.otp2 + otp.otp3 + otp.otp4 + otp.otp5;
-  if (Allotp.length === 6) {
-    setActive(true);
-  } else {
-    setActive(false);
-  }
-})
+  useEffect(() => {
+    const Allotp = otp.otp0 + otp.otp1 + otp.otp2 + otp.otp3 + otp.otp4 + otp.otp5;
+    if (Allotp.length === 6) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  })
   useEffect(() => {
     // Focus the first input when the component mounts
     if (inputRefs.length > 0) {
@@ -87,12 +88,12 @@ useEffect(()=>{
     // Clean up the interval when the component unmounts
     return () => clearInterval(countdown);
   }, [timer]);
-  const handelResendOtp=()=>{
+  const handelResendOtp = () => {
     setTimer(89)
   }
+  const [isError, setIsError] = useState(true);
 
-
-  const handelVerify=()=>{
+  const handelVerify = () => {
 
 
     navigate("/technicianDashbord")
@@ -115,22 +116,7 @@ useEffect(()=>{
               <b>+91 987987333</b>
             </span>
           </div>
-          <button className={styles.button}>
-            <button className={styles.buttonSize}>
-              <img
-                className={styles.fileDownloadInLc}
-                alt=""
-                src="/undefined8.png"
-              />
-               <Link to="/login" className={styles.text}>Change number</Link>
-              {/* <div className={styles.text}>Change number</div> */}
-              <img
-                className={styles.arrowforwardIcon}
-                alt=""
-                src="/undefined7.png"
-              />
-            </button>
-          </button>
+          <Link to="/login" className={styles.text}>Change number</Link>
         </div>
       </div>
 
@@ -140,7 +126,7 @@ useEffect(()=>{
             <input
               key={index}
               ref={ref}
-              className={styles.frameChild}
+              className={`${styles.frameChild} ${otp["otp" + index] !== '' ? styles.filled : ''} ${isError ? styles.error : ''}`}
               name={"otp" + index}
               type="number"
               maxLength={1}
@@ -151,46 +137,25 @@ useEffect(()=>{
         </div>
 
         <div className={styles.otpValidFor0129Parent}>
+          {isError ? <div className={styles.errorOtp}>Incorrect OTP</div> : ""}
           <div className={styles.otpValidForContainer}>
             <span>OTP valid for</span>
             <b> {formattedTimer}</b>
           </div>
           <div className={styles.didntReceiveOtpParent}>
             <div className={styles.didntReceiveOtp}>Didn't receive OTP?</div>
-            <button className={styles.button}>
-              <button className={styles.buttonSize}>
-                <img
-                  className={styles.fileDownloadInLc}
-                  alt=""
-                  src="/undefined9.png"
-                />
-                <div onClick={handelResendOtp} className={styles.text}>Resend OTP</div>
-                <img
-                  className={styles.arrowforwardIcon}
-                  alt=""
-                  src="/undefined10.png"
-                />
-              </button>
-            </button>
+            <div onClick={handelResendOtp} className={styles.text}>Resend OTP</div>
           </div>
         </div>
         {active ? (
-           <button onClick={handelVerify}  id="verifyButton" className={styles.button3}>
-     
-            <div
-              className={styles.buttonSize2}
-        
-            >
+          <button onClick={handelVerify} id="verifyButton" className={styles.button3}>
+            <div className={styles.buttonSize2}>
               <div className={styles.text2}>Verify</div>
             </div>
-   
           </button>
         ) : (
           <button className={styles.button2}>
-            <div
-              className={styles.buttonSize2}
-     
-            >
+            <div className={styles.buttonSize2}>
               <div className={styles.text2}>Verify</div>
             </div>
           </button>

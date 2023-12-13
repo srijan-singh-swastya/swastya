@@ -236,7 +236,7 @@
 
 .detailsAndTestLayout {
 
-    width: 80%;
+    width: 85%;
     height:90vh;
     overflow-y: scroll;
   
@@ -330,7 +330,7 @@
 .detailsAndTestLayoutBottomLeft {
     display: flex;
     /* width: 435px; */
-    width: 50%;
+    width:45%;
     padding: 16px 24px;
     flex-direction: column;
     align-items: flex-start;
@@ -357,8 +357,45 @@
 
 .detailsAndTestLayoutBottomLeftLine1 {
     display: flex;
+    width: 100%;
     align-items: center;
     gap: 18px;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+}
+.addTestAndDigit{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    /* border: 2px solid red; */
+}
+.checkboxandtext{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.checkbox{
+    display: flex;
+width: 20px;
+height: 20px;
+padding: 2px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 4px;
+border: 2px solid var(--Black-500, #A0A6AB);
+}
+.sameasPrimary{
+    padding-top: 3px;
+    color: var(--Black-800, #181B1F);
+text-align: center;
+
+/* 14/Semibold */
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 21px; /* 150% */
 }
 
 .detailsAndTestLayoutBottomLeftLine1text1 {
@@ -488,7 +525,7 @@
     align-self: stretch;
     border-radius: 8px;
     background: var(--Success-300, #c2e7da);
-    /* display: none; */
+    display: none;
 }
 
 .patientinputMessageBox1icon {
@@ -735,6 +772,19 @@ flex: 1;
     font-style: normal;
     font-weight: 600;
     line-height: 21px;
+    /* border: 2px solid red; */
+    height: 32px;
+
+    display: flex;
+height: 36px;
+padding: 8px;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+border: 1px solid var(--Black-300, #E6EBF0);
+background: var(--White, #FFF);
+outline: none;
 }
 
 .detailsAndTestLine3TestPrice {
@@ -743,7 +793,7 @@ flex: 1;
     flex-direction: column;
     align-items: flex-end;
     gap: 4px;
-    flex: .61 0 0;
+    flex: .81 0 0;
 
     /* width: 200px; */
     color: var(--Black-700, #4A5055);
@@ -757,11 +807,16 @@ flex: 1;
     font-weight: 600;
     line-height: 21px;
     /* 150% */
-    height: 30px;
+    height: 35px;
 
     border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
     border: 1px solid var(--Black-400, #CFD0D8);
     background: var(--Black-300, #E6EBF0);
+
+}
+.hideIcon{
+    /* display: none; */
+    padding-right: 20px;
 }
 .detailsAndTestLine3testbutton{
     display: flex;
@@ -799,7 +854,8 @@ cursor: pointer;
     position: absolute;
     width: 350px;
     top: 19%;
-    height:30vh;
+    /* height:30vh; */
+    min-height: 170px;
     /* overflow-y: scroll; */
   /* left: 20%; */
     align-items: flex-start;

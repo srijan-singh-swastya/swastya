@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './Onbaording.module.css';
 import { useNavigate } from 'react-router-dom';
 import DiscountOnbord from './DiscountOnbord/DiscountOnbord/DiscountOnbord';
@@ -58,6 +58,22 @@ const Onbaording = () => {
 
     const isStepCompleted = (stepNumber) => {
         // const stepData = data[`step${stepNumber}`];
+        if (stepNumber === 1 && step >= 1) {
+            //   return stepData.name && stepData.email;
+            return true;
+        } else if (stepNumber === 2 && step >= 2) {
+            //   return stepData.address && stepData.city;
+            return true
+        } else if (stepNumber === 3 && step >= 3) {
+            // return stepData.interests;
+            return true
+        } else if (stepNumber === 4 && step >= 4) {
+            // return stepData.review;
+            return true
+        }
+    };
+    const isCircleStepCompleted = (stepNumber) => {
+        // const stepData = data[`step${stepNumber}`];
         if (stepNumber === 1 && step > 1) {
             //   return stepData.name && stepData.email;
             return true;
@@ -72,6 +88,58 @@ const Onbaording = () => {
             return true
         }
     };
+
+    // Add test price list and report letterhead
+    const [reportLetterhead, setReportLetterhead] = useState(false)
+    const [testAndPrice, setTestAndPrice] = useState(false)
+    const [reportLetterheadData, setReportLetterHeadData] = useState(null)
+    const [previewReportLetterhead, setPreviewReportLetterhead] = useState(false)
+    const [previewTestAndPriceList, setPreviewTestAndPriceList] = useState(false)
+
+    const handleReportLetterFileInput = useCallback(() => {
+        const fileInput = document.getElementById('reportLetterheadfileInput');
+        fileInput.click();
+    }, []);
+    const handleReportLetterFileUpload = (event) => {
+        const selectedFile = event.target.files[0];
+        if (selectedFile) {
+            setReportLetterhead(true)
+            setReportLetterHeadData(selectedFile)
+        }
+    }
+    const handledeleteReportLetter = () => {
+        setReportLetterhead(false)
+        setReportLetterHeadData("")
+    }
+    const handelReportLetterheadPrivew = () => {
+        setPreviewReportLetterhead(true)
+    }
+    const handleCancleReportLetterheadPreview = () => {
+        setPreviewReportLetterhead(false)
+    }
+
+
+    const handleTestAndPriceFileInput = useCallback(() => {
+        const fileInput = document.getElementById('testAndPricefileInput');
+        fileInput.click();
+    }, []);
+    const handleTestAndPriceFileUpload = (event) => {
+        const selectedFile = event.target.files[0];
+        if (selectedFile) {
+            setTestAndPrice(true)
+        }
+    }
+    const handledeleteTestandPrice = () => {
+        setTestAndPrice(false)
+    }
+    const handleTestAndPricePreview=()=>{
+        setPreviewTestAndPriceList(true)
+    }
+    const handleCancleTestAndPricePreview=()=>{
+        setPreviewTestAndPriceList(false)
+    }
+
+
 
 
     const [techniciansDetailFilled, setTechniciansDetailFilled] = useState(false)
@@ -182,10 +250,14 @@ const Onbaording = () => {
                 {[1, 2, 3, 4].map((stepNumber) => (
                     <div
                         key={stepNumber}
-                        className={`${styles.stepCircle} ${isStepCompleted(stepNumber) ? styles.stepCompleted : ''}`}
+                        className={` ${isCircleStepCompleted(stepNumber) ? styles.stepCircle : styles.stepCircle1}    ${isStepCompleted(stepNumber) ? styles.stepCompleted : ''}`}
                         onClick={() => setStep(stepNumber)}
                     >
-                        Step{stepNumber}
+                        {stepNumber >= stepNumber ? < svg className={`$ ${isStepCompleted(stepNumber + 1) ? "    " : styles.stepCompleted1}`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="#00A96C" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 9.29289C16.0976 9.68342 16.0976 10.3166 15.7071 10.7071L11.7071 14.7071C11.3166 15.0976 10.6834 15.0976 10.2929 14.7071L8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929C8.68342 10.9024 9.31658 10.9024 9.70711 11.2929L11 12.5858L14.2929 9.29289C14.6834 8.90237 15.3166 8.90237 15.7071 9.29289Z" fill="#00A96C" />
+                        </svg>
+                            : ""}Step{stepNumber}
 
                     </div>
 
@@ -369,9 +441,9 @@ const Onbaording = () => {
                                                 required
                                             >
                                                 <option className={styles.optionsLayout} value="">Select Technician Role</option>
-                                                <option className={styles.optionsLayout} value="Role A">Role A</option>
-                                                <option className={styles.optionsLayout} value="Role B">Role B</option>
-                                                <option className={styles.optionsLayout} value="Role C">Role C</option>
+                                                <option className={styles.optionsLayout} value="Technician">Technician</option>
+                                                <option className={styles.optionsLayout} value="Doctor">Doctor</option>
+                                                <option className={styles.optionsLayout} value="Senior Doctor">Senior Doctor</option>
                                             </select>
                                         </div>
                                         {index === 0 && (
@@ -384,7 +456,7 @@ const Onbaording = () => {
                                         {index > 0 && (
                                             <div className={styles.technicianDetailsIcon}>
 
-                                           
+
                                                 <svg className={styles.cancelButton} onClick={() => removeTechnician(index)} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
@@ -424,22 +496,86 @@ const Onbaording = () => {
                     </svg>Add test price list and report letterhead</h2>
 
                     <div className={styles.stepPriceandreportLay} >
-                        <div className={styles.stepPriceandreportTop}>
-                            <div className={styles.stepPriceandreportIcon}>
-                                <img src='/logo192.png' />
+                        {testAndPrice ?
+                            <div className={styles.stepPriceandreportTop}>
+                                <div className={styles.stepPriceandreportIcon}>
+                                    <img src='/logo192.png' />
+                                </div>
+                                <div className={styles.stepPriceandreporttext1}>Test and price list</div>
+                                <div className={styles.uploadedwithicon}> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="#00A96C" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 9.29289C16.0976 9.68342 16.0976 10.3166 15.7071 10.7071L11.7071 14.7071C11.3166 15.0976 10.6834 15.0976 10.2929 14.7071L8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929C8.68342 10.9024 9.31658 10.9024 9.70711 11.2929L11 12.5858L14.2929 9.29289C14.6834 8.90237 15.3166 8.90237 15.7071 9.29289Z" fill="#00A96C" />
+                                </svg>Uploaded</div>
+
+                                <div onClick={handleTestAndPricePreview} className={styles.stepPriceandreporttext3}>Preview</div>
+                                <div onClick={handledeleteTestandPrice} className={styles.deleteAndUpload}>Delete and upload again</div>
+
                             </div>
-                            <div className={styles.stepPriceandreporttext1}>Test and price list</div>
-                            <div className={styles.stepPriceandreporttext2}>Download sample</div>
-                            <div className={styles.stepPriceandreporttext3}>Upload</div>
-                        </div>
-                        <div className={styles.stepPriceandreportTop}>
-                            <div className={styles.stepPriceandreportIcon}>
-                                <img src='/logo192.png' />
+                            :
+                            <div className={styles.stepPriceandreportTop}>
+                                <div className={styles.stepPriceandreportIcon}>
+                                    <img src='/logo192.png' />
+                                </div>
+                                <div className={styles.stepPriceandreporttext1}>Test and price list</div>
+                                <div className={styles.stepPriceandreporttext2}>Download sample</div>
+                                <div onClick={handleTestAndPriceFileInput} className={styles.stepPriceandreporttext3}>Upload</div>
+                                <input
+                                    type="file"
+                                    id="testAndPricefileInput"
+                                    ccept=".pdf,.png"
+                                    onChange={handleTestAndPriceFileUpload}
+                                    style={{ display: 'none' }}
+                                />
                             </div>
-                            <div className={styles.stepPriceandreporttext1}>Report letterhead</div>
-                            {/* <div className={styles.stepPriceandreporttext2}>Download sample</div> */}
-                            <div className={styles.stepPriceandreporttext3}>Upload</div>
-                        </div>
+                        }
+                        {reportLetterhead ?
+                            <div className={styles.stepPriceandreportTop}>
+                                <div className={styles.stepPriceandreportIcon}>
+                                    <img src='/logo192.png' />
+                                </div>
+                                <div className={styles.stepPriceandreporttext1}>Report letterhead</div>
+                                <div className={styles.uploadedwithicon}> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="#00A96C" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 9.29289C16.0976 9.68342 16.0976 10.3166 15.7071 10.7071L11.7071 14.7071C11.3166 15.0976 10.6834 15.0976 10.2929 14.7071L8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929C8.68342 10.9024 9.31658 10.9024 9.70711 11.2929L11 12.5858L14.2929 9.29289C14.6834 8.90237 15.3166 8.90237 15.7071 9.29289Z" fill="#00A96C" />
+                                </svg>Uploaded
+                                </div>
+
+                                <div onClick={handelReportLetterheadPrivew} className={styles.stepPriceandreporttext3}>Preview</div>
+                                <div onClick={handledeleteReportLetter} className={styles.deleteAndUpload}>Delete and upload again</div>
+
+                            </div>
+                            :
+                            <div className={styles.stepPriceandreportTop}>
+                                <div className={styles.stepPriceandreportIcon}>
+                                    <img src='/logo192.png' />
+                                </div>
+                                <div className={styles.stepPriceandreporttext1}>Report letterhead</div>
+                                {/* <div className={styles.stepPriceandreporttext2}>Download sample</div> */}
+                                <div onClick={handleReportLetterFileInput} className={styles.stepPriceandreporttext3}>Upload</div>
+                                <input
+                                    type="file"
+                                    id="reportLetterheadfileInput"
+                                    ccept=".jpg,.png"
+                                    onChange={handleReportLetterFileUpload}
+                                    style={{ display: 'none' }}
+                                />
+                            </div>
+                        }
+                        {previewTestAndPriceList && (
+                            <div onClick={handleCancleTestAndPricePreview} className={styles.previewReportLetterheadPopUp}>
+                                <div className={styles.previewReportLetterheadPopUpContainer}>
+                               sff
+                                </div>
+                            </div>
+                        )}
+                          {previewReportLetterhead && (
+                            <div onClick={handleCancleReportLetterheadPreview} className={styles.previewReportLetterheadPopUp}>
+                                <div className={styles.previewReportLetterheadPopUpContainer}>
+                                    <img className={styles.reportLetterheadPreviewImage} src={URL.createObjectURL(reportLetterheadData)} />
+                                </div>
+                            </div>
+                        )}
+
                     </div>
                     <div className={styles.buttonContainer}>
                         {step < 4 && (

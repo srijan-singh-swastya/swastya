@@ -331,7 +331,7 @@ const AddCoupan = (props) => {
                     </div>
                     <div className={styles.column}>
                         <div className={styles.lableFontSize} htmlFor="recurrence">Recurrence</div>
-                        <input
+                        {/* <input
                             className={styles.inputFild}
                             type="text"
                             name="recurrence"
@@ -339,7 +339,21 @@ const AddCoupan = (props) => {
                             placeholder="Recurrence"
                             value={formData.recurrence}
                             onChange={handleChange}
-                        />
+                        /> */}
+                          <select
+                            
+                            name="recurrence"
+                            className={styles.inputFild1}
+                            value={formData.recurrence}
+                            onChange={handleChange}
+
+                            required
+                        >
+                            <option className={styles.optionsLayout} value="">Select Technician Role</option>
+                            <option className={styles.optionsLayout} value="DAILY">DAILY</option>
+                            <option className={styles.optionsLayout} value="MONTHLY">MONTHLY</option>
+                            <option className={styles.optionsLayout} value="YEARLY">YEARLY</option>
+                        </select>
                     </div>
                 </div>
                 {/* <button onClick={handleADD}>Console Log</button> */}
