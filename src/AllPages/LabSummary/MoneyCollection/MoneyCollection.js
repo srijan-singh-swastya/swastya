@@ -1,21 +1,25 @@
 import styles from "./MoneyCollection.module.css";
 import { Doughnut } from 'react-chartjs-2';
+import { useState } from "react";
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
+
 const MoneyCollection = () => {
-  const Cash=12;
-  const UPI=121;
-  const NetBnking=132;
+  const Cash = 12;
+  const UPI = 121;
+  const NetBnking = 132;
   const data = {
     labels: [
       'Cash',
       'UPI',
       'Net Banking',
-    
+
     ],
     datasets: [{
       label: 'My First Dataset',
       data: [Cash, UPI, NetBnking],
       backgroundColor: [
-        'rgb(54, 162, 235)',       
+        'rgb(54, 162, 235)',
         'rgb(255, 205, 86)',
         'rgb(255, 99, 132)',
       ],
@@ -27,8 +31,24 @@ const MoneyCollection = () => {
     legend: {
       display: false, // Hide the legend
     },
-    cutoutPercentage: 50, 
+    cutoutPercentage: 50,
   };
+
+
+
+  const [dates, setDates] = useState([])
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+  }
+  console.log(startDate)
+  console.log(endDate)
+
 
   return (
     <div className={styles.moneycollection}>
@@ -36,20 +56,15 @@ const MoneyCollection = () => {
         <div className={styles.moneyCollectionParent}>
           <div className={styles.moneyCollection}>Money collection</div>
           <div className={styles.dropdown}>
+            <RangePicker
+              // onChange={(values)=>{
+              //   setDates(values)
+              // }}
+              picker="month"
+              className={styles.searchfatParent}
+              onChange={(value) => { handleChange(value) }}
 
-            <div className={styles.searchfatParent}>
-              <img
-                className={styles.searchfatIcon}
-                alt=""
-                src="/Image/StartHere/searchfat.svg"
-              />
-              <div className={styles.text}>Jul 14 – Jul 20</div>
-              <img
-                className={styles.arrowaltdownIcon}
-                alt=""
-                src="/Image/StartHere/arrowaltdown.svg"
-              />
-            </div>
+            />
           </div>
         </div>
         <button className={styles.button}>
@@ -77,7 +92,7 @@ const MoneyCollection = () => {
           </div>
           <div className={styles.pieParent}>
             <div className={styles.pieIcon} style={{ width: '300px', height: '169px' }}>
-              
+
               <Doughnut data={data} options={options} />
             </div>
             {/* <img className={styles.pieIcon} alt="" src="/Image/StartHere/pie.svg" /> */}

@@ -1,14 +1,23 @@
 .forgotPassword {
-  position: relative;
-  line-height: 56px;
+  color: var(--000000-primary, #000);
+  font-feature-settings: 'clig' off, 'liga' off;
+  
+  /* Heading/H1 */
+  font-family: Roboto Flex;
+  font-size: 42px;
+  font-style: normal;
   font-weight: 800;
+  line-height: 56px; /* 133.333% */
 }
 .enterYourEmail {
-  position: relative;
-  font-size: var(--semibold-size);
-  line-height: 24px;
-  font-family: var(--semibold);
-  color: var(--f646d-primary);
+  color: var(--5-f-646-d-primary, #5F646D);
+
+  /* 16/Regular */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 }
 .forgotPasswordParent {
   align-self: stretch;
@@ -18,16 +27,17 @@
   justify-content: flex-start;
   gap: var(--gap-11xs);
 }
-.div,
-.label {
-  position: relative;
-  line-height: 24px;
-  font-weight: 600;
+.phoneNumber{
+  color: var(--Black-600, #777C83);
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
 }
-.div {
-  color: var(--error-800);
-  display: none;
-}
+
 .labelParent {
   display: flex;
   flex-direction: row;
@@ -52,16 +62,16 @@
   width: 1.2px;
 }
 .inputFieldflags {
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--gap-5xs);
+  color: var(--Black-800, #181B1F);
+
+  /* 16/Semibold */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 600;
-  font-family: var(--semibold);
-  font-size: var(--semibold-size);
-  color: var(--black-800);
+  line-height: 24px; /* 150% */
+  padding-right: 4px;
+  border-right: 3px solid var(--Black-300, #E6EBF0);
 }
 .text {
   border: 0;
@@ -74,6 +84,7 @@
   line-height: 24px;
   color: var(--black-800);
   text-align: left;
+  font-size: 16px;
 
 }
 

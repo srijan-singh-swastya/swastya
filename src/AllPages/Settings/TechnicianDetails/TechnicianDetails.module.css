@@ -18,7 +18,26 @@ padding-bottom: 24px;
     align-items: center;
 
 }
+.undoChange{
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+border: 1.2px solid var(--Black-300, #E6EBF0);
+background: var(--White, #FFF);
+color: var(--Black-400, #CFD0D8);
+text-align: center;
 
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+cursor: pointer;
+}
 .technicianDetailsrow button {
     color: var(--White, #FFF);
     text-align: center;
@@ -40,8 +59,18 @@ padding-bottom: 24px;
 .technicianDetailsrow h1{
   margin: 0;
   padding: 0;
+  color: var(--000000-primary, #000);
+font-family: Roboto;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
-
+.techDetailsBox1{
+    display: flex;
+    gap: 16px;
+    /* border: 2px solid red; */
+}
 .detailsTable {
     display: flex;
     flex-direction: column;

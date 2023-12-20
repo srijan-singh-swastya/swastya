@@ -556,7 +556,7 @@ line-height: 21px; /* 150% */
     align-self: stretch;
     border-radius: 8px;
     background: var(--Black-300, #E6EBF0);
-    display: none;
+    /* display: none; */
 }
 
 .patientinputMessageBox2Text {

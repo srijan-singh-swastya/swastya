@@ -2,6 +2,9 @@
 import React from 'react'
 import styles from "./MajorBusiness.module.css";
 import { Bar } from 'react-chartjs-2';
+import { useState } from 'react';
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
 const MajorBusiness = () => {
   const data = {
     labels: ['Dr Ramu', 'Dr pula', 'Dr ilsa', 'Dr sohar'],
@@ -38,7 +41,7 @@ const MajorBusiness = () => {
         barThickness: 12,
         data: [0, 0, 0, 0], // Empty data for the gap
       },
-      
+
       {
         label: 'mar',
         backgroundColor: "#EABD48",
@@ -48,7 +51,7 @@ const MajorBusiness = () => {
         data: [15, 1, 4, 7],
         barPercentage: 0.8
       },
-     
+
 
     ],
 
@@ -82,6 +85,18 @@ const MajorBusiness = () => {
 
   };
 
+  const [dates, setDates] = useState([])
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+  }
+  console.log(startDate)
+  console.log(endDate)
 
   return (
     <div className={styles.moneycollection}>
@@ -89,23 +104,16 @@ const MajorBusiness = () => {
         <div className={styles.moneyCollectionParent}>
           <div className={styles.moneyCollection}>Major Business</div>
           <div className={styles.dropdown}>
-            <div className={styles.labelParent}>
-              <div className={styles.label}>Label</div>
-              <div className={styles.div}>*</div>
-            </div>
-            <div className={styles.searchfatParent}>
-              <img
-                className={styles.searchfatIcon}
-                alt=""
-                src="/Image/StartHere/searchfat.svg"
-              />
-              <div className={styles.text}>Jul 14 – Jul 20</div>
-              <img
-                className={styles.arrowaltdownIcon}
-                alt=""
-                src="/Image/StartHere/arrowaltdown.svg"
-              />
-            </div>
+
+            <RangePicker
+              // onChange={(values)=>{
+              //   setDates(values)
+              // }}
+              // picker="month"
+              className={styles.searchfatParent}
+              onChange={(value) => { handleChange(value) }}
+
+            />
             <div className={styles.helpText}>Help text</div>
           </div>
         </div>
@@ -129,9 +137,9 @@ const MajorBusiness = () => {
 
         <div className={styles.frameGroup}>
           <div className={styles.totalCollectionParent}>
-           <div  className={styles.colorBox}> <div className={styles.circleColor1} /> June</div>
-           <div className={styles.colorBox}> <div className={styles.circleColor2} /> July</div>
-           <div className={styles.colorBox}> <div className={styles.circleColor3} /> Aug</div>
+            <div className={styles.colorBox}> <div className={styles.circleColor1} /> June</div>
+            <div className={styles.colorBox}> <div className={styles.circleColor2} /> July</div>
+            <div className={styles.colorBox}> <div className={styles.circleColor3} /> Aug</div>
 
 
 

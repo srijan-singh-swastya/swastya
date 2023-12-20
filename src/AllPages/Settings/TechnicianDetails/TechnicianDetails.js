@@ -32,7 +32,7 @@ const TechnicianDetails = () => {
 
     fetchData();
   }, [addTechnician]);
- 
+
 
   const handleEditEmployee = (index) => {
     setEditIndex(index);
@@ -129,10 +129,10 @@ const TechnicianDetails = () => {
     } else {
       console.log('Lab ID not found in localStorage.');
     }
-   
+
 
   }
-  const handelSaveandAddNewTechnician = async() => {
+  const handelSaveandAddNewTechnician = async () => {
     console.log(formData)
     const labId1 = localStorage.getItem('labId');
     const x = {
@@ -167,7 +167,15 @@ const TechnicianDetails = () => {
     <div className={styles.technicianDetails}>
       <div className={styles.technicianDetailsrow}>
         <div><h1>Technician Details</h1></div>
-        <div><button onClick={handleAddTechnician}>Add technician</button></div>
+        <div className={styles.techDetailsBox1}>
+          <div className={styles.undoChange} >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4.5833 12.1705V15.5039M4.5833 12.1705C5.44409 14.318 7.54492 15.8346 9.99997 15.8346C12.6425 15.8346 14.8746 14.0775 15.5917 11.668M4.5833 12.1705H7.91663M15.5218 8.11557L15.5218 4.78223M15.5218 8.11557H12.1884M15.5218 8.11557C14.7378 5.8193 12.5617 4.16797 9.99997 4.16797C7.35745 4.16797 5.12533 5.92506 4.4082 8.33464" stroke="#CFD0D8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Undo Change</div>
+          <div><button onClick={handleAddTechnician}>Add technician</button></div>
+        </div>
+
       </div>
 
 

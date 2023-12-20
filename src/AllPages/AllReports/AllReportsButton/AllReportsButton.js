@@ -3,8 +3,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PatientDetails from "../../PrepareReport/PatientDetails/PatientDetails";
 import UpdatePayment from "../../UpdatePayment/UpdatePayment";
+import RejectedReportPopUp from "../../../Features/SignReport/RejectedReportPopUp/RejectedReportPopUp";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+
+
+
+import { DatePicker } from 'antd';
+import moment from 'moment';
+import Item from 'antd/es/list/Item';
+const { RangePicker } = DatePicker;
 const AllReportsButton = () => {
   const navigate = useNavigate()
+
   const AlltestData = [
     [
       {
@@ -36,7 +46,7 @@ const AllReportsButton = () => {
         print: "someIcon"
       },
       {
-        id: "2332",
+        id: "1234",
         patientDetails: "John Doe",
         mobileNimber: "9801500214",
         age: "30",
@@ -46,13 +56,13 @@ const AllReportsButton = () => {
         dateOfEntry: "2023-11-01",
         testNames: [
           {
-            "name": "mt1",
+            "name": "mjjt1",
             "template": {
               "bound": "15"
             }
           },
           {
-            "name": "mt2",
+            "name": "dhmt2",
             "template": {
               "bound": "15"
             }
@@ -66,7 +76,7 @@ const AllReportsButton = () => {
     ],
     [
       {
-        id: "1223",
+        id: "1235",
         patientDetails: "John Doe",
         mobileNimber: "9801500214",
         age: "30",
@@ -76,7 +86,7 @@ const AllReportsButton = () => {
         dateOfEntry: "2023-11-01",
         testNames: [
           {
-            "name": "mt1",
+            "name": "ddfmt1",
             "template": {
               "bound": "15"
             }
@@ -96,7 +106,7 @@ const AllReportsButton = () => {
     ],
     [
       {
-        id: "1923",
+        id: "1236",
         patientDetails: "John Doe",
         mobileNimber: "9801500214",
         age: "30",
@@ -106,17 +116,24 @@ const AllReportsButton = () => {
         dateOfEntry: "2023-11-01",
         testNames: [
           {
-            "name": "mt1",
+            "name": "11mt1",
             "template": {
               "bound": "15"
             }
           },
           {
-            "name": "mt2",
+            "name": "smt2",
             "template": {
               "bound": "15"
             }
-          }
+          },
+          {
+            "name": "sdmt2",
+            "template": {
+              "bound": "15"
+            }
+          },
+         
         ],
         testStatus: "Report rejected",
         printStatus: "Not Printed",
@@ -126,12 +143,28 @@ const AllReportsButton = () => {
     ],
   ];
 
+  const KontestData = AlltestData.flatMap(group =>
+    group.reduce((result, { id, testNames }) => {
+      const tests = testNames.map(test => test.name).join(' ');
+      const existingEntry = result.find(entry => entry.id === id);
+      if (existingEntry) {
+        existingEntry.test += ` ${tests}`;
+      } else {
+        result.push({ id, test: tests });
+      }
+      return result;
+    }, [])
+  );
+
+  console.log(KontestData);
+
   const [checkedIds, setCheckedIds] = useState([]);
   const [filteredData, setFilteredData] = useState(AlltestData);
   const [mobileNumberFilter, setMobileNumberFilter] = useState('');
   const [prepareReportPopUp, setPrepareReportPopUp] = useState(false)
+  const [editReportPopUp, setEditReportPopUp] = useState(false)
   const [updatePaymentPopUp, setUpdatePaymentPopUp] = useState(false)
-  const [active ,setActive]=useState("All entries")
+  const [active, setActive] = useState("All entries")
   const handleCheckboxChange = (id) => {
     if (checkedIds.includes(id)) {
       setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
@@ -143,7 +176,7 @@ const AllReportsButton = () => {
 
   const handleTestStatusFilter = (e) => {
     setActive(e)
-   
+
     const completedData = AlltestData.map((group) =>
       group.filter((data) => data.testStatus === e)
     );
@@ -153,7 +186,7 @@ const AllReportsButton = () => {
   const handleAllEntries = (e) => {
     setActive(e)
     setFilteredData(AlltestData);
-  
+
   }
 
   const handelNumberFilter = (searchText) => {
@@ -176,10 +209,17 @@ const AllReportsButton = () => {
   const handelCreateNewEntery = () => {
     navigate("/addingMembers")
   }
-  const handelPrapereReport = () => {
-    setPrepareReportPopUp(!prepareReportPopUp)
+  const handelPrapereReport = (e) => {
+    if (e === "Prepare Report") {
+      setPrepareReportPopUp(!prepareReportPopUp)
+    }
+    else if (e === "Edit Report") {
+      setEditReportPopUp(!editReportPopUp)
+    }
   }
-
+  const handleEditReportPopUpClick = () => {
+    setEditReportPopUp(!editReportPopUp)
+  }
   const handlePrepareReportPopUpClick = () => {
     setPrepareReportPopUp(!prepareReportPopUp);
     // alert('Child component clicked!');
@@ -193,6 +233,25 @@ const AllReportsButton = () => {
     alert('Jay Shree Ram');
   }
   let setCount = 0;
+
+
+
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+    else{
+      setStaetDate("")
+      setEndtDate("")
+    }
+
+  }
+  console.log(startDate)
+  console.log(endDate)
 
   return (<>
     <div className={styles.allreportsbutton}>
@@ -210,24 +269,20 @@ const AllReportsButton = () => {
                 <div className={styles.text}>All entries</div>
               </div>
             </div>
-            <div className={styles.dropdown}>
+            {/* <div className={styles.dropdown}> */}
 
-              <div className={styles.searchfatParent}>
-                <img
-                  className={styles.searchfatIcon}
-                  alt=""
-                  src="/Image/AllReports/searchfat2.svg"
-                />
-                <div className={styles.text1}>12 Jun - 17 Jun</div>
-                <button className={styles.arrowaltdown}>
-                  <img
-                    className={styles.arrowaltdownIcon}
-                    alt=""
-                    src="/Image/AllReports/arrowaltdown2.svg"
-                  />
-                </button>
-              </div>
-            </div>
+         
+              <RangePicker
+                // onChange={(values)=>{
+                //   setDates(values)
+                // }}
+                // picker="month"
+                className={styles.searchfatParent}
+                onChange={(value) => { handleChange(value) }}
+
+              />
+           
+            {/* </div> */}
           </div>
           <button onClick={handelCreateNewEntery} className={styles.button}>
             <div className={styles.buttonSize}>
@@ -268,12 +323,20 @@ const AllReportsButton = () => {
                 <div className={styles.div2}>0</div>
               </div>
             </button>
-            <button onClick={() => handleTestStatusFilter("Report rejected")} className={styles.metricTabs1}>
-              <div className={`${styles.metricTabsChild} ${active === 'Report rejected' ? styles.activeBox : ''}`}>
-                <div className={styles.option1}>Report rejected</div>
-                <div className={styles.div2}>0</div>
-              </div>
-            </button>
+            <div>
+              <button onClick={() => handleTestStatusFilter("Report rejected")} className={styles.metricTabs1}>
+                <div className={`${styles.metricTabsChild} ${active === 'Report rejected' ? styles.activeBox : ''}`}>
+                  <div className={styles.option1}>Report rejected</div>
+                  <div className={styles.div2}>0</div>
+                </div>
+                <div className={styles.rejectedIcon} >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7471 9.41503 20.7189 6.93678 18.8911 5.10893C17.0632 3.28108 14.585 2.25292 12 2.25ZM11.25 7.5C11.25 7.30109 11.329 7.11032 11.4697 6.96967C11.6103 6.82902 11.8011 6.75 12 6.75C12.1989 6.75 12.3897 6.82902 12.5303 6.96967C12.671 7.11032 12.75 7.30109 12.75 7.5V12.75C12.75 12.9489 12.671 13.1397 12.5303 13.2803C12.3897 13.421 12.1989 13.5 12 13.5C11.8011 13.5 11.6103 13.421 11.4697 13.2803C11.329 13.1397 11.25 12.9489 11.25 12.75V7.5ZM12 17.25C11.7775 17.25 11.56 17.184 11.375 17.0604C11.19 16.9368 11.0458 16.7611 10.9606 16.5555C10.8755 16.35 10.8532 16.1238 10.8966 15.9055C10.94 15.6873 11.0472 15.4868 11.2045 15.3295C11.3618 15.1722 11.5623 15.065 11.7805 15.0216C11.9988 14.9782 12.225 15.0005 12.4305 15.0856C12.6361 15.1708 12.8118 15.315 12.9354 15.5C13.059 15.685 13.125 15.9025 13.125 16.125C13.125 16.4234 13.0065 16.7095 12.7955 16.9205C12.5845 17.1315 12.2984 17.25 12 17.25Z" fill="#E81A1A" />
+                  </svg>
+                </div>
+              </button>
+
+            </div>
           </div>
         </div>
       </div>
@@ -349,6 +412,7 @@ const AllReportsButton = () => {
 
 
             </div>
+
             <div className={styles.allDataLayoutTopTestStatusBox}>
               <div className={styles.allDataLayoutToptexts}>Test status</div>
 
@@ -416,11 +480,69 @@ const AllReportsButton = () => {
                     <div className={styles.allDataLayoutTopTextAgeSex}>{data.dateOfEntry}</div>
 
                   </div>
-                  <div className={styles.allDataLayoutTopTestNameBox}>
+                  {/* <div data-tooltip-id="my-tooltip-1" className={styles.allDataLayoutTopTestNameBox}>
                     <div className={styles.allDataLayoutTopTextAgeSex}>Test names</div>
                     <div className={styles.allDataLayoutTopTextAgeSex}>Test names</div>
 
                   </div>
+                  <ReactTooltip
+                    id="my-tooltip-1"
+                    place="bottom"
+                    content={dataIndex}
+                  /> */}
+
+                  {/* <div className={styles.allDataLayoutTopTestNameBox}>
+                    {data.testNames.map((name, testNameIndex) => (
+                      <div
+                      data-for="tool"
+                      data-tip="eerer"
+                        key={`${dataIndex}-${testNameIndex}`}
+                        data-tip={`tooltip-${dataIndex}-${testNameIndex}`}
+                        className={styles.allDataLayoutTopTextAgeSex}
+                        data-html={true}
+                      >
+                        {name.name}
+                      </div>
+                    ))}
+                        <ReactTooltip id="tool"/>
+                  </div>
+               */}
+
+
+
+
+                  <div className={styles.allDataLayoutTopTestNameBox}>
+                    {data.testNames.map((name, testNameIndex) => (
+                      <div key={`${dataIndex}-${testNameIndex}`} data-tooltip-id={`tooltip-${data.id}`} className={styles.allDataLayoutTopTextAgeSex}>
+                        {name.name}
+
+                      </div>
+
+                    ))}
+
+                    {KontestData.map((name, testNameIndex) => (
+                      <ReactTooltip key={`tooltip-${dataIndex}-${testNameIndex}`} id={`tooltip-${name.id}`}>
+                        {name.test}
+                      </ReactTooltip>
+                    ))}
+                  </div>
+
+
+
+
+                  {/* <div className={styles.allDataLayoutTopTestNameBox}>
+      {data.testNames.map((name, testNameIndex) => (
+        <div key={`${dataIndex}-${testNameIndex}`} data-tip={`tooltip-${dataIndex}-${testNameIndex}`} className={styles.allDataLayoutTopTextAgeSex}>
+          {name.name}
+        </div>
+      ))}
+
+      {data.testNames.map((name, testNameIndex) => (
+        <ReactTooltip key={`tooltip-${dataIndex}-${testNameIndex}`} id={`tooltip-${dataIndex}-${testNameIndex}`}>
+          {name.name}
+        </ReactTooltip>
+      ))}
+    </div> */}
                   <div className={styles.allDataLayoutTopTestStatusBox}>
                     {data.testStatus === "Report generated" ?
                       <div className={styles.allDataLayoutTopTextTestStatus1}>{data.testStatus}</div> : ""
@@ -439,7 +561,7 @@ const AllReportsButton = () => {
                     }
 
                   </div>
-                  <div onClick={handelPrapereReport} className={styles.allDataLayoutTopPatientDetails}>
+                  <div onClick={() => handelPrapereReport(data.prepareReport)} className={styles.allDataLayoutTopPatientDetails}>
                     <div className={styles.allDataLayoutTopTextPrepareReport}>{data.prepareReport}</div>
 
                   </div>
@@ -471,6 +593,15 @@ const AllReportsButton = () => {
                 <div className={styles.detailsAndTestLayout}>
                   {/* patientDetails from Prapare report component */}
                   <PatientDetails onClick={handlePrepareReportPopUpClick} />
+                </div>
+              </div> : ""
+          }
+          {
+            editReportPopUp ?
+              <div className={styles.modalOverlay}>
+                <div className={styles.detailsAndTestLayout}>
+                  {/* UpdatePayment from Prapare report component */}
+                  <RejectedReportPopUp onClick={handleEditReportPopUpClick} />
                 </div>
               </div> : ""
           }

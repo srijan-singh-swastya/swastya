@@ -112,20 +112,57 @@
 
 .ReviewInvoicePage1Box2Left {
   
-    width: 37%;
-    height: 500px;
-    border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
-    background: var(--Black-800, #181B1F);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 37%;
+  /* height: 600px; */
+  border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
+  background: var(--Black-800, #181B1F);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 1px;
+  overflow: hidden;
 }
 .imageSize {
+  position: relative;
   width: 86%;
-  height: 94%;
+  height: 600px;
+  overflow-y: scroll;
   flex-shrink: 0;
-  /* background: pink; */
   /* border: 2px solid red; */
+}
+.zoomOption{
+ 
+  position: absolute;
+  display: flex;
+  width: 74px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  /* gap: 14px; */
+  bottom: 46px;
+  border-radius: 4px;
+opacity: 0.9;
+background: #000;
+
+/* Elevation 2 / Down */
+box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.12);
+color: white;
+}
+.zoomContainer{
+  display: flex;
+justify-content: space-between;
+align-items: center;
+flex: 1 0 0;
+z-index: 2;
+}
+.ZoomMinus{
+  cursor: pointer;
+}
+.ZoomPlus{
+  cursor: pointer;
+
 }
 
 .ReviewInvoicePage1Box2Right {
@@ -219,12 +256,7 @@ line-height: 21px; /* 150% */
     gap: 2px;
   }
   
-  .searchfatIcon {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    display: none;
-  }
+ 
   
   .text {
     border: 0;
@@ -396,3 +428,120 @@ line-height: 21px; /* 150% */
   /* border: 2px solid red; */
   overflow-x: scroll;
   }
+
+
+
+  
+.cancelCreateEnteryPopUp{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s ease-in-out;
+}
+.cancelCreateEnteryPopUpLayout{
+  position: absolute;
+  width: 350px;
+  top: 19%;
+  /* height:30vh; */
+  min-height: 150px;
+  /* overflow-y: scroll; */
+/* left: 20%; */
+  align-items: flex-start;
+  border-radius: 16px;
+  border-right: 1px solid var(--Black-300, #E6EBF0);
+  background: var(--White, #FFF);
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+align-self: stretch;
+}
+.cancelCreateEnteryPopUpLine1{
+  display: flex;
+padding: 10px 10px 0px 10px;
+align-items: flex-start;
+gap: 6px;
+align-self: stretch;
+justify-content: space-between;
+color: var(--Black-800, #181B1F);
+
+/* 20/Semibold */
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.cancelCreateEnteryPopUpLine2{
+  color: var(--Black-800, #181B1F);
+text-align: center;
+
+/* 16/Regular */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+padding: 5px 10px ;
+}
+.cancelCreateEnteryPopUpLine3{
+  display: flex;
+align-items: flex-start;
+gap: 8px;
+padding: 10px;
+}
+.cancelCreateEnteryPopUpLine3Exit{
+  display: flex;
+width: 58px;
+align-items: flex-start;
+display: flex;
+padding: 8px 20px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+flex: 1 0 0;
+border-radius: 12px;
+background: var(--Error-800, #CE0000);
+color: var(--White, #FFF);
+text-align: center;
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+cursor: pointer;
+}
+.cancelCreateEnteryPopUpLine3Cancle{
+  display: flex;
+width:58px;
+align-items: flex-start;
+display: flex;
+padding: 8px 20px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+flex: 1 0 0;
+border-radius: 12px;
+border: 1.2px solid var(--Black-400, #CFD0D8);
+background: var(--White, #FFF);
+color: var(--Black-800, #181B1F);
+text-align: center;
+
+/* 16/Semibold */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+cursor: pointer;
+}
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TopBar from '../../AllPages/General/TopBar/TopBar'
 import styles from './AddingMembers.module.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,10 +6,12 @@ import { addUpdatedUser, setEmptyUser } from '../../ReduxState/Property/AddingMe
 import AddingMemberScreen2 from '../../AllPages/AddingMember/AddingMemberScreen2/AddingMemberScreen2';
 import AddingMemberScreen3 from '../../AllPages/AddingMember/AddingMemberScreen3/AddingMemberScreen3';
 import { useNavigate } from 'react-router-dom';
+import { setLastTest } from '../../ReduxState/Property/AddingLastTestData/AddingLastTestData';
 let allData = {}
 const AddingMembers = () => {
     const navigate = useNavigate()
     const dataaaa = useSelector((state) => state.newAddedMenber)
+    const primaryTestData = useSelector((state) => state.newTestasPrimary)
     const user = {
         name: "",
         gender: "",
@@ -49,6 +51,7 @@ const AddingMembers = () => {
         ]
     };
 
+
     const initialTest = { testName: "", price: "" };
 
     const [isEditPopupOpen, setIsEditPopupOpen] = useState(true);
@@ -59,7 +62,7 @@ const AddingMembers = () => {
     const [selectedName, setSelectedName] = useState('');
     const [cancelCreateEntery, setCancelCreateEntery] = useState("");
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+    const [checked, setChecked] = useState(false)
     const [tests, setTests] = useState([initialTest]);
 
     const dispatch = useDispatch();
@@ -166,7 +169,7 @@ const AddingMembers = () => {
         console.log(allData)
         setIsEditPopupOpen(false)
         dispatch(addUpdatedUser(allData))
-
+        dispatch(setLastTest(tests))
 
         document.getElementById('name').value = '';
         document.getElementById('gender').value = '';
@@ -200,8 +203,51 @@ const AddingMembers = () => {
         setCancelCreateEntery(false)
     }
 
+    const handleTestAsPrimary = () => {
+        setChecked(!checked)
 
+    }
+    useEffect(() => {
+        if (checked) {
+            const updatedTests = [...primaryTestData];
+            for (let index = 0; index < tests.length; index++) {
+                updatedTests.push(tests[index]);
+            }
+            setTests(updatedTests)
+          
+            
+            // const updatedTests = [...primaryTestData];
+            // setTests(updatedTests);
+            // setTests([...tests, primaryTestData]);
+        }
 
+        else {
+            const updatedTests = [...tests];
+
+            for (let index = 0; index < primaryTestData.length; index++) {
+                const testData = primaryTestData[index];
+
+                // Check if testData meets some condition, for instance, removing an object with testName === 'bp'
+                for (let j = 0; j < updatedTests.length; j++) {
+                    
+                     if (testData.testName === updatedTests[j].testName) {
+                        updatedTests.splice(testData.testName, 1);
+                        // Decrement index to account for the removed element
+                        setTests(updatedTests)
+                       
+                    }
+                }
+            }
+            if(updatedTests.length===0){
+                        setTests([{ ...initialTest }]);
+                     
+                    }
+            
+        }
+    }, [checked])
+
+    console.log(tests)
+    console.log(primaryTestData)
     return (
         <>
             <div>
@@ -403,7 +449,7 @@ const AddingMembers = () => {
                                         {
                                             dataaaa.length >= 1 ?
 
-                                                <div className={styles.checkboxandtext}>
+                                                <div onClick={handleTestAsPrimary} className={styles.checkboxandtext}>
                                                     <input className={styles.checkbox} type='checkbox' />
                                                     <div className={styles.sameasPrimary}>Same tests as Primary contact </div>
                                                 </div>
@@ -421,8 +467,6 @@ const AddingMembers = () => {
                                                 id='test'
                                                 className={styles.detailsAndTestLine3Testname}
                                                 value={test.testName}
-
-
                                                 onChange={(e) => handleTestChange(index, "testName", e.target.value)}
                                             >
                                                 {/* <option value="">Select Test</option> */}
@@ -438,7 +482,7 @@ const AddingMembers = () => {
 
                                             <div className={styles.detailsAndTestLine3TestPrice} >{test.price === "" ? "₹ shows automatically" : test.price}</div>
                                             {/* {alert(test.price)} */}
-                                            {index === 0 ? <div className={styles.hideIcon}></div> :
+                                            {tests.length <= 1 ? <div className={styles.hideIcon}></div> :
                                                 <svg onClick={() => removeTest(index)} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83317 6.6665V14.9998C5.83317 15.9203 6.57936 16.6665 7.49984 16.6665H12.4998C13.4203 16.6665 14.1665 15.9203 14.1665 14.9998V6.6665H15.8332V14.9998C15.8332 16.8408 14.3408 18.3332 12.4998 18.3332H7.49984C5.65889 18.3332 4.1665 16.8408 4.1665 14.9998V6.6665H5.83317Z" fill="#4A5055" />
                                                     <path d="M8.33333 9.1665C7.8731 9.1665 7.5 9.5396 7.5 9.99984V13.3332C7.5 13.7934 7.8731 14.1665 8.33333 14.1665C8.79357 14.1665 9.16667 13.7934 9.16667 13.3332V9.99984C9.16667 9.5396 8.79357 9.1665 8.33333 9.1665Z" fill="#4A5055" />

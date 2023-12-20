@@ -178,7 +178,7 @@
   .searchfatGroup {
     flex: 1;
     border-radius: 8px;
-    background-color: #e6ebf0;
+    background-color: #ffffff;
     border: 1px solid #cfd0d8;
     box-sizing: border-box;
     height: 36px;
@@ -194,10 +194,10 @@
     justify-content: flex-start;
   }
   .dropdown1 {
-    width: 235px;
+    width: 300px;
     flex-direction: row;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
   }
   .dropdownWrapper {
     align-self: stretch;
@@ -315,5 +315,10 @@
     font-size: 24px;
     color: #181b1f;
     font-family: Roboto;
+    margin-top: 20px;
+    border-top: 4px dotted #D0DEEC;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    border-bottom: 4px dotted #D0DEEC;
   }
   

@@ -1,10 +1,15 @@
 
 import React from 'react'
+import { useState } from 'react';
 import styles from "./LabSummaryDiscount.module.css";
 import { Bar } from 'react-chartjs-2';
+
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
+
 const LabSummaryDiscount = () => {
-  const people = ["Harsh","Puja","Rahul"]
-  const value = [22,290,332]
+  const people = ["Harsh", "Puja", "Rahul"]
+  const value = [22, 290, 332]
   // Sample data for the bar chart
   const data = {
 
@@ -13,15 +18,15 @@ const LabSummaryDiscount = () => {
       {
         label: "Discount Given",
         data: value,
-        backgroundColor:  'rgba(54, 162, 235, 0.6)',
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
         borderColor: [
-     
+
           'rgba(54, 162, 235, 1)',
-        
+
         ],
         borderWidth: 7,
         barThickness: 8,
-        barPercentage:.2,
+        barPercentage: .2,
         // grouped:true,
         // maxBarThickness: 21,
         indexAxis: false
@@ -54,29 +59,37 @@ const LabSummaryDiscount = () => {
     },
 
   };
+
+
+
+  const [dates, setDates] = useState([])
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+  }
+  console.log(startDate)
+  console.log(endDate)
   return (
     <div className={styles.moneycollection}>
       <div className={styles.frameParent}>
         <div className={styles.moneyCollectionParent}>
-          <div className={styles.moneyCollection}>Discount</div>
+          <div className={styles.moneyCollectionDiscount}>Discount</div>
           <div className={styles.dropdown}>
-            <div className={styles.labelParent}>
-              <div className={styles.label}>Label</div>
-              <div className={styles.div}>*</div>
-            </div>
-            <div className={styles.searchfatParent}>
-              <img
-                className={styles.searchfatIcon}
-                alt=""
-                src="/Image/StartHere/searchfat.svg"
-              />
-              <div className={styles.text}>Jul 14 – Jul 20</div>
-              <img
-                className={styles.arrowaltdownIcon}
-                alt=""
-                src="/Image/StartHere/arrowaltdown.svg"
-              />
-            </div>
+
+            <RangePicker
+              // onChange={(values)=>{
+              //   setDates(values)
+              // }}
+              // picker="month"
+              className={styles.searchfatParent}
+              onChange={(value) => { handleChange(value) }}
+
+            />
             <div className={styles.helpText}>Help text</div>
           </div>
         </div>
@@ -107,7 +120,7 @@ const LabSummaryDiscount = () => {
             <div className={styles.barLayout} >
               <Bar data={data} options={options} />
             </div>
-         
+
 
           </div>
           <div className={styles.frameDiv}>

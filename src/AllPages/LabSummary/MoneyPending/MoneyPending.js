@@ -1,20 +1,23 @@
 import React from 'react'
+import { useState } from 'react';
 import styles from "./MoneyPending.module.css";
 import { Doughnut } from 'react-chartjs-2';
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
 const MoneyPending = () => {
-  const reportNotCollected=413;
-  const reportNotGenerated=121
+  const reportNotCollected = 413;
+  const reportNotGenerated = 121
   const data = {
     labels: [
       'Report Not Collected',
       'Report Not Generated',
-     
+
     ],
     datasets: [{
       label: 'My First Dataset',
       data: [reportNotCollected, reportNotGenerated],
       backgroundColor: [
-        'rgb(54, 162, 235)',   
+        'rgb(54, 162, 235)',
         'rgb(255, 205, 86)',
       ],
       hoverOffset: 4
@@ -25,31 +28,36 @@ const MoneyPending = () => {
     legend: {
       display: false, // Hide the legend
     },
-    cutoutPercentage: 50, 
+    cutoutPercentage: 50,
   };
+
+  const [dates, setDates] = useState([])
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+  }
+  console.log(startDate)
+  console.log(endDate)
   return (
     <div className={styles.moneycollection}>
       <div className={styles.frameParent}>
         <div className={styles.moneyCollectionParent}>
           <div className={styles.moneyCollection}>Money Pending</div>
           <div className={styles.dropdown}>
-            <div className={styles.labelParent}>
-              <div className={styles.label}>Label</div>
-              <div className={styles.div}>*</div>
-            </div>
-            <div className={styles.searchfatParent}>
-              <img
-                className={styles.searchfatIcon}
-                alt=""
-                src="/Image/StartHere/searchfat.svg"
-              />
-              <div className={styles.text}>Jul 14 – Jul 20</div>
-              <img
-                className={styles.arrowaltdownIcon}
-                alt=""
-                src="/Image/StartHere/arrowaltdown.svg"
-              />
-            </div>
+            <RangePicker
+              // onChange={(values)=>{
+              //   setDates(values)
+              // }}
+              picker="month"
+              className={styles.searchfatParent}
+              onChange={(value) => { handleChange(value) }}
+
+            />
             <div className={styles.helpText}>Help text</div>
           </div>
         </div>
@@ -71,7 +79,7 @@ const MoneyPending = () => {
       </div>
       <div className={styles.groupParent}>
         <div className={styles.image160Parent}>
-          <img className={styles.image160Icon} alt="" src="/Image/StartHere/image-160@2x.png" />
+          {/* <img className={styles.image160Icon} alt="" src="/Image/StartHere/image-160@2x.png" /> */}
           <div className={styles.groupChild} />
         </div>
         <div className={styles.frameGroup}>
@@ -80,8 +88,8 @@ const MoneyPending = () => {
             <div className={styles.div1}>₹19,083.98</div>
           </div>
           <div className={styles.pieParent}>
-          <div className={styles.pieIcon} style={{ width: '300px', height: '169px' }}>
-              
+            <div className={styles.pieIcon} style={{ width: '300px', height: '169px' }}>
+
               <Doughnut data={data} options={options} />
             </div>
             {/* <img className={styles.pieIcon} alt="" src="/Image/StartHere/pie.svg" /> */}

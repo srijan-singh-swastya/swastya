@@ -75,7 +75,7 @@
     justify-content: flex-start;
   }
   .dropdown {
-    width: 235px;
+    width: 250px;
     flex-direction: column;
     gap: 4px;
     font-size: 14px;

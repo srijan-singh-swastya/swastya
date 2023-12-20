@@ -67,6 +67,35 @@ const SignReportHome = () => {
                             <div className={styles.Box4NormalText}>12</div>
                         </div>
                         <div onClick={handleReview} className={styles.Box4ReviewButton}>Review</div>
+                        
+                    </div>
+                   
+                </div>
+                <div className={styles.SignReportHomeBox4Weekly}>
+                    <div className={styles.SignReportHomeBox4WeeklyTest1}>Last Week</div>
+                    <div className={styles.SignReportHomeBox4Daily}>
+                        <div className={styles.Box4Date}>
+                            <div className={styles.Box4BoldText}>14 July 23</div>
+                            <div className={styles.Box4NormalText}>Sunday</div>
+                        </div>
+                        <div className={styles.Box4PendingReport}>
+                            <div className={styles.Box4BoldText}>Reports pending</div>
+                            <div className={styles.Box4NormalText}>12</div>
+                        </div>
+                        <div onClick={handleReview} className={styles.Box4ReviewButton}>Review</div>
+                        
+                    </div>
+                    <div className={styles.SignReportHomeBox4Daily}>
+                        <div className={styles.Box4Date}>
+                            <div className={styles.Box4BoldText}>13 July 23</div>
+                            <div className={styles.Box4NormalText}>Sunday</div>
+                        </div>
+                        <div className={styles.Box4PendingReport}>
+                            <div className={styles.Box4BoldText}>Reports pending</div>
+                            <div className={styles.Box4NormalText}>12</div>
+                        </div>
+                        <div onClick={handleReview} className={styles.Box4ReviewButton}>Review</div>
+                        
                     </div>
                 </div>
                 {/* <div className={styles.noReportsToSign}>

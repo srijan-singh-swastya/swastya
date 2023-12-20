@@ -25,7 +25,7 @@ const ReportLetterhead = () => {
   return (
     <div className={styles.reportLetterhead}>
       <div className={styles.header}>
-        <div className={styles.leftHeader}><h1>ReportLetterhead</h1></div>
+        <div ><h1>ReportLetterhead</h1></div>
         <div  onClick={handleFileInput}>
           <button className={styles.rightHeader}>Add New ReportLetterhead</button>
         </div>

@@ -457,7 +457,6 @@ line-height: 21px; /* 150% */
   flex-direction: column;
   align-items: flex-start;
 }
-.frameChild3,
 .frameWrapper {
   align-self: stretch;
   border-radius: 8px;
@@ -472,9 +471,6 @@ line-height: 21px; /* 150% */
   padding: 10px 16px;
   color: #777c83;
   /* border: 2px solid red; */
-}
-.frameChild3 {
-  display: none;
 }
 .frameParent,
 .patientreport {
@@ -503,7 +499,7 @@ line-height: 21px; /* 150% */
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 
 }
 .uploadImgeBox1{
@@ -593,6 +589,25 @@ font-size: 16px;
 font-style: normal;
 font-weight: 600;
 line-height: 24px; /* 150% */
+}
+.showingImage{
+  width: 100%;
+  min-height: 50px;
+  /* background-color: #777C83; */
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.showingImageBox{
+    background-color: #777C83;
+    border: 2px solid rgb(182, 175, 176);
+  /* padding: 1px; */
+  width: 99%;
+  max-height: 600px;
+  object-fit: cover;
 }
 
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styles from "./SignReportPopUp.module.css";
+import styles from "./RejectedReportPopUp.module.css";
 
-const SignReportPopUp = (props) => {
+const RejectedReportPopUp = (props) => {
     const { onClick } = props;
     const [doctorComment, setDoctorComment] = useState("")
     const [rejectPopUp, setRejectPopUp] = useState(false)
@@ -26,9 +26,11 @@ const SignReportPopUp = (props) => {
     return (
         <>
             <div className={styles.prepareReportNav}>
-                <div className={styles.prepareReportNavText1}>Review and take action on reports</div>
-                <div onClick={handleReject} className={styles.prepareReportNavText3}>Reject report</div>
-                <div className={styles.prepareReportNavText4}>Approve and go to next report</div>
+                <div className={styles.prepareReportNavText1}>View and edit report</div>
+                {/* <div onClick={handleReject} className={styles.prepareReportNavText3a}>Save</div> */}
+                <div  className={styles.prepareReportNavText3a}>Save</div>
+                <div  className={styles.prepareReportNavText3}>Save and download report</div>
+                <div className={styles.prepareReportNavText4}>Save and go to next report</div>
                 <div onClick={onClick} className={styles.prepareReportNavText5}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -244,12 +246,12 @@ const SignReportPopUp = (props) => {
                     </div>
                 </div>
                 <div className={styles.SignUpReportConatinerRight}>
-                    <div className={styles.SignReportBoldText}>Add Comments</div>
+                    <div className={styles.SignReportBoldText}>Comments from doctor</div>
                     <div>
                         <textarea
 
                             className={styles.SignReportTextArea}
-
+                            value="The observed value of Electrolytes serum is exceeding limit. Make sure it is always within limit. Also add a photo of the test results."
                             onChange={handleTextChange}
                             placeholder="Enter text here..."
                         >
@@ -279,5 +281,5 @@ const SignReportPopUp = (props) => {
     );
 };
 
-export default SignReportPopUp;
+export default RejectedReportPopUp;
 

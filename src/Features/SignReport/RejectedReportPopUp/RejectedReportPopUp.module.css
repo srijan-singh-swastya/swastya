@@ -47,13 +47,30 @@
 
 }
 
-.prepareReportNavText3 {
+.prepareReportNavText3a {
     display: flex;
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    color: var(--White, #FFF);
+    border-radius: 12px;
+    color: var(--Primary-800, #0067DF);
+    text-align: center;
+
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+    cursor: pointer;
+}
+
+.prepareReportNavText3 {
+    display: flex;
+    padding: 8px 16px;
+    color: var(--Primary-800, #0067DF);
     text-align: center;
 
     /* 16/Semibold */
@@ -64,7 +81,8 @@
     line-height: 24px;
     /* 150% */
     border-radius: 12px;
-    background: var(--Error-800, #CE0000);
+    border: 1.2px solid var(--Primary-800, #0067DF);
+    background: var(--White, #FFF);
     cursor: pointer;
 }
 
@@ -136,23 +154,24 @@
 
 .SignReportTextArea {
     display: flex;
-    height: 560px;
+    height: 400px;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     align-self: stretch;
     border-radius: var(--mint-cfc-sys-corner-radius-s, 8px);
     border: 1px solid var(--Black-300, #E6EBF0);
-    background: #FFF;
+    background: var(--Warning-300, #FFF6E6);
     outline: none;
     color: var(--Black-800, #181B1F);
-
-/* 14/Regular */
-font-family: Roboto;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 21px; /* 150% */
+padding: 10px 0px 0px 10px;
+    /* 14/Regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 150% */
 }
 
 .modalOverlay {
@@ -197,18 +216,21 @@ line-height: 21px; /* 150% */
     font-weight: 600;
     line-height: normal;
 }
-.rejectBoxText2{
+
+.rejectBoxText2 {
     color: var(--Black-600, #777C83);
 
-/* 16/Regular */
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 150% */
-width: 85%;
+    /* 16/Regular */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    width: 85%;
 }
-.rejectBoxText3{
+
+.rejectBoxText3 {
     display: flex;
     width: 100px;
     padding: 8px 16px;
@@ -217,17 +239,18 @@ width: 85%;
     gap: 8px;
     flex: 1 0 0;
     border-radius: 12px;
-background: var(--Primary-800, #0067DF);
-color: var(--White, #FFF);
-text-align: center;
+    background: var(--Primary-800, #0067DF);
+    color: var(--White, #FFF);
+    text-align: center;
 
-/* 16/Semibold */
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 24px; /* 150% */
-cursor: pointer;
+    /* 16/Semibold */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 150% */
+    cursor: pointer;
 }
 
 
@@ -538,9 +561,11 @@ cursor: pointer;
     padding: 8px;
     outline: none;
 }
+
 .inputFieldChild:focus {
-    border: 1px solid rgb(44, 112, 213); 
-  }
+    border: 1px solid rgb(44, 112, 213);
+}
+
 .inputField1 {
     flex: 1;
     flex-direction: column;

@@ -85,7 +85,7 @@
 }
 
 .dropdown {
-  width: 235px;
+  width: 250px;
   flex-direction: column;
   gap: 4px;
   font-size: 14px;
@@ -94,9 +94,19 @@
 
 .moneyCollectionParent {
   align-self: stretch;
+align-items: center;
   flex: 1;
   flex-direction: row;
   gap: 16px;
+}
+.moneyCollectionDiscount{
+ 
+  gap: 16px;
+  text-align: left;
+  font-size: 20px;
+  color: #2c323c;
+  font-family: Roboto;
+
 }
 
 .arrowdownloadIcon {

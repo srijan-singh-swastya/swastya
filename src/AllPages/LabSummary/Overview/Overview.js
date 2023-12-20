@@ -1,6 +1,22 @@
 import styles from "./Overview.module.css";
+import { useState } from "react";
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
 
 const Overview = () => {
+
+  const [dates, setDates] = useState([])
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+  }
+  console.log(startDate)
+  console.log(endDate)
   return (
     <div className={styles.overview}>
       <div className={styles.currencyRupeeCircleParent}>
@@ -16,23 +32,18 @@ const Overview = () => {
           <div className={styles.overviewParent}>
             <div className={styles.overview1}>Overview</div>
             <button className={styles.dropdown}>
-              <div className={styles.labelParent}>
-                <div className={styles.label}>Label</div>
-                <div className={styles.div}>*</div>
-              </div>
-              <div className={styles.searchfatParent}>
-                <img
-                  className={styles.searchfatIcon}
-                  alt=""
-                  src="/Image/LabSummaryLeft/searchfat1.svg"
-                />
-                <div className={styles.text}>12 Jun - 17 Jun</div>
-                <img
-                  className={styles.arrowaltdownIcon}
-                  alt=""
-                  src="/Image/LabSummaryLeft/arrowaltdown.svg"
-                />
-              </div>
+
+
+              <RangePicker
+                // onChange={(values)=>{
+                //   setDates(values)
+                // }}
+                picker="month"
+                className={styles.searchfatParent}
+                onChange={(value) => { handleChange(value) }}
+
+              />
+
             </button>
           </div>
           <button className={styles.button}>
@@ -42,9 +53,9 @@ const Overview = () => {
                 alt=""
                 src="/Image/LabSummaryLeft/arrowdownload.svg"
               />
-              <div className={styles.text1}>Download report</div>
+              <div className={styles.text1}>Download report </div>
               <img
-                className={styles.arrowforwardIcon}
+                className={styles.arrowdownloadIcon}
                 alt=""
                 src="/Image/LabSummaryLeft/arrowforward.svg"
               />

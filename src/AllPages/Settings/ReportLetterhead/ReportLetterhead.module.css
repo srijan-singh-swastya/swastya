@@ -17,6 +17,15 @@
     color: #151414;
     /* padding: 0 20px; */
   }
+  .header h1{
+    margin: 0;padding: 0;
+    color: var(--000000-primary, #000);
+font-family: Roboto;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+  }
   
 
   

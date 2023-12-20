@@ -112,8 +112,8 @@ const LoginOtp = () => {
         <div className={styles.enterTheOtpSentTo919879Parent}>
           <div className={styles.enterTheOtpContainer}>
             <span className={styles.enterTheOtpContainer1}>
-              <span>{`Enter the OTP sent to `}</span>
-              <b>+91 987987333</b>
+              <span className={styles.otpSentTo} >{`Enter the OTP sent to `}</span>
+              <b className={styles.otpSentToNumber}>+91 987987333</b>
             </span>
           </div>
           <Link to="/login" className={styles.text}>Change number</Link>
@@ -139,11 +139,11 @@ const LoginOtp = () => {
         <div className={styles.otpValidFor0129Parent}>
           {isError ? <div className={styles.errorOtp}>Incorrect OTP</div> : ""}
           <div className={styles.otpValidForContainer}>
-            <span>OTP valid for</span>
-            <b> {formattedTimer}</b>
+            <span className={styles.otpValidFor}>OTP valid for</span>
+            <b className={styles.otpValidForTimer}> {formattedTimer}</b>
           </div>
           <div className={styles.didntReceiveOtpParent}>
-            <div className={styles.didntReceiveOtp}>Didn't receive OTP?</div>
+            <div className={styles.didntReceiveOtp1}>Didn't receive OTP?</div>
             <div onClick={handelResendOtp} className={styles.text}>Resend OTP</div>
           </div>
         </div>

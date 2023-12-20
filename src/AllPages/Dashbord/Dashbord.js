@@ -1,10 +1,13 @@
 import { useCallback, useState } from "react";
 import styles from "./Dashbord.module.css";
 import { useNavigate } from "react-router-dom";
-import DateRangePicker from "../General/DateRangePicker/DateRangePicker";
+import { DatePicker } from 'antd';
+import moment from 'moment';
+import Item from 'antd/es/list/Item';
+const { RangePicker } = DatePicker;
 const Dashbord = () => {
-  const [date,setDate]=useState(false)
-  const handleDate=()=>{
+  const [date, setDate] = useState(false)
+  const handleDate = () => {
     setDate(!date)
   }
   const navigate = useNavigate()
@@ -33,6 +36,27 @@ const Dashbord = () => {
     // Please sync "master doc" to the project
   }, []);
 
+
+
+  // all about dates
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+
+  const handleChange = (value) => {
+    if (value) {
+      setStaetDate(value[0]?.format('DD-MM-YYYY'))
+      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+    }
+    else {
+      setStaetDate("")
+      setEndtDate("")
+    }
+
+  }
+  console.log(startDate)
+  console.log(endDate)
+
+
   return (
     <div className={styles.dashbord}>
       <div className={styles.dashbordTop}>
@@ -41,29 +65,18 @@ const Dashbord = () => {
       </div>
       <div className={styles.frameParent}>
         <div className={styles.frameGroup}>
-          <div className={styles.pendingReportsToBeSignedParent}>
-            <b className={styles.pendingReportsTo}>
-              Pending reports to be signed
-            </b>
-            <div className={styles.number}>See all report statuses</div>
-          </div>
-          <div className={styles.badgeWrap}>
-            <div className={styles.badge}>
-              <img className={styles.arrowUpIcon} alt="" src="/Image/Dashbord/arrowup.svg" />
-              <b className={styles.text}>10%</b>
-            </div>
-          </div>
+
           <div className={styles.frameContainer}>
             <div className={styles.numberParent}>
               <b className={styles.number1}>30</b>
               <div className={styles.heading}>Reports pending to be signed</div>
             </div>
             <div className={styles.maskGroupParent}>
-              {/* <img
+              <img
                 className={styles.maskGroupIcon}
                 alt=""
                 src="/Image/Dashbord/mask-group.svg"
-              /> */}
+              />
               <img
                 className={styles.warningcircleIcon}
                 alt=""
@@ -95,26 +108,23 @@ const Dashbord = () => {
             <div className={styles.labSummaryForParent}>
               <div className={styles.labSummaryFor}>{`Lab summary for `}</div>
               <div onClick={handleDate} className={styles.dropdown}>
-                <div className={styles.labelParent}>
-                  <div className={styles.labSummaryFor}>Label</div>
-                  <div className={styles.div}>*</div>
-                </div>
-                <div className={styles.searchfatParent}>
-              
-                  <div className={styles.text2}>Jul 14 – Jul 20</div>
-                  <button className={styles.arrowaltdown}>
-                    <img
-                      className={styles.arrowaltdownIcon}
-                      alt=""
-                      src="/Image/Dashbord/arrowaltdown1.svg"
-                    />
-                  </button>
-                </div>
-                <div className={styles.helpText}>Help text</div>
+
+                {/* <div className={styles.searchfatParent}> */}
+                <RangePicker
+                  // onChange={(values)=>{
+                  //   setDates(values)
+                  // }}
+                  // picker="month"
+                  className={styles.searchfatParent}
+                  onChange={(value) => { handleChange(value) }}
+
+                />
+                {/* </div> */}
+
               </div>
-           
+
             </div>
-           
+
             <button onClick={onFrameButton1Click} className={styles.button1}>
               <div className={styles.buttonSize1}>
                 <img
@@ -142,17 +152,10 @@ const Dashbord = () => {
               </div>
               <div className={styles.totalRevenueParent}>
                 <div className={styles.totalRevenue}>Total Revenue</div>
-                <div className={styles.parent}>
+         
                   <div className={styles.div1}>₹19,083.98</div>
-                  <div className={styles.caretupParent}>
-                    <img
-                      className={styles.caretupIcon}
-                      alt=""
-                      src="/Image/Dashbord/caretup1.svg"
-                    />
-                    <div className={styles.div2}>2.4%</div>
-                  </div>
-                </div>
+                 
+             
               </div>
             </div>
             <div className={styles.frameParent1}>
@@ -165,17 +168,9 @@ const Dashbord = () => {
               </div>
               <div className={styles.totalRevenueParent}>
                 <div className={styles.totalRevenue}>Total Discount</div>
-                <div className={styles.parent}>
+         
                   <div className={styles.div1}>₹1,987.00</div>
-                  <div className={styles.caretupParent}>
-                    <img
-                      className={styles.caretupIcon}
-                      alt=""
-                      src="/Image/Dashbord/caretup1.svg"
-                    />
-                    <div className={styles.div2}>2.4%</div>
-                  </div>
-                </div>
+         
               </div>
             </div>
             <div className={styles.frameParent1}>
@@ -188,17 +183,10 @@ const Dashbord = () => {
               </div>
               <div className={styles.totalRevenueParent}>
                 <div className={styles.totalRevenue}>Total Commission</div>
-                <div className={styles.parent}>
+      
                   <div className={styles.div1}>₹4,987.90</div>
-                  <div className={styles.caretupParent}>
-                    <img
-                      className={styles.caretupIcon}
-                      alt=""
-                      src="/Image/Dashbord/caretup1.svg"
-                    />
-                    <div className={styles.div2}>2.4%</div>
-                  </div>
-                </div>
+                  
+      
               </div>
             </div>
           </div>

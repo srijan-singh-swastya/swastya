@@ -51,7 +51,7 @@ const data = [
     "KitsReceived": 12,
     "Amount": 5500
   },
-  
+
   // Add more data objects as needed
 ];
 const KitInventoryHome = () => {
@@ -122,7 +122,11 @@ const KitInventoryHome = () => {
 
     if (!['application/pdf', 'image/png'].includes(selectedFile.type)) {
       setErrorMessage('Please upload a PDF or PNG file.');
-      setCheckingIsOpen(false)
+      setTimeout(() => {
+        setCheckingIsOpen(false)
+      }, 3000);
+
+      // setCheckingIsOpen(false)
       setModalIsOpen(true);
       return;
     }
@@ -391,8 +395,11 @@ const KitInventoryHome = () => {
               <div className={styles.blackBoldText}>Upload Kit invoice</div>
             </div>
             <div className={styles.modelBottomBox}>
-              <div className={styles.blackBoldText}>Checking file...</div>
-              <div className={styles.blackBoldText}>Please Wait</div>
+
+              <div className={styles.checkingFile}>Checking file ... <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                <path d="M4.6665 10H16.3332M16.3332 10L11.3332 5M16.3332 10L11.3332 15" stroke="#0067DF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg></div>
+              <div className={styles.checkingFilePleaseWait}>Please Wait</div>
             </div>
 
           </div>
@@ -418,7 +425,7 @@ const KitInventoryHome = () => {
         <div className={styles.modal}>
           <div className={styles.modalLayout}>
             <div className={styles.modelBottomBox1}>
-              <img className={styles.BottomBoxIcon} src="https://s3-alpha-sig.figma.com/img/26e0/0aca/41f1850b42974fc9d572d07c290d1bac?Expires=1702252800&Signature=VpSSC8PSUF4Oy8W7QrrOhZpOhK4dlCbDoA6s6dlwvlZbX07RkqK60jl6tQatDyTRso4PL3amNYGXH7XfhVoo0FUGVKLWHsx1dCZgAs9lk1ZI-GmSLhSVm8AxjYFThxSWFzaQkF74V7ZtUMEOYkRYbiC~LxlTR-GXg2CEcXT76noWUPKcssTBc4DSRyKmR-IkqveHHd5jqoCPjWCKJb8ONZKSgtTdU-eHkRG6suvOvh06jINa3yA6qitsl6F0guYkcrc--vvqsbgDfUm709QHGQPmoT9or4kM6Wo~-pRgFkImsl1bj6MWlGykqGxdaTuqVC4wsjUR3RBPY-U6oGPwYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+              <img className={styles.BottomBoxIcon} src="https://s3-alpha-sig.figma.com/img/26e0/0aca/41f1850b42974fc9d572d07c290d1bac?Expires=1703462400&Signature=DPAl2sy3YCDUkdl-cnc5jmY3igyMzW~KBUH7dE1T87PSLf0VhA2zMcHdhcz6Tx1WBg1gXMQg35FNebuZfMpXYaP7EayH3-gOFuOCqbRJbPMtRT5MzP~mjve5y~-hx24s0uzgdV4cLTZ5L2yavHLQsFRt~x3Vwqk7aLL2kE46r0Kja7OF9cckdIPwHUAtIp1-sIAXhFZW1qbRS7Eekm7z1~dQu1v5nUAst6ItO9sSSQ6YNjyJQuHlqUp1CfnlPeteCPqxuHFaamWmCw6ElQNyhN5taM6qlXZ9elaEULDlzBwh2CL1uCdMbOUzm0vLwYxrUv2Axh4LsenVpc6KMnGGYA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
               <div className={styles.blackBoldText}>Reading the invoice</div>
               <div className={styles.blackNormalText}>Please wait...</div>
             </div>

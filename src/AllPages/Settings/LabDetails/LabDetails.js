@@ -57,9 +57,10 @@ const LabDetails = () => {
       <div className={styles.frameParent}>
         <div className={styles.forgotPasswordParent}>
           <b className={styles.forgotPassword}>Lab details</b>
-          {editMode ?
+          {/* {editMode ?
             <b onClick={handelSaveClick} className={styles.editButton}>Save</b> :
-            <b onClick={handelEditClick} className={styles.editButton}>Edit</b>}
+            <b onClick={handelEditClick} className={styles.editButton}>Edit</b>
+          } */}
         </div>
       </div>
 
@@ -71,7 +72,7 @@ const LabDetails = () => {
               <div className={styles.label}>Name of Lab</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-            {editMode ? (
+              {editMode ? (
                 <input
                   type="text"
                   value={labData.name}
@@ -88,7 +89,7 @@ const LabDetails = () => {
               <div className={styles.label}>Lab address</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-            {editMode ? (
+              {editMode ? (
                 <input
                   type="text"
                   value={labData.address}
@@ -107,7 +108,7 @@ const LabDetails = () => {
               <div className={styles.label}>Pin code</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-            {editMode ? (
+              {editMode ? (
                 <input
                   type="text"
                   value={labData.pinCode}
@@ -127,7 +128,7 @@ const LabDetails = () => {
               <div className={styles.label}>Point of contact</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-            {editMode ? (
+              {editMode ? (
                 <input
                   type="text"
                   value={labData.poc}
@@ -137,7 +138,7 @@ const LabDetails = () => {
               ) : (
                 <div className={styles.text1}>{labData.poc}</div>
               )}
-       
+
             </div>
           </div>
           <div className={styles.inputField}>
@@ -145,7 +146,7 @@ const LabDetails = () => {
               <div className={styles.label}>Lab ID</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-            {editMode ? (
+              {editMode ? (
                 <input
                   type="text"
                   value={labData.localId}
@@ -163,7 +164,7 @@ const LabDetails = () => {
               <div className={styles.label}>Plan</div>
             </div>
             <div className={styles.inputFieldflagsParent}>
-            {editMode ? (
+              {editMode ? (
                 <input
                   type="text"
                   value={labData.plan}

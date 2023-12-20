@@ -11,6 +11,59 @@ const Onbaording = () => {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [labDetaisFilled, setLabDetailsFilled] = useState(false)
+
+
+    const data = [
+        {
+            "id": 1,
+            "labId": 104,
+            "userId": "sat104",
+            "vendorName": "satish",
+            "vendorGST": "SDFFD434",
+            "vendorBank": "SBI",
+            "labName": "Dpharma",
+            "invoiceNumber": "pkFGFGH",
+            "invoiceDate": "12 march",
+            "deliveryDate": "12 er",
+            "itemDescription": "i dont know",
+            "AWB": 240,
+            "HSN": "ABC123",
+            "GSTRate": 18,
+            "CGSTRate": 9,
+            "SGSTRate": 9,
+            "IGSTRate": 0,
+            "Discount": 50,
+            "Quantity": 10,
+            "FinalAmount": 4500,
+            "KitsReceived": 8,
+            "Amount": 4000
+        },
+        {
+            "id": 2,
+            "labId": 105,
+            "userId": "john101",
+            "vendorName": "john",
+            "vendorGST": "ABCDE123",
+            "vendorBank": "HDFC",
+            "labName": "Pharmacy",
+            "invoiceNumber": "abcXYZ",
+            "invoiceDate": "15 March",
+            "deliveryDate": "20 er",
+            "itemDescription": "Testing items",
+            "AWB": 245,
+            "HSN": "XYZ456",
+            "GSTRate": 12,
+            "CGSTRate": 6,
+            "SGSTRate": 6,
+            "IGSTRate": 0,
+            "Discount": 40,
+            "Quantity": 15,
+            "FinalAmount": 6000,
+            "KitsReceived": 12,
+            "Amount": 5500
+        }
+        // Add more data objects as needed
+    ];
     const [formData, setFormData] = useState({
         labName: '',
         labAddress: '',
@@ -132,10 +185,10 @@ const Onbaording = () => {
     const handledeleteTestandPrice = () => {
         setTestAndPrice(false)
     }
-    const handleTestAndPricePreview=()=>{
+    const handleTestAndPricePreview = () => {
         setPreviewTestAndPriceList(true)
     }
-    const handleCancleTestAndPricePreview=()=>{
+    const handleCancleTestAndPricePreview = () => {
         setPreviewTestAndPriceList(false)
     }
 
@@ -499,7 +552,10 @@ const Onbaording = () => {
                         {testAndPrice ?
                             <div className={styles.stepPriceandreportTop}>
                                 <div className={styles.stepPriceandreportIcon}>
-                                    <img src='/logo192.png' />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 7C7.44772 7 7 7.44772 7 8C7 8.55228 7.44772 9 8 9H12C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7H8ZM9 12C9 11.4477 9.44772 11 10 11H14C14.5523 11 15 11.4477 15 12C15 12.5523 14.5523 13 14 13H10C9.44772 13 9 12.5523 9 12ZM11 16C11 15.4477 11.4477 15 12 15H16C16.5523 15 17 15.4477 17 16C17 16.5523 16.5523 17 16 17H12C11.4477 17 11 16.5523 11 16Z" fill="#181B1F" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3572 3H13.6428C14.7266 2.99999 15.6007 2.99998 16.3086 3.05782C17.0375 3.11737 17.6777 3.24318 18.27 3.54497C19.2108 4.02433 19.9757 4.78924 20.455 5.73005C20.7568 6.32234 20.8826 6.96253 20.9422 7.69138C21 8.39925 21 9.27339 21 10.3572V13.6428C21 14.7266 21 15.6008 20.9422 16.3086C20.8826 17.0375 20.7568 17.6777 20.455 18.27C19.9757 19.2108 19.2108 19.9757 18.27 20.455C17.6777 20.7568 17.0375 20.8826 16.3086 20.9422C15.6008 21 14.7266 21 13.6428 21H10.3572C9.27339 21 8.39925 21 7.69138 20.9422C6.96253 20.8826 6.32234 20.7568 5.73005 20.455C4.78924 19.9757 4.02433 19.2108 3.54497 18.27C3.24318 17.6777 3.11737 17.0375 3.05782 16.3086C2.99998 15.6007 2.99999 14.7266 3 13.6428V10.3572C2.99999 9.27341 2.99998 8.39926 3.05782 7.69138C3.11737 6.96253 3.24318 6.32234 3.54497 5.73005C4.02433 4.78924 4.78924 4.02433 5.73005 3.54497C6.32234 3.24318 6.96253 3.11737 7.69138 3.05782C8.39926 2.99998 9.27341 2.99999 10.3572 3ZM7.85424 5.05118C7.24907 5.10062 6.90138 5.19279 6.63803 5.32698C6.07354 5.6146 5.6146 6.07354 5.32698 6.63803C5.19279 6.90138 5.10062 7.24907 5.05118 7.85424C5.00078 8.47108 5 9.26339 5 10.4V13.6C5 14.7366 5.00078 15.5289 5.05118 16.1458C5.10062 16.7509 5.19279 17.0986 5.32698 17.362C5.6146 17.9265 6.07354 18.3854 6.63803 18.673C6.90138 18.8072 7.24907 18.8994 7.85424 18.9488C8.47108 18.9992 9.26339 19 10.4 19H13.6C14.7366 19 15.5289 18.9992 16.1458 18.9488C16.7509 18.8994 17.0986 18.8072 17.362 18.673C17.9265 18.3854 18.3854 17.9265 18.673 17.362C18.8072 17.0986 18.8994 16.7509 18.9488 16.1458C18.9992 15.5289 19 14.7366 19 13.6V10.4C19 9.26339 18.9992 8.47108 18.9488 7.85424C18.8994 7.24907 18.8072 6.90138 18.673 6.63803C18.3854 6.07354 17.9265 5.6146 17.362 5.32698C17.0986 5.19279 16.7509 5.10062 16.1458 5.05118C15.5289 5.00078 14.7366 5 13.6 5H10.4C9.26339 5 8.47108 5.00078 7.85424 5.05118Z" fill="#181B1F" />
+                                    </svg>
                                 </div>
                                 <div className={styles.stepPriceandreporttext1}>Test and price list</div>
                                 <div className={styles.uploadedwithicon}> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -514,7 +570,10 @@ const Onbaording = () => {
                             :
                             <div className={styles.stepPriceandreportTop}>
                                 <div className={styles.stepPriceandreportIcon}>
-                                    <img src='/logo192.png' />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 7C7.44772 7 7 7.44772 7 8C7 8.55228 7.44772 9 8 9H12C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7H8ZM9 12C9 11.4477 9.44772 11 10 11H14C14.5523 11 15 11.4477 15 12C15 12.5523 14.5523 13 14 13H10C9.44772 13 9 12.5523 9 12ZM11 16C11 15.4477 11.4477 15 12 15H16C16.5523 15 17 15.4477 17 16C17 16.5523 16.5523 17 16 17H12C11.4477 17 11 16.5523 11 16Z" fill="#181B1F" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3572 3H13.6428C14.7266 2.99999 15.6007 2.99998 16.3086 3.05782C17.0375 3.11737 17.6777 3.24318 18.27 3.54497C19.2108 4.02433 19.9757 4.78924 20.455 5.73005C20.7568 6.32234 20.8826 6.96253 20.9422 7.69138C21 8.39925 21 9.27339 21 10.3572V13.6428C21 14.7266 21 15.6008 20.9422 16.3086C20.8826 17.0375 20.7568 17.6777 20.455 18.27C19.9757 19.2108 19.2108 19.9757 18.27 20.455C17.6777 20.7568 17.0375 20.8826 16.3086 20.9422C15.6008 21 14.7266 21 13.6428 21H10.3572C9.27339 21 8.39925 21 7.69138 20.9422C6.96253 20.8826 6.32234 20.7568 5.73005 20.455C4.78924 19.9757 4.02433 19.2108 3.54497 18.27C3.24318 17.6777 3.11737 17.0375 3.05782 16.3086C2.99998 15.6007 2.99999 14.7266 3 13.6428V10.3572C2.99999 9.27341 2.99998 8.39926 3.05782 7.69138C3.11737 6.96253 3.24318 6.32234 3.54497 5.73005C4.02433 4.78924 4.78924 4.02433 5.73005 3.54497C6.32234 3.24318 6.96253 3.11737 7.69138 3.05782C8.39926 2.99998 9.27341 2.99999 10.3572 3ZM7.85424 5.05118C7.24907 5.10062 6.90138 5.19279 6.63803 5.32698C6.07354 5.6146 5.6146 6.07354 5.32698 6.63803C5.19279 6.90138 5.10062 7.24907 5.05118 7.85424C5.00078 8.47108 5 9.26339 5 10.4V13.6C5 14.7366 5.00078 15.5289 5.05118 16.1458C5.10062 16.7509 5.19279 17.0986 5.32698 17.362C5.6146 17.9265 6.07354 18.3854 6.63803 18.673C6.90138 18.8072 7.24907 18.8994 7.85424 18.9488C8.47108 18.9992 9.26339 19 10.4 19H13.6C14.7366 19 15.5289 18.9992 16.1458 18.9488C16.7509 18.8994 17.0986 18.8072 17.362 18.673C17.9265 18.3854 18.3854 17.9265 18.673 17.362C18.8072 17.0986 18.8994 16.7509 18.9488 16.1458C18.9992 15.5289 19 14.7366 19 13.6V10.4C19 9.26339 18.9992 8.47108 18.9488 7.85424C18.8994 7.24907 18.8072 6.90138 18.673 6.63803C18.3854 6.07354 17.9265 5.6146 17.362 5.32698C17.0986 5.19279 16.7509 5.10062 16.1458 5.05118C15.5289 5.00078 14.7366 5 13.6 5H10.4C9.26339 5 8.47108 5.00078 7.85424 5.05118Z" fill="#181B1F" />
+                                    </svg>
                                 </div>
                                 <div className={styles.stepPriceandreporttext1}>Test and price list</div>
                                 <div className={styles.stepPriceandreporttext2}>Download sample</div>
@@ -531,7 +590,9 @@ const Onbaording = () => {
                         {reportLetterhead ?
                             <div className={styles.stepPriceandreportTop}>
                                 <div className={styles.stepPriceandreportIcon}>
-                                    <img src='/logo192.png' />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 6H19M7 3H17M5 21H19C20.1046 21 21 20.1046 21 19V11C21 9.89543 20.1046 9 19 9H5C3.89543 9 3 9.89543 3 11V19C3 20.1046 3.89543 21 5 21Z" stroke="#181B1F" stroke-width="1.5" stroke-linecap="round" />
+                                    </svg>
                                 </div>
                                 <div className={styles.stepPriceandreporttext1}>Report letterhead</div>
                                 <div className={styles.uploadedwithicon}> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -547,7 +608,9 @@ const Onbaording = () => {
                             :
                             <div className={styles.stepPriceandreportTop}>
                                 <div className={styles.stepPriceandreportIcon}>
-                                    <img src='/logo192.png' />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 6H19M7 3H17M5 21H19C20.1046 21 21 20.1046 21 19V11C21 9.89543 20.1046 9 19 9H5C3.89543 9 3 9.89543 3 11V19C3 20.1046 3.89543 21 5 21Z" stroke="#181B1F" stroke-width="1.5" stroke-linecap="round" />
+                                    </svg>
                                 </div>
                                 <div className={styles.stepPriceandreporttext1}>Report letterhead</div>
                                 {/* <div className={styles.stepPriceandreporttext2}>Download sample</div> */}
@@ -562,13 +625,61 @@ const Onbaording = () => {
                             </div>
                         }
                         {previewTestAndPriceList && (
-                            <div onClick={handleCancleTestAndPricePreview} className={styles.previewReportLetterheadPopUp}>
-                                <div className={styles.previewReportLetterheadPopUpContainer}>
-                               sff
+                            <div className={styles.previewReportLetterheadPopUp}>
+                                <div className={styles.previewTestAndPriceListPopUpContainer}>
+                                    <div className={styles.TestAndPriceListPopUpTop}>
+                                        <div className={styles.TestAndPriceListPopUpToptext1}>Test and price list</div>
+                                        <div className={styles.TestAndPriceListPopUpToptext2}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.5833 12.1686V15.5019M4.5833 12.1686C5.44409 14.316 7.54492 15.8327 9.99997 15.8327C12.6425 15.8327 14.8746 14.0756 15.5917 11.666M4.5833 12.1686H7.91663M15.5218 8.11361L15.5218 4.78028M15.5218 8.11361H12.1884M15.5218 8.11361C14.7378 5.81735 12.5617 4.16602 9.99997 4.16602C7.35745 4.16602 5.12533 5.92311 4.4082 8.33268" stroke="#CFD0D8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            Undo change</div>
+                                        <div className={styles.TestAndPriceListPopUpToptext3}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M3.3335 17.4993C3.3335 17.0391 3.70659 16.666 4.16683 16.666H15.8335C16.2937 16.666 16.6668 17.0391 16.6668 17.4993C16.6668 17.9596 16.2937 18.3327 15.8335 18.3327H4.16683C3.70659 18.3327 3.3335 17.9596 3.3335 17.4993Z" fill="#0067DF" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.343 2.64427C11.6448 1.34253 13.7553 1.34254 15.0571 2.64428L15.6882 3.27541C16.9899 4.57716 16.9899 6.68771 15.6882 7.98946L9.93311 13.7445C9.70192 13.9757 9.40783 14.1338 9.08746 14.1991L5.33447 14.964C4.16401 15.2026 3.12999 14.1686 3.36852 12.9981L4.13336 9.24502C4.19865 8.92463 4.35674 8.63052 4.58795 8.39931L10.343 2.64427ZM13.8785 3.82279C13.2277 3.17192 12.1724 3.17192 11.5215 3.82279L11.1785 4.16582L14.1666 7.15398L14.5097 6.81095C15.1606 6.16007 15.1606 5.10479 14.5097 4.45392L13.8785 3.82279ZM7.01181 8.33248L9.99998 5.34433L12.9881 8.33248L9.99997 11.3206L7.01181 8.33248ZM5.8333 9.51099L5.76646 9.57783L5.00162 13.3309L8.7546 12.566L8.82145 12.4991L5.8333 9.51099Z" fill="white" />
+                                        </svg>
+                                            Edit</div>
+                                        <div onClick={handleCancleTestAndPricePreview} className={styles.TestAndPriceListPopUpTop}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div className={styles.tableLayout}>
+                                        <div className={styles.detailsTable}>
+                                            <div className={styles.detailsTableHeader}>
+
+                                                <div className={styles.boxSizeHalf}>##</div>
+                                                <div className={styles.boxSize6}>TestId</div>
+                                                <div className={styles.boxSize6}>Test name</div>
+                                                <div className={styles.boxSize6a}>Cost (₹)</div>
+
+
+
+                                            </div>
+                                            {data.map((entry, index) => (
+                                                <div className={styles.detailsTableData} key={entry.id}>
+
+                                                    <div className={styles.boxSizeHalf}>{entry.id}</div>
+                                                    <div className={styles.boxSize6}>{entry.labId}</div>
+                                                    <div className={styles.boxSize6}>{entry.userId}</div>
+                                                    <div className={styles.boxSize6a}>{entry.vendorName}</div>
+
+
+
+
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         )}
-                          {previewReportLetterhead && (
+                        {previewReportLetterhead && (
                             <div onClick={handleCancleReportLetterheadPreview} className={styles.previewReportLetterheadPopUp}>
                                 <div className={styles.previewReportLetterheadPopUpContainer}>
                                     <img className={styles.reportLetterheadPreviewImage} src={URL.createObjectURL(reportLetterheadData)} />

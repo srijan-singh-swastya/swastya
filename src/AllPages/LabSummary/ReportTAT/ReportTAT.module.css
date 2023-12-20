@@ -297,6 +297,8 @@
     font-size: 20px;
     color: #2c323c;
     font-family: Roboto;
+    padding-top: 30px;
+    /* border: 2px solid red; */
   }
 
 
@@ -321,17 +323,17 @@
     border-collapse: collapse;
   }
   
-  th, td {
-    /* border: 1px solid #ddd; */
+  .thid .id {
+    border: 1px solid #ddd;
     border: none!important;
     padding: 8px;
   }
     
-  th {
+  .thid {
     background-color: #f2f2f2;
   }
   
-  tr:nth-child(even) {
+  .tableRow:nth-child(even) {
     background-color: #f2f2f2;
   }
   .leftAlignedid{
@@ -345,8 +347,21 @@
     text-align: right;
   }
   
-  tr:hover {
+  .tableRow:hover {
     background-color: #ddd;
   }
+  .medicolineinjectionParent{
+    display: flex;
+    gap: 10px;
+    color: var(--Black-800, #181B1F);
+
+/* 24/Medium */
+font-family: Roboto;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+  }
+  
   
   

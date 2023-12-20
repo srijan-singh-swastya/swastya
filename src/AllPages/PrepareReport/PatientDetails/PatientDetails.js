@@ -1,15 +1,17 @@
 import styles from "./PatientDetails.module.css";
 import React, { useState, useEffect } from 'react';
 const PatientDetails = (props) => {
+  const [fileData, setFileData] = useState(null)
   const { onClick } = props;
   const handleFileUpload = (event) => {
     const file = event.target.files[0]; // Access the uploaded file here
+    setFileData(file)
     // Do something with the file, like sending it to an API or processing it
   };
   const data = [
     [
       { id: 1, name: '', age: '' },
-      
+
     ],
     [
       { id: 3, name: 's', mobile: '' },
@@ -306,10 +308,17 @@ const PatientDetails = (props) => {
             </div>
 
           </div>
+          {fileData ?
+            <div className={styles.showingImage}>
+              <div className={styles.uploadImgeBox1}>Uploaded image</div>
+              <img className={styles.showingImageBox} src={URL.createObjectURL(fileData)} />
 
-          <div className={styles.frameChild3} />
+            </div>
+            : ""
+          }
         </div>
       </div>
+
     </>
   );
 };

@@ -1,5 +1,9 @@
 import React from 'react'
 import styles from "./DoctorCommition.module.css";
+import { useState } from 'react';
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
+
 const data = [
   {
     "doctorName": "Dr. Smith",
@@ -57,30 +61,38 @@ const data = [
   }
 ]
 
+
+
 const DoctorCommition = () => {
+
+  const [dates, setDates] = useState([])
+const [startDate, setStaetDate] = useState("");
+const [endDate, setEndtDate] = useState("");
+
+const handleChange = (value) => {
+  if (value) {
+    setStaetDate(value[0]?.format('DD-MM-YYYY'))
+    setEndtDate(value[1]?.format('DD-MM-YYYY'))
+  }
+}
+console.log(startDate)
+console.log(endDate)
   return (
     <div className={styles.moneycollection}>
       <div className={styles.frameParent}>
         <div className={styles.moneyCollectionParent}>
           <div className={styles.moneyCollection}>Doctor Commission</div>
           <div className={styles.dropdown}>
-            <div className={styles.labelParent}>
-              <div className={styles.label}>Label</div>
-              <div className={styles.div}>*</div>
-            </div>
-            <div className={styles.searchfatParent}>
-              <img
-                className={styles.searchfatIcon}
-                alt=""
-                src="/Image/StartHere/searchfat.svg"
-              />
-              <div className={styles.text}>Jul 14 – Jul 20</div>
-              <img
-                className={styles.arrowaltdownIcon}
-                alt=""
-                src="/Image/StartHere/arrowaltdown.svg"
-              />
-            </div>
+
+            <RangePicker
+              // onChange={(values)=>{
+              //   setDates(values)
+              // }}
+              // picker="month"
+              className={styles.searchfatParent}
+              onChange={(value) => { handleChange(value) }}
+
+            />
             <div className={styles.helpText}>Help text</div>
           </div>
         </div>
@@ -101,7 +113,7 @@ const DoctorCommition = () => {
         </button>
       </div>
       <div className={styles.groupParent}>
-     
+
         <div className={styles.frameGroup}>
           <div className={styles.totalCollectionParent}>
             <div className={styles.totalCollection}>Total Commission</div>
@@ -111,19 +123,19 @@ const DoctorCommition = () => {
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>Doctor Name</th>
-                  <th>Number of Tests</th>
-                  <th>To Be Paid</th>
-                  <th>Total Paid</th>
+                  <th className={styles.thid}>Doctor Name</th>
+                  <th className={styles.thid}>Number of Tests</th>
+                  <th className={styles.thid}>To Be Paid</th>
+                  <th className={styles.thid}>Total Paid</th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((doctor, index) => (
-                  <tr key={index}>
-                    <td>{doctor.doctorName}</td>
-                    <td>{doctor.numberOfTests}</td>
-                    <td>${doctor.toBePaid}</td>
-                    <td>${doctor.totalPaid}</td>
+                  <tr className={styles.tableRow} key={index}>
+                    <td className={styles.tdid}>{doctor.doctorName}</td>
+                    <td className={styles.tdid}>{doctor.numberOfTests}</td>
+                    <td className={styles.tdid}>${doctor.toBePaid}</td>
+                    <td className={styles.tdid}>${doctor.totalPaid}</td>
                   </tr>
                 ))}
               </tbody>

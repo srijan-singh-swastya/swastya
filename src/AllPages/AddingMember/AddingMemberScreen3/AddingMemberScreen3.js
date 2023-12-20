@@ -114,16 +114,27 @@ const AddingMemberScreen3 = (props) => {
                     <div className={styles.addingMembersLayoutLeftline1}>Payment details</div>
                     <div className={styles.patientPhonenumberBox}>
                         <div className={styles.patientLabelBox}>
-                            <div className={styles.patientLabelBoxText1}>Ammount Collected</div>
+                            <div className={styles.patientLabelBoxText1}>Discount</div>
                             <div className={styles.patientLabelBoxText2}>*</div>
                         </div>
-                        <div className={styles.patientInputBox}>
-                            <input className={styles.patientInputBoxInput}
-                                id="ammountCollectd"
-                                type="text" placeholder='Enter Ammount'
-                            // onChange={(e) => handleUserChange('name', e.target.value)}
-                            />
-                        </div>
+
+                        <select
+                            id='discount'
+                            className={styles.discountInput}
+
+                            onChange={(e) => handleDiscountChange(e)}
+                        >
+                            <option  className={styles.coupanDropdown} value="">Select Coupan</option>
+                            {discountData.map((discount, dataIndex) => (
+                                <option
+                                    className={styles.coupanDropdown}
+                                    key={dataIndex}
+                                    value={discount.coupanName}>
+                                    {discount.coupanName}
+
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
                     <div className={styles.patientPhonenumberBox}>
@@ -167,30 +178,20 @@ const AddingMemberScreen3 = (props) => {
                         </div>
 
                     </div>
+                    
+
                     <div className={styles.patientPhonenumberBox}>
                         <div className={styles.patientLabelBox}>
-                            <div className={styles.patientLabelBoxText1}>Discount</div>
+                            <div className={styles.patientLabelBoxText1}>Ammount Collected</div>
                             <div className={styles.patientLabelBoxText2}>*</div>
                         </div>
-
-                        <select
-                            id='discount'
-                            className={styles.discountInput}
-
-                            onChange={(e) => handleDiscountChange(e)}
-                        >
-                            <option  className={styles.coupanDropdown} value="">Select Coupan</option>
-                            {discountData.map((discount, dataIndex) => (
-                                <option
-                                    className={styles.coupanDropdown}
-                                    key={dataIndex}
-                                    value={discount.coupanName}>
-                                    {discount.coupanName}
-
-                                </option>
-                            ))}
-                        </select>
-
+                        <div className={styles.patientInputBox}>
+                            <input className={styles.patientInputBoxInput}
+                                id="ammountCollectd"
+                                type="text" placeholder='Enter Ammount'
+                            // onChange={(e) => handleUserChange('name', e.target.value)}
+                            />
+                        </div>
                     </div>
                     <div className={styles.discountParticulars}>
                         <div className={styles.discountParticularsLine1}>

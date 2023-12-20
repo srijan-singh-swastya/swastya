@@ -57,8 +57,7 @@ const LoginMain = () => {
       <div className={styles.inputFieldParent}>
         <div className={styles.inputField}>
           <div className={styles.labelParent}>
-            <div className={styles.label}>Phone number</div>
-            <div className={styles.div}>*</div>
+            <div className={styles.phoneNumber}>Phone number</div>
           </div>
           <div className={styles.inputFieldflagsParent}>
             <div className={styles.inputFieldflags}>
