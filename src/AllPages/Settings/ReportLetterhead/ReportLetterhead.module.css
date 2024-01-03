@@ -65,8 +65,11 @@ line-height: normal;
   }
   
   .reportLetterheadImage {
-    width: 100%;
+    /* width: 100%; */
     /* height: 100vh;  */
     margin-top: 10px;
+    background-color: black;
+    padding: 20px 100px;
+    /* border: 2px solid red; */
   }
   

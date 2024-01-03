@@ -5,7 +5,10 @@ import PatientDetails from "../../PrepareReport/PatientDetails/PatientDetails";
 import UpdatePayment from "../../UpdatePayment/UpdatePayment";
 import RejectedReportPopUp from "../../../Features/SignReport/RejectedReportPopUp/RejectedReportPopUp";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-
+import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { setAllEntries } from "../../../ReduxState/Property/AllEntriesDataSlice/AllEntriesDataSlice";
 
 
 import { DatePicker } from 'antd';
@@ -14,134 +17,140 @@ import Item from 'antd/es/list/Item';
 const { RangePicker } = DatePicker;
 const AllReportsButton = () => {
   const navigate = useNavigate()
+  const [startDate, setStaetDate] = useState("");
+  const [endDate, setEndtDate] = useState("");
+  const [AlltestData, setAlltestData] = useState(
+    [
+      [
+        {
+          id: "1233",
+          patientDetails: "John Doe",
+          mobileNimber: "9801500214",
+          age: "30",
+          sex: "Male",
+          paymentStatus: "Advance paid",
+          updatePaymentStatus: "Uodate payment",
+          dateOfEntry: "2023-11-01",
+          testNames: [
+            {
+              "name": "mt1",
+              "template": {
+                "bound": "15"
+              }
+            },
+            {
+              "name": "mt2",
+              "template": {
+                "bound": "15"
+              }
+            }
+          ],
+          testStatus: "Report rejected",
+          printStatus: "Printed",
+          prepareReport: "Edit Report",
+          print: "someIcon"
+        },
+        {
+          id: "1234",
+          patientDetails: "John Doe",
+          mobileNimber: "9801500214",
+          age: "30",
+          sex: "Male",
+          paymentStatus: "Advance paid",
+          updatePaymentStatus: "Uodate payment",
+          dateOfEntry: "2023-11-01",
+          testNames: [
+            {
+              "name": "mjjt1",
+              "template": {
+                "bound": "15"
+              }
+            },
+            {
+              "name": "dhmt2",
+              "template": {
+                "bound": "15"
+              }
+            }
+          ],
+          testStatus: "Report accepted",
+          printStatus: "Printed",
+          prepareReport: "Prepare Report",
+          print: "someIcon"
+        },
+      ],
+      [
+        {
+          id: "1235",
+          patientDetails: "John Doe",
+          mobileNimber: "9801500214",
+          age: "30",
+          sex: "Male",
+          paymentStatus: "Full pending",
+          updatePaymentStatus: "Uodate payment",
+          dateOfEntry: "2023-11-01",
+          testNames: [
+            {
+              "name": "ddfmt1",
+              "template": {
+                "bound": "15"
+              }
+            },
+            {
+              "name": "mt2",
+              "template": {
+                "bound": "15"
+              }
+            }
+          ],
+          testStatus: "Report generated",
+          printStatus: "Not Printed",
+          prepareReport: "Prepare Report",
+          print: "someIcon"
+        },
+      ],
+      [
+        {
+          id: "1236",
+          patientDetails: "John Doe",
+          mobileNimber: "9801500214",
+          age: "30",
+          sex: "Male",
+          paymentStatus: "Full pending",
+          updatePaymentStatus: "Uodate payment",
+          dateOfEntry: "2023-11-01",
+          testNames: [
+            {
+              "name": "11mt1",
+              "template": {
+                "bound": "15"
+              }
+            },
+            {
+              "name": "smt2",
+              "template": {
+                "bound": "15"
+              }
+            },
+            {
+              "name": "sdmt2",
+              "template": {
+                "bound": "15"
+              }
+            },
 
-  const AlltestData = [
-    [
-      {
-        id: "1233",
-        patientDetails: "John Doe",
-        mobileNimber: "9801500214",
-        age: "30",
-        sex: "Male",
-        paymentStatus: "Advance paid",
-        updatePaymentStatus: "Uodate payment",
-        dateOfEntry: "2023-11-01",
-        testNames: [
-          {
-            "name": "mt1",
-            "template": {
-              "bound": "15"
-            }
-          },
-          {
-            "name": "mt2",
-            "template": {
-              "bound": "15"
-            }
-          }
-        ],
-        testStatus: "Report rejected",
-        printStatus: "Printed",
-        prepareReport: "Edit Report",
-        print: "someIcon"
-      },
-      {
-        id: "1234",
-        patientDetails: "John Doe",
-        mobileNimber: "9801500214",
-        age: "30",
-        sex: "Male",
-        paymentStatus: "Advance paid",
-        updatePaymentStatus: "Uodate payment",
-        dateOfEntry: "2023-11-01",
-        testNames: [
-          {
-            "name": "mjjt1",
-            "template": {
-              "bound": "15"
-            }
-          },
-          {
-            "name": "dhmt2",
-            "template": {
-              "bound": "15"
-            }
-          }
-        ],
-        testStatus: "Report accepted",
-        printStatus: "Printed",
-        prepareReport: "Prepare Report",
-        print: "someIcon"
-      },
-    ],
-    [
-      {
-        id: "1235",
-        patientDetails: "John Doe",
-        mobileNimber: "9801500214",
-        age: "30",
-        sex: "Male",
-        paymentStatus: "Full pending",
-        updatePaymentStatus: "Uodate payment",
-        dateOfEntry: "2023-11-01",
-        testNames: [
-          {
-            "name": "ddfmt1",
-            "template": {
-              "bound": "15"
-            }
-          },
-          {
-            "name": "mt2",
-            "template": {
-              "bound": "15"
-            }
-          }
-        ],
-        testStatus: "Report generated",
-        printStatus: "Not Printed",
-        prepareReport: "Prepare Report",
-        print: "someIcon"
-      },
-    ],
-    [
-      {
-        id: "1236",
-        patientDetails: "John Doe",
-        mobileNimber: "9801500214",
-        age: "30",
-        sex: "Male",
-        paymentStatus: "Full pending",
-        updatePaymentStatus: "Uodate payment",
-        dateOfEntry: "2023-11-01",
-        testNames: [
-          {
-            "name": "11mt1",
-            "template": {
-              "bound": "15"
-            }
-          },
-          {
-            "name": "smt2",
-            "template": {
-              "bound": "15"
-            }
-          },
-          {
-            "name": "sdmt2",
-            "template": {
-              "bound": "15"
-            }
-          },
-         
-        ],
-        testStatus: "Report rejected",
-        printStatus: "Not Printed",
-        prepareReport: "Prepare Report",
-        print: "someIcon"
-      },
-    ],
-  ];
+          ],
+          testStatus: "Report rejected",
+          printStatus: "Not Printed",
+          prepareReport: "Prepare Report",
+          print: "someIcon"
+        },
+      ],
+    ]
+  );
+
+
+
 
   const KontestData = AlltestData.flatMap(group =>
     group.reduce((result, { id, testNames }) => {
@@ -156,7 +165,7 @@ const AllReportsButton = () => {
     }, [])
   );
 
-  console.log(KontestData);
+  // console.log(KontestData);
 
   const [checkedIds, setCheckedIds] = useState([]);
   const [filteredData, setFilteredData] = useState(AlltestData);
@@ -164,7 +173,9 @@ const AllReportsButton = () => {
   const [prepareReportPopUp, setPrepareReportPopUp] = useState(false)
   const [editReportPopUp, setEditReportPopUp] = useState(false)
   const [updatePaymentPopUp, setUpdatePaymentPopUp] = useState(false)
+  const [activeId, setActiveId] = useState()
   const [active, setActive] = useState("All entries")
+  const dispatch = useDispatch();
   const handleCheckboxChange = (id) => {
     if (checkedIds.includes(id)) {
       setCheckedIds(checkedIds.filter((checkedId) => checkedId !== id));
@@ -172,7 +183,7 @@ const AllReportsButton = () => {
       setCheckedIds([...checkedIds, id]);
     }
   };
-  console.log(checkedIds)
+  // console.log(checkedIds)
 
   const handleTestStatusFilter = (e) => {
     setActive(e)
@@ -224,34 +235,142 @@ const AllReportsButton = () => {
     setPrepareReportPopUp(!prepareReportPopUp);
     // alert('Child component clicked!');
   };
-  const handelUpdatePaymentStatusPopUp = () => {
+  const handelUpdatePaymentStatusPopUp = (e) => {
+    alert(e)
+    setActiveId(e)
     setUpdatePaymentPopUp(!updatePaymentPopUp)
     // alert('Child component clicked!');
   }
   const handleUpdatePaymentPopupClick = () => {
     setUpdatePaymentPopUp(!updatePaymentPopUp)
-    alert('Jay Shree Ram');
+    // alert('Jay Shree Ram');
   }
   let setCount = 0;
 
 
 
-  const [startDate, setStaetDate] = useState("");
-  const [endDate, setEndtDate] = useState("");
+
 
   const handleChange = (value) => {
     if (value) {
-      setStaetDate(value[0]?.format('DD-MM-YYYY'))
-      setEndtDate(value[1]?.format('DD-MM-YYYY'))
+      setStaetDate(value[0]?.format('YYYY-MM-DD'))
+      setEndtDate(value[1]?.format('YYYY-MM-DD'))
     }
-    else{
+    else {
       setStaetDate("")
       setEndtDate("")
     }
 
   }
-  console.log(startDate)
-  console.log(endDate)
+  // console.log(startDate)
+  // console.log(endDate)
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const x = {
+        "dateRange": {
+          "startDate": startDate,
+          "endDate": endDate,
+        }
+      }
+      try {
+        // Making a GET request to the onboard endpoint with the "labId" as a query parameter
+        const response = await axios.post('http://localhost:8090/first/v1/list-booking', x);
+        // alert("get it")
+        console.log(response)
+        console.log(response.data)
+
+        // **************************************************
+
+
+
+
+
+
+        // *******************************************************
+
+        const mapBookingToFormat = (booking) => {
+          const getStatus = (statusType, status) => {
+            // Define status mappings based on status codes
+            if (statusType === 'paymentStatus') {
+              if (status === 0) {
+                return "Full pending";
+              } else if (status === 1) {
+                return "Advance paid";
+              }
+            } else if (statusType === 'reportStatus') {
+              if (status === 0) {
+                return "Report rejected";
+              } else if (status === 1) {
+                return "Report accepted";
+              } else if (status === 2) {
+                return "Report generated";
+              }
+            } else if (statusType === 'printStatus') {
+              if (status === 0) {
+                return "Not Printed";
+              } else if (status === 1) {
+                return "Printed";
+              }
+            }
+            return "Unknown"; // Handle other status codes if needed
+          };
+
+          return {
+            id: booking.id.substring(0, 4),
+            idToCheck:booking.id,
+            patientDetails: booking.metadata.user.name,
+            mobileNumber: booking.userPhoneNumber,
+            age: booking.metadata.user.age.toString(),
+            sex: booking.metadata.user.gender === 1 ? "Male" : "Female",
+            paymentStatus: getStatus('paymentStatus', booking.paymentStatus),
+            updatePaymentStatus: "Update payment",
+            dateOfEntry: booking.createdAt,
+            testNames: booking.metadata.tests.map(test => ({
+              name: test.name,
+
+            })),
+            testStatus: getStatus('reportStatus', booking.reportStatus),
+            printStatus: getStatus('printStatus', booking.printStatus),
+            prepareReport: "Prepare Report",
+            print: "someIcon"
+          };
+        };
+
+        // Map the bookings data to the desired format
+        // const mappedData = response.data.bookings.map(booking => [mapBookingToFormat(booking)]);
+
+        const mappedBookings = [];
+
+        // Loop through each order
+
+        response.data.orders.forEach(order => {
+          // Loop through bookings within each order
+          const ppp = []
+          order.bookings.forEach(booking => {
+            // Map each booking to the desired format and push it to the 'mappedBookings' array
+            ppp.push(mapBookingToFormat(booking));
+          });
+          mappedBookings.push(ppp)
+
+        });
+
+        console.log(mappedBookings);
+        setAlltestData(mappedBookings)
+        setFilteredData(mappedBookings)
+        dispatch(setAllEntries(response.data))
+      } catch (err) {
+        // Handle errors and display the error message from the server
+        console.error(err);
+        alert("get error")
+      }
+    };
+
+    fetchData();
+  }, [endDate,updatePaymentPopUp]);
+
+
 
   return (<>
     <div className={styles.allreportsbutton}>
@@ -271,17 +390,17 @@ const AllReportsButton = () => {
             </div>
             {/* <div className={styles.dropdown}> */}
 
-         
-              <RangePicker
-                // onChange={(values)=>{
-                //   setDates(values)
-                // }}
-                // picker="month"
-                className={styles.searchfatParent}
-                onChange={(value) => { handleChange(value) }}
 
-              />
-           
+            <RangePicker
+              // onChange={(values)=>{
+              //   setDates(values)
+              // }}
+              // picker="month"
+              className={styles.searchfatParent}
+              onChange={(value) => { handleChange(value) }}
+
+            />
+
             {/* </div> */}
           </div>
           <button onClick={handelCreateNewEntery} className={styles.button}>
@@ -463,7 +582,7 @@ const AllReportsButton = () => {
 
                   </div>
                   <div className={styles.allDataLayoutTopAgeSexBox}>
-                    <div className={styles.allDataLayoutTopTextAgeSex}>{data.age}{data.sex}</div>
+                    <div className={styles.allDataLayoutTopTextAgeSex}>{data.age}, {data.sex}</div>
                   </div>
                   <div className={styles.allDataLayoutTopPaymentStatusBox}>
                     {data.paymentStatus === "Advance paid" ?
@@ -473,8 +592,8 @@ const AllReportsButton = () => {
                     }
 
                   </div>
-                  <div onClick={handelUpdatePaymentStatusPopUp} className={styles.allDataLayoutTopUpdatePaymentStatusBox}>
-                    <div className={styles.allDataLayoutTopTextUpdatePaymentStatus}>{data.updatePaymentStatus}</div>
+                  <div onClick={() => handelUpdatePaymentStatusPopUp(data.idToCheck)} className={styles.allDataLayoutTopUpdatePaymentStatusBox}>
+                    <div className={styles.allDataLayoutTopTextUpdatePaymentStatus}>11{data.updatePaymentStatus}</div>
                   </div>
                   <div className={styles.allDataLayoutTopDateOfEnteryBox}>
                     <div className={styles.allDataLayoutTopTextAgeSex}>{data.dateOfEntry}</div>
@@ -609,7 +728,7 @@ const AllReportsButton = () => {
             updatePaymentPopUp ?
               <div className={styles.modalOverlay}>
                 <div className={styles.detailsAndTestLayout}>
-                  <UpdatePayment onClick={handleUpdatePaymentPopupClick} />
+                  <UpdatePayment onClick={handleUpdatePaymentPopupClick} id={activeId} />
                 </div>
               </div> : ""
           }
@@ -622,3 +741,7 @@ const AllReportsButton = () => {
 };
 
 export default AllReportsButton;
+
+
+
+

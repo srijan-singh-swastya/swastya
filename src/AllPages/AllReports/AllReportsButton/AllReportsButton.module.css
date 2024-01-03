@@ -255,7 +255,7 @@ line-height: 21px;
   /* flex-direction: column; */
 }
 .rejectedIcon {
- 
+ display: none;
   width: 20px; /* Set the width of the icon */
   height: 20px; /* Set the height of the icon */
   background-size: cover;

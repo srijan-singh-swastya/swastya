@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './ReportLetterhead.module.css'; // Import the CSS module
 
 const ReportLetterhead = () => {
-  const [reportLetterhead, setReportLetterhead] = useState("https://trbahadurpur.com/wp-content/uploads/2022/06/with-font-768x768.jpg");
+  const [reportLetterhead, setReportLetterhead] = useState("https://templatelab.com/wp-content/uploads/2021/11/Police-Letterhead-Template.jpg");
 
   // Function to handle opening file chooser dialog
   const handleFileInput = () => {

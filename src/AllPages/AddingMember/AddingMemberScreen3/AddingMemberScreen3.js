@@ -3,27 +3,10 @@ import styles from './AddingMemberScreen3.module.css';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
 import { deleteUpdatedUser } from '../../../ReduxState/Property/AddingMemberDataSlice/AddingMemberDataSlice.js';
-
+import { setDiscountAndAdvance } from '../../../ReduxState/Property/DiscountAndAdvanceDataSlice/DiscountAndAdvanceDataSlice.js';
 
 const userInfos = [
-    {
-        "user": {
-            "name": "full name 1",
-            "gender": "MALE",
-            "age": "30",
-            "phoneNumber": "99999999991"
-        },
-        "tests": [
-            {
-                "testName": "tname1",
-                "price": 400
-            },
-            {
-                "testName": "tname2",
-                "price": 233
-            }
-        ]
-    },
+
     {
         "user": {
             "name": "full name 2",
@@ -49,10 +32,17 @@ const userInfos = [
 const AddingMemberScreen3 = (props) => {
     const dispatch = useDispatch();
     const dataaaa = useSelector((state) => state.newAddedMenber)
-    const { onClick } = props;
+    const { onCreateEntry } = props;
+    const {onCancel}=props
     const userInfo = dataaaa;
+    let paymentData = {
+        "value": "",
+        "type": ""
+    }
     const [updatedUsers, setUpdatedUsers] = useState(userInfo);
-
+    const [advance, setAdvance] = useState(paymentData)
+    const [cancelCreateEntery, setCancelCreateEntery] = useState("");
+    const [discount, setDiscount] = useState("")
 
 
     let totalMoney = 0; // Initialize as let, not const
@@ -80,10 +70,6 @@ const AddingMemberScreen3 = (props) => {
     };
 
 
-
-
-
-
     // for this page 
     const discountData = [
 
@@ -102,11 +88,48 @@ const AddingMemberScreen3 = (props) => {
     ]
     const handleDiscountChange = (e) => {
         console.log(e.target.value)
+        setDiscount(e.target.value)
+    }
+    const handleSelectPayment = (field, value) => {
+
+        setAdvance({
+            ...advance,
+            [field]: value,
+        });
+
     }
 
+    const handelCancelCreateEntery = () => {
+        onCancel()
+        // setCancelCreateEntery(true)
+    }
+    const handelCancle = () => {
+        setCancelCreateEntery(false)
+    }
+    const handelExit = () => {
+        onCancel()
+    }
+    const handelCreateEntery = () => {
+        let adiscountDetails = {
+            discount: discount,
+            advance: advance
+        }
+        dispatch(setDiscountAndAdvance(adiscountDetails));
+        onCreateEntry()
+    }
+    console.log(advance)
 
     return (
         <div>
+            <div className={styles.detailsAndTestLayoutNav}>
+                <div className={styles.detailsAndTestLayoutNavText1}>Enter Discount and Advance</div>
+                <div className={styles.detailsAndTestLayoutNavButton1} >Print Invoice</div>
+                <div onClick={handelCreateEntery} className={styles.detailsAndTestLayoutNavButton2} >Create Entery</div>
+                {/* <div>1</div> */}
+                <svg onClick={handelCancelCreateEntery} className={styles.detailsAndTestLayoutNavicon} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 5L12 12M19 19L12 12M12 12L19 5L5 19" stroke="#272727" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
 
             <div className={styles.addingMembersLayout}>
 
@@ -124,12 +147,12 @@ const AddingMemberScreen3 = (props) => {
 
                             onChange={(e) => handleDiscountChange(e)}
                         >
-                            <option  className={styles.coupanDropdown} value="">Select Coupan</option>
+                            <option className={styles.coupanDropdown} value="">Select Coupan</option>
                             {discountData.map((discount, dataIndex) => (
                                 <option
                                     className={styles.coupanDropdown}
                                     key={dataIndex}
-                                    value={discount.coupanName}>
+                                    value={discount.discount}>
                                     {discount.coupanName}
 
                                 </option>
@@ -143,14 +166,14 @@ const AddingMemberScreen3 = (props) => {
                             <div className={styles.patientLabelBoxText2}>*</div>
                         </div>
                         <div className={styles.patientInputBoxGender}
-                        // onChange={(e) => handleUserChange('gender', e.target.value)}
+                            onChange={(e) => handleSelectPayment('type', e.target.value)}
                         >
                             <div className={styles.patientInputBoxGenderText1}>
                                 <input
                                     type="radio"
-                                    name="paymentMethod"
-                                    value="Cash"
-                                    id="paymentMethod"
+                                    name="type"
+                                    value="CASH"
+                                    id="type"
                                     style={{ height: '20px', width: "20px" }}
                                 />
                                 Cash
@@ -158,9 +181,9 @@ const AddingMemberScreen3 = (props) => {
                             <div className={styles.patientInputBoxGenderText2}>
                                 <input
                                     type="radio"
-                                    name="paymentMethod"
+                                    name="type"
                                     value="Online Banking"
-                                    id="paymentMethod"
+                                    id="type"
                                     style={{ height: '20px', width: "20px" }}
                                 />
                                 Online Banking
@@ -168,9 +191,9 @@ const AddingMemberScreen3 = (props) => {
                             <div className={styles.patientInputBoxGenderText3}>
                                 <input
                                     type="radio"
-                                    name="paymentMethod"
+                                    name="type"
                                     value="UPI"
-                                    id="paymentMethod"
+                                    id="type"
                                     style={{ height: '20px', width: "20px" }}
                                 />
                                 UPI
@@ -178,7 +201,7 @@ const AddingMemberScreen3 = (props) => {
                         </div>
 
                     </div>
-                    
+
 
                     <div className={styles.patientPhonenumberBox}>
                         <div className={styles.patientLabelBox}>
@@ -187,9 +210,11 @@ const AddingMemberScreen3 = (props) => {
                         </div>
                         <div className={styles.patientInputBox}>
                             <input className={styles.patientInputBoxInput}
-                                id="ammountCollectd"
-                                type="text" placeholder='Enter Ammount'
-                            // onChange={(e) => handleUserChange('name', e.target.value)}
+                                id="value"
+                                type="text"
+                                placeholder='Enter Ammount'
+                                name="value"
+                                onChange={(e) => handleSelectPayment('value', e.target.value)}
                             />
                         </div>
                     </div>
@@ -217,11 +242,6 @@ const AddingMemberScreen3 = (props) => {
 
 
                     </div>
-
-
-
-
-
 
                 </div>
 
@@ -254,6 +274,25 @@ const AddingMemberScreen3 = (props) => {
                     </div>
                 </div>
             </div>
+            {
+                cancelCreateEntery ?
+                    <div className={styles.cancelCreateEnteryPopUp}>
+                        <div className={styles.cancelCreateEnteryPopUpLayout}>
+                            <div className={styles.cancelCreateEnteryPopUpLine1} >
+                                <div> Exit patient creation?</div>
+                                <svg onClick={handelCancle} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4.1665 4.16663L9.99984 9.99996M15.8332 15.8333L9.99984 9.99996M9.99984 9.99996L15.8332 4.16663L4.1665 15.8333" stroke="#181B1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div className={styles.cancelCreateEnteryPopUpLine2}>Going back will discard all entered data.</div>
+                            <div className={styles.cancelCreateEnteryPopUpLine3} >
+                                <div onClick={handelExit} className={styles.cancelCreateEnteryPopUpLine3Exit}> Exit  </div>
+                                <div onClick={handelCancle} className={styles.cancelCreateEnteryPopUpLine3Cancle}>Cancle</div>
+                            </div>
+                        </div>
+                    </div>
+                    : ""
+            }
         </div>
     )
 }

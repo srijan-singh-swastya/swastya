@@ -546,7 +546,7 @@
     align-items: center;
     gap: 8px;
     border-radius: 12px;
-    color: var(--Primary-800, #0067DF);
+    color:var(--Primary-500, #99C2F2);
     text-align: center;
 
     /* 16/Semibold */

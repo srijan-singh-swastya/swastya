@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import DiscountOnbord from './DiscountOnbord/DiscountOnbord/DiscountOnbord';
 import axios from "axios"
 import { useSelector, useDispatch } from 'react-redux';
+import * as XLSX from 'xlsx';
 
 const PlanOptions = ["Basic Plan", "Premium Plan", "Enterprise Plan"];
 const Onbaording = () => {
@@ -12,58 +13,23 @@ const Onbaording = () => {
     const [step, setStep] = useState(1);
     const [labDetaisFilled, setLabDetailsFilled] = useState(false)
 
-
-    const data = [
+ const [data, setData] = useState([
         {
-            "id": 1,
-            "labId": 104,
-            "userId": "sat104",
-            "vendorName": "satish",
-            "vendorGST": "SDFFD434",
-            "vendorBank": "SBI",
-            "labName": "Dpharma",
-            "invoiceNumber": "pkFGFGH",
-            "invoiceDate": "12 march",
-            "deliveryDate": "12 er",
-            "itemDescription": "i dont know",
-            "AWB": 240,
-            "HSN": "ABC123",
-            "GSTRate": 18,
-            "CGSTRate": 9,
-            "SGSTRate": 9,
-            "IGSTRate": 0,
-            "Discount": 50,
-            "Quantity": 10,
-            "FinalAmount": 4500,
-            "KitsReceived": 8,
-            "Amount": 4000
+            "SlNo": 1,
+            "TestId": 104,
+            "TestName": "sat104",
+            "Cost": "satish",
+           
         },
         {
-            "id": 2,
-            "labId": 105,
-            "userId": "john101",
-            "vendorName": "john",
-            "vendorGST": "ABCDE123",
-            "vendorBank": "HDFC",
-            "labName": "Pharmacy",
-            "invoiceNumber": "abcXYZ",
-            "invoiceDate": "15 March",
-            "deliveryDate": "20 er",
-            "itemDescription": "Testing items",
-            "AWB": 245,
-            "HSN": "XYZ456",
-            "GSTRate": 12,
-            "CGSTRate": 6,
-            "SGSTRate": 6,
-            "IGSTRate": 0,
-            "Discount": 40,
-            "Quantity": 15,
-            "FinalAmount": 6000,
-            "KitsReceived": 12,
-            "Amount": 5500
+            "SlNo": 2,
+            "TestId": 104,
+            "TestName": "sat104",
+            "Cost": "satish",
+           
         }
         // Add more data objects as needed
-    ];
+    ]);
     const [formData, setFormData] = useState({
         labName: '',
         labAddress: '',
@@ -176,12 +142,65 @@ const Onbaording = () => {
         const fileInput = document.getElementById('testAndPricefileInput');
         fileInput.click();
     }, []);
-    const handleTestAndPriceFileUpload = (event) => {
-        const selectedFile = event.target.files[0];
+    // const handleTestAndPriceFileUpload = (event) => {
+    //     const selectedFile = event.target.files[0];
+    //     if (selectedFile) {
+    //         setTestAndPrice(true)
+    //     }
+    // }
+
+
+
+    const handleTestAndPriceFileUpload = (e) => {
+        const selectedFile = e.target.files[0];
+        const reader = new FileReader();
         if (selectedFile) {
             setTestAndPrice(true)
         }
-    }
+    
+        reader.onload = (event) => {
+          const extension = selectedFile.name.split('.').pop().toLowerCase();
+    
+          let parsedData = [];
+          if (extension === 'csv') {
+            parsedData = parseCSV(event.target.result);
+          } else if (extension === 'xlsx') {
+            parsedData = parseExcel(event.target.result);
+          }
+          setData(parsedData);
+        };
+        reader.readAsBinaryString(selectedFile);
+      };
+    
+      const parseCSV = (data) => {
+        const parsedData = [];
+        const lines = data.split('\n');
+        const headers = lines[0].split(',');
+    
+        for (let i = 1; i < lines.length; i++) {
+          const values = lines[i].split(',');
+          if (values.length === headers.length) {
+            const rowData = {};
+            headers.forEach((header, index) => {
+              rowData[header] = values[index];
+            });
+            parsedData.push(rowData);
+          }
+        }
+        return parsedData;
+      };
+    
+      const parseExcel = (data) => {
+        const workbook = XLSX.read(data, { type: 'binary' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        return XLSX.utils.sheet_to_json(worksheet);
+      };
+
+
+
+
+
     const handledeleteTestandPrice = () => {
         setTestAndPrice(false)
     }
@@ -295,6 +314,8 @@ const Onbaording = () => {
     const goBack = () => {
         window.history.back();
     };
+
+    console.log(data)
 
     return (
         <div className={styles.multiformLayout}>
@@ -581,7 +602,7 @@ const Onbaording = () => {
                                 <input
                                     type="file"
                                     id="testAndPricefileInput"
-                                    ccept=".pdf,.png"
+                                    accept=".xlsx"
                                     onChange={handleTestAndPriceFileUpload}
                                     style={{ display: 'none' }}
                                 />
@@ -618,7 +639,7 @@ const Onbaording = () => {
                                 <input
                                     type="file"
                                     id="reportLetterheadfileInput"
-                                    ccept=".jpg,.png"
+                                    accept=".jpg,.png"
                                     onChange={handleReportLetterFileUpload}
                                     style={{ display: 'none' }}
                                 />
@@ -661,12 +682,12 @@ const Onbaording = () => {
 
                                             </div>
                                             {data.map((entry, index) => (
-                                                <div className={styles.detailsTableData} key={entry.id}>
+                                                <div className={styles.detailsTableData} key={index}>
 
-                                                    <div className={styles.boxSizeHalf}>{entry.id}</div>
-                                                    <div className={styles.boxSize6}>{entry.labId}</div>
-                                                    <div className={styles.boxSize6}>{entry.userId}</div>
-                                                    <div className={styles.boxSize6a}>{entry.vendorName}</div>
+                                                    <div className={styles.boxSizeHalf}>{entry.SlNo?entry.SlNo:index+1}</div>
+                                                    <div className={styles.boxSize6}>{entry.TestId ? entry.TestId:"NA"}</div>
+                                                    <div className={styles.boxSize6}>{entry.TestName ?entry.TestName:"NA" }</div>
+                                                    <div className={styles.boxSize6a}>{entry.Cost ? entry.Cost:"NA"}</div>
 
 
 
