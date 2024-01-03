@@ -126,6 +126,29 @@ const UpdatePayment = (props) => {
             ...paymentDetails,
             [field]: value,
         });
+        // alert(field)
+        let tobepaid=totalAmmount.totalPrice-totalAmmount.discount-totalAmmount.totalCollection
+        if(field==="value"){
+            // alert(tobepaid)
+            if(Number(value)<0){
+                setPaymentDetails({
+                    ...paymentDetails,
+                    [field]: "",
+                });
+            }
+            else if(Number(value)>tobepaid){
+                setPaymentDetails({
+                    ...paymentDetails,
+                    [field]: tobepaid,
+                });
+            }
+            else{
+                setPaymentDetails({
+                    ...paymentDetails,
+                    [field]: value,
+                });
+            }
+        }
     }
 
 console.log(paymentDetails)
@@ -248,7 +271,8 @@ const handleUpdatePayment=async()=>{
                         <div className={styles.patientInputBox}>
                             <input className={styles.patientInputBoxInput}
                                 id="ammountCollectd"
-                                type="text" placeholder='Enter '
+                                type="number" placeholder='Enter '
+                                value={paymentDetails.value}
                             onChange={(e) => handlePayment('value', e.target.value)}
                             />
                         </div>

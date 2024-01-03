@@ -902,8 +902,10 @@ border-radius: 10px;
     /* 150% */
     flex: 1;
     /* border: 2px solid red; */
+}
 
-
-
+.inputField::-webkit-outer-spin-button,
+.inputField::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 
 }

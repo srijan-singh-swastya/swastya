@@ -643,3 +643,10 @@ line-height: 24px; /* 150% */
 cursor: pointer;
 }
 
+
+.patientInputBoxInput::-webkit-outer-spin-button,
+.patientInputBoxInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+

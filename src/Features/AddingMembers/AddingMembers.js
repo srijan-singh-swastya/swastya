@@ -105,6 +105,21 @@ const AddingMembers = () => {
             ...userData,
             [field]: value,
         });
+        if(field==="age"){
+            if(Number(value)>=0 && Number(value)<150){
+                setUserData({
+                    ...userData,
+                    [field]: value,
+                });
+            }
+            else{
+                setUserData({
+                    ...userData,
+                    [field]: "",
+                });
+            }
+           
+        }
         if (field === "phoneNumber" && value.length === 10) {
 
             const x = {
@@ -483,7 +498,9 @@ const AddingMembers = () => {
                                         </div>
                                         <div className={styles.patientInputBox}>
                                             <input className={styles.patientInputBoxInput}
-                                                type="number" placeholder='Enter Age' id="age"
+                                                type="number" placeholder='Enter Ages' id="age"
+                                                min={0}
+                                                max={100}
                                                 value={userData.age}
                                                 onChange={(e) => handleUserChange('age', e.target.value)}
                                             />

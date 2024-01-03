@@ -41,7 +41,19 @@ const Onbaording = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+  
         setFormData({ ...formData, [name]: value });
+        if(name==="pincode"){
+            if(Number(value)<0 || value==="--"){
+                setFormData({ ...formData, [name]: "" });
+            }
+            else if(Number(value)>=999999){
+                setFormData({ ...formData, [name]: 999999 });
+            }
+            else{
+                setFormData({ ...formData, [name]: value });
+            }
+        }
 
     };
     function areAllPropertiesFilled(data) {
@@ -238,6 +250,13 @@ const Onbaording = () => {
         const updatedTechnicians = [...technicians];
         updatedTechnicians[index][name] = value;
         setTechnicians(updatedTechnicians);
+       if(name==="phoneNumber"){
+        if(value>9999999999){
+            const updatedTechnicians = [...technicians];
+            updatedTechnicians[index][name] = parseInt(Number(value) / 10);
+            setTechnicians(updatedTechnicians);
+        }
+       }
     };
     function areAllTechnicianDetailsFilled(dataArray) {
         for (const person of dataArray) {
@@ -374,9 +393,11 @@ const Onbaording = () => {
                                 <label htmlFor="pincode" className={styles.label}>Pin Code:</label>
                                 <input
 
-                                    type="text"
+                                    type="number"
                                     id="pincode"
                                     name="pincode"
+                                    min={0}
+                                    max={999999}
                                     placeholder='Enter pin Code'
                                     value={formData.pincode}
                                     onChange={handleChange}
@@ -496,7 +517,7 @@ const Onbaording = () => {
 
                                             <input
 
-                                                type="text"
+                                                type="number"
                                                 name="phoneNumber"
                                                 className={styles.inputField}
                                                 placeholder='Enter Phone Number'

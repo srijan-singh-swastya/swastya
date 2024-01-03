@@ -65,7 +65,7 @@ line-height: normal;
   }
   
   .reportLetterheadImage {
-    /* width: 100%; */
+    width: 70%;
     /* height: 100vh;  */
     margin-top: 10px;
     background-color: black;

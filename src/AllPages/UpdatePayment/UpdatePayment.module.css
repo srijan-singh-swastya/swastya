@@ -512,4 +512,8 @@ font-style: normal;
 font-weight: 400;
 line-height: 21px; /* 150% */
 }
+.patientInputBoxInput::-webkit-outer-spin-button,
+.patientInputBoxInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 
+}

@@ -1,8 +1,12 @@
 import styles from "./PatientDetails.module.css";
 import React, { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
+
+
 const PatientDetails = (props) => {
   const [fileData, setFileData] = useState(null)
   const { onClick } = props;
+  const { id } = props;
   const handleFileUpload = (event) => {
     const file = event.target.files[0]; // Access the uploaded file here
     setFileData(file)
@@ -51,6 +55,30 @@ const PatientDetails = (props) => {
   };
 
 
+
+
+  const AllEntriesData = useSelector((state) => state.newAllEntries)
+  console.log(AllEntriesData)
+
+
+  function findBookingById(id) {
+    for (const order of AllEntriesData.orders) {
+      for (const booking of order.bookings) {
+        if (booking.id === id) {
+          //   console.log(JSON.stringify(booking, null, 2)); // Logging the found booking
+          return booking;
+        }
+      }
+    }
+    return null; // Return null if the booking is not found
+  }
+
+  // Call the function with the specified ID
+  const originalData = findBookingById(id);
+  console.log(originalData)
+
+
+
   return (
     <>
       <div className={styles.prepareReportNav}>
@@ -88,7 +116,7 @@ const PatientDetails = (props) => {
               <div className={styles.name}>Name:</div>
               <div className={styles.div}>*</div>
             </div>
-            <div className={styles.abhinavDutta}>Abhinav Dutta</div>
+            <div className={styles.abhinavDutta}>{originalData.metadata.user.name}</div>
 
           </div>
           <div className={styles.inputField}>
@@ -144,7 +172,7 @@ const PatientDetails = (props) => {
               <div className={styles.name}>Age:</div>
               <div className={styles.div}>*</div>
             </div>
-            <div className={styles.abhinavDutta}>25</div>
+            <div className={styles.abhinavDutta}>{originalData.metadata.user.age}</div>
 
           </div>
           <div className={styles.inputField}>
@@ -152,7 +180,10 @@ const PatientDetails = (props) => {
               <div className={styles.name}>Gender:</div>
               <div className={styles.div}>*</div>
             </div>
-            <div className={styles.abhinavDutta}>Male</div>
+            {originalData.metadata.user.gender===1?
+            <div className={styles.abhinavDutta}>Male</div>:
+            <div className={styles.abhinavDutta}>Female</div>
+      }
 
           </div>
           <div className={styles.inputField}>
@@ -160,7 +191,7 @@ const PatientDetails = (props) => {
               <div className={styles.name}>Phone:</div>
               <div className={styles.div}>*</div>
             </div>
-            <div className={styles.abhinavDutta}>9876543210</div>
+            <div className={styles.abhinavDutta}>{originalData.metadata.user.phoneNumber}</div>
 
           </div>
         </div>
@@ -185,7 +216,7 @@ const PatientDetails = (props) => {
             <div className={styles.recievedWrapper}>
               <div className={styles.name}>Recieved:</div>
             </div>
-            <div className={styles.abhinavDutta}>31/08/2023</div>
+            <div className={styles.abhinavDutta}>{originalData.createdAt}</div>
           </div>
           <div className={styles.inputField12} />
         </div>

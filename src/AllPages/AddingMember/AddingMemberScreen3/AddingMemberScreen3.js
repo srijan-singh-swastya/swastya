@@ -96,6 +96,28 @@ const AddingMemberScreen3 = (props) => {
             ...advance,
             [field]: value,
         });
+      
+        if(field==="value"){
+          
+           if(Number(value)<0 ){
+            setAdvance({
+                ...advance,
+                [field]: "",
+            });
+           }
+           else if(Number(value)>totalMoney){
+            setAdvance({
+                ...advance,
+                [field]: totalMoney,
+            });
+           }
+           else{
+            setAdvance({
+                ...advance,
+                [field]: value,
+            });
+           }
+        }
 
     }
 
@@ -211,9 +233,10 @@ const AddingMemberScreen3 = (props) => {
                         <div className={styles.patientInputBox}>
                             <input className={styles.patientInputBoxInput}
                                 id="value"
-                                type="text"
+                                type="number"
                                 placeholder='Enter Ammount'
                                 name="value"
+                                value={advance.value}
                                 onChange={(e) => handleSelectPayment('value', e.target.value)}
                             />
                         </div>
