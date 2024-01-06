@@ -338,7 +338,7 @@ const AllReportsButton = () => {
                 return "Advance paid";
               }
             } else if (statusType === 'reportStatus') {
-              if (status === 0) {
+              if (status === 4) {
                 return "Report rejected";
               } else if (status === 1) {
                 return "Report accepted";
@@ -346,9 +346,9 @@ const AllReportsButton = () => {
                 return "Report generated";
               }
             } else if (statusType === 'printStatus') {
-              if (status === 0) {
+              if (status === 1) {
                 return "Not Printed";
-              } else if (status === 1) {
+              } else if (status === 2) {
                 return "Printed";
               }
             }
